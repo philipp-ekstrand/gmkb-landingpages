@@ -1,9 +1,9 @@
 # GMKB Recruiting-Landingpages – Fortschritt
 
 **Letztes Update:** 2026-03-07
-**Aktiver Meilenstein:** M0 – Analyse & Grobkonzept
+**Aktiver Meilenstein:** M1 – Design & Styleguide
 **Status:** IN_PROGRESS
-**Naechster Schritt:** Review durch Projektleiter (Konzept + Design-Konzept + Wireframe)
+**Naechster Schritt:** CSS Custom Properties, Inter Font, Styleguide
 
 ---
 
@@ -11,8 +11,8 @@
 
 | # | Meilenstein | Status | Datum |
 |---|---|---|---|
-| M0 | Analyse & Grobkonzept | 🔄 In Arbeit | 2026-03-06 |
-| M1 | Design & Styleguide | ⬜ Ausstehend | - |
+| M0 | Analyse & Grobkonzept | ✅ Fertig | 2026-03-07 |
+| M1 | Design & Styleguide | 🔄 In Arbeit | 2026-03-07 |
 | M2 | HTML-Struktur & Sections | ⬜ Ausstehend | - |
 | M3 | CSS & Responsive | ⬜ Ausstehend | - |
 | M4 | JavaScript & Interaktionen | ⬜ Ausstehend | - |
@@ -39,7 +39,7 @@
 - [x] CI-Extraktion von medizinundtherapie.de + recruiting-Subdomain
 - [x] Wireframe erstellt (wireframe.md) – 9 Sections + Sticky Mobile CTA
 - [x] Design-Konzept + Wireframe mit extrahierter CI abgeglichen
-- [ ] Grobkonzept + Design-Konzept + Wireframe vom Projektleiter freigegeben
+- [x] Grobkonzept + Design-Konzept + Wireframe vom Projektleiter freigegeben (2026-03-07)
 
 ---
 

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMKB Styleguide – Design Tokens &amp; Komponenten</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <style>
+    /* Styleguide-specific layout */
+    .sg-page { padding: var(--space-8) 0; }
+    .sg-section { margin-bottom: var(--space-16); }
+    .sg-section__title {
+      font-size: var(--font-size-h2);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-8);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-gray-border);
+    }
+    .sg-subsection { margin-bottom: var(--space-10); }
+    .sg-subsection__title {
+      font-size: var(--font-size-h3);
+      font-weight: var(--font-weight-semibold);
+      margin-bottom: var(--space-6);
+      color: var(--color-text-muted);
+    }
+
+    /* Color swatches */
+    .sg-colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-4); }
+    .sg-swatch { border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-gray-border); }
+    .sg-swatch__color { height: 80px; }
+    .sg-swatch__info { padding: var(--space-3); }
+    .sg-swatch__name { font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); }
+    .sg-swatch__hex { font-size: var(--font-size-xs); color: var(--color-text-muted); font-family: monospace; }
+
+    /* Type samples */
+    .sg-type-sample { margin-bottom: var(--space-6); }
+    .sg-type-meta { font-size: var(--font-size-xs); color: var(--color-text-muted); font-family: monospace; margin-top: var(--space-1); }
+
+    /* Spacing vis */
+    .sg-spacing { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: flex-end; }
+    .sg-space-block { text-align: center; }
+    .sg-space-block__bar { background: var(--color-teal-light); border: 1px solid var(--color-teal); border-radius: var(--radius-sm); width: 48px; }
+    .sg-space-block__label { font-size: var(--font-size-xs); color: var(--color-text-muted); margin-top: var(--space-1); }
+
+    /* Button row */
+    .sg-button-row { display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center; margin-bottom: var(--space-6); }
+    .sg-dark-bg { background: var(--color-teal); padding: var(--space-8); border-radius: var(--radius-lg); }
+
+    /* Cards grid */
+    .sg-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--space-6); }
+
+    /* Form demo */
+    .sg-form-demo { max-width: 480px; background: var(--color-white); padding: var(--space-8); border-radius: var(--radius-xl); box-shadow: var(--shadow-lg); }
+
+    /* Section demos */
+    .sg-section-demo { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: var(--space-3); }
+    .sg-section-block { height: 60px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); }
+
+    /* Radius demos */
+    .sg-radii { display: flex; flex-wrap: wrap; gap: var(--space-6); }
+    .sg-radius-demo { width: 80px; height: 80px; background: var(--color-teal-light); border: 2px solid var(--color-teal); display: flex; align-items: center; justify-content: center; font-size: var(--font-size-xs); font-weight: var(--font-weight-medium); }
+  </style>
+</head>
+<body>
+
+<div class="sg-page">
+  <div class="container">
+
+    <h1 style="margin-bottom: var(--space-2);">GMKB Styleguide</h1>
+    <p class="text-lg" style="color: var(--color-text-muted); margin-bottom: var(--space-16);">
+      Design Tokens &amp; Komponenten fuer die Recruiting-Landingpages.
+    </p>
+
+    <!-- ============================================ -->
+    <!-- COLORS -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+      <h2 class="sg-section__title">1. Farben</h2>
+
+      <div class="sg-subsection">
+        <h3 class="sg-subsection__title">Brand</h3>
+        <div class="sg-colors">
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #046C6C;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Teal</div><div class="sg-swatch__hex">#046C6C</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #034E4E;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Teal Dark</div><div class="sg-swatch__hex">#034E4E</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #022D2D;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Teal Darker</div><div class="sg-swatch__hex">#022D2D</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #E8F5F5;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Teal Light</div><div class="sg-swatch__hex">#E8F5F5</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #006971;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Teal Text</div><div class="sg-swatch__hex">#006971</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h3 class="sg-subsection__title">Neutral</h3>
+        <div class="sg-colors">
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #FFFFFF; border-bottom: 1px solid #E5E5E5;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">White</div><div class="sg-swatch__hex">#FFFFFF</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #F6F6F6;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Gray Light</div><div class="sg-swatch__hex">#F6F6F6</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #E5E5E5;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Gray Border</div><div class="sg-swatch__hex">#E5E5E5</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #1A1A1A;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Gray Dark</div><div class="sg-swatch__hex">#1A1A1A</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h3 class="sg-subsection__title">Text</h3>
+        <div class="sg-colors">
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #141412;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Text Dark</div><div class="sg-swatch__hex">#141412</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #374151;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Text Body</div><div class="sg-swatch__hex">#374151</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #6B7280;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Text Muted</div><div class="sg-swatch__hex">#6B7280</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #DC2626;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Error</div><div class="sg-swatch__hex">#DC2626</div></div>
+          </div>
+          <div class="sg-swatch">
+            <div class="sg-swatch__color" style="background: #059669;"></div>
+            <div class="sg-swatch__info"><div class="sg-swatch__name">Success</div><div class="sg-swatch__hex">#059669</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TYPOGRAPHY -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+      <h2 class="sg-section__title">2. Typografie</h2>
+
+      <div class="sg-type-sample">
+        <h1>Fachärzt*in Pädiatrie</h1>
+        <div class="sg-type-meta">H1 · Inter 800 · clamp(2.5rem, 2rem + 2.5vw, 4.5rem) · line-height 1.15</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <h2>Unser Versprechen an Dich</h2>
+        <div class="sg-type-meta">H2 · Inter 700 · clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem) · line-height 1.2</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <h3>Sicherer Job bei einem etablierten Traeger</h3>
+        <div class="sg-type-meta">H3 · Inter 600 · clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem) · line-height 1.2</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <p class="text-lg">Du bist Profi im Umgang mit Kindern? Ihr Wohlbefinden liegt dir am Herzen? Dann bist du bei uns genau richtig.</p>
+        <div class="sg-type-meta">Lead · Inter 400 · clamp(1.125rem, 1rem + 0.5vw, 1.3125rem)</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <p>Unbefristete Anstellung bei einem seit ueber 20 Jahren etablierten gemeinnuetzigen und diakonischen Traeger. Mit regelmaessigen Anpassungen, Mobilitaetszuschuss sowie variabler Verguetung.</p>
+        <div class="sg-type-meta">Body · Inter 400 · clamp(1rem, 0.95rem + 0.25vw, 1.125rem) · line-height 1.6</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <p class="text-sm" style="color: var(--color-text-muted);">(m/w/d) · Vollzeit · Raum Bonn · Ab sofort</p>
+        <div class="sg-type-meta">Small · Inter 400 · clamp(0.8125rem, 0.75rem + 0.3vw, 0.9375rem)</div>
+      </div>
+
+      <div class="sg-type-sample">
+        <span class="section-label">Unsere Benefits</span>
+        <div class="sg-type-meta">Section Label · Inter 600 · Uppercase · letter-spacing 0.1em</div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SPACING -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+      <h2 class="sg-section__title">3. Spacing</h2>
+      <div class="sg-spacing">
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 4px;"></div><div class="sg-space-block__label">4px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 8px;"></div><div class="sg-space-block__label">8px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 12px;"></div><div class="sg-space-block__label">12px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 16px;"></div><div class="sg-space-block__label">16px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 24px;"></div><div class="sg-space-block__label">24px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 32px;"></div><div class="sg-space-block__label">32px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 40px;"></div><div class="sg-space-block__label">40px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 48px;"></div><div class="sg-space-block__label">48px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 64px;"></div><div class="sg-space-block__label">64px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 80px;"></div><div class="sg-space-block__label">80px</div></div>
+        <div class="sg-space-block"><div class="sg-space-block__bar" style="height: 96px;"></div><div class="sg-space-block__label">96px</div></div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BORDER RADIUS -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+      <h2 class="sg-section__title">4. Border Radius</h2>
+      <div class="sg-radii">
+        <div class="sg-radius-demo" style="border-radius: 4px;">4px</div>
+        <div class="sg-radius-demo" style="border-radius: 8px;">8px</div>
+        <div class="sg-radius-demo" style="border-radius: 12px;">12px</div>
+        <div class="sg-radius-demo" style="border-radius: 16px;">16px</div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- BUTTONS -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+      <h2 class="sg-section__title">5. Buttons</h2>
+
+      <div class="sg-subsection">
+        <h3 class="sg-subsection__title">Auf hellem Hintergrund</h3>
+        <div class="sg-button-row">
+          <button class="btn btn--primary">Standard Button</button>
+          <button class="btn btn--primary btn--lg">Bewirb Dich jetzt in 60 Sekunden</button>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h3 class="sg-subsection__title">Auf Teal-Hintergrund</h3>
+        <div class="sg-dark-bg">
+          <div class="sg-button-row">
+            <button class="btn btn--primary-inverted">Standard Inverted</button>
+            <button class="btn btn--primary-inverted btn--lg">Bewirb Dich jetzt in 60 Sekunden</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sg-subsection">
+        <h3 class="sg-subsection__title">Full-Width (Formular)</h3>
+        <div style="max-width: 480px;">
+          <button class="btn btn--primary btn--full btn--lg">Bewerbung absenden</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CARDS -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+      <h2 class="sg-section__title">6. Benefit Cards</h2>
+      <div class="sg-cards">
+
+        <div class="card">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <h3 class="card__title">Sicherer Job</h3>
+          <p class="card__text">Unbefristete Anstellung bei einem seit ueber 20 Jahren etablierten gemeinnuetzigen und diakonischen Traeger.</p>
+        </div>
+
+        <div class="card">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 12h.01"/>
+          </svg>
+          <h3 class="card__title">Tarifliches Gehalt</h3>
+          <p class="card__text">Mit regelmaessigen Anpassungen, Mobilitaetszuschuss sowie variabler Verguetung &amp; Zusatzleistungen.</p>
+        </div>
+
+        <div class="card">
+          <svg class="card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+          </svg>
+          <h3 class="card__title">Familie &amp; Beruf</h3>
+          <p class="card__text">Kita-Plaetze in Bonn &amp; Rhein-Sieg-Kreis, flexible Arbeitszeitmodelle fuer eine bessere Vereinbarkeit.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FORM -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+      <h2 class="sg-section__title">7. Formular-Elemente</h2>
+
+      <div class="sg-form-demo">
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-bottom: 0;">
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder=" " value="Max">
+            <label class="form-label">Vorname *</label>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-input" placeholder=" ">
+            <label class="form-label">Nachname *</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <input type="email" class="form-input" placeholder=" ">
+          <label class="form-label">E-Mail-Adresse *</label>
+        </div>
+
+        <div class="form-group">
+          <input type="tel" class="form-input" placeholder=" ">
+          <label class="form-label">Telefonnummer *</label>
+        </div>
+
+        <div class="form-group form-group--error">
+          <input type="email" class="form-input form-input--error" placeholder=" " value="invalid-email">
+          <label class="form-label">E-Mail (Error State) *</label>
+          <span class="form-error">Bitte gib eine gueltige E-Mail-Adresse ein.</span>
+        </div>
+
+        <div class="form-group">
+          <textarea class="form-input" placeholder=" " rows="3"></textarea>
+          <label class="form-label">Kurze Nachricht (optional)</label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-checkbox">
+            <input type="checkbox">
+            <span class="form-checkbox__text">Ich stimme der Verarbeitung meiner Daten gemaess der <a href="#">Datenschutzerklaerung</a> zu. *</span>
+          </label>
+        </div>
+
+        <button class="btn btn--primary btn--full btn--lg">Bewerbung absenden</button>
+
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SECTION COLORS -->
+    <!-- ============================================ -->
+    <section class="sg-section">
+      <h2 class="sg-section__title">8. Section-Farbschema</h2>
+      <div class="sg-section-demo">
+        <div class="sg-section-block" style="background: #046C6C; color: white;">Hero</div>
+        <div class="sg-section-block" style="background: #FFFFFF; border: 1px solid #E5E5E5;">Trust</div>
+        <div class="sg-section-block" style="background: #F6F6F6;">Benefits</div>
+        <div class="sg-section-block" style="background: #046C6C; color: white;">CTA</div>
+        <div class="sg-section-block" style="background: #FFFFFF; border: 1px solid #E5E5E5;">Video</div>
+        <div class="sg-section-block" style="background: #022D2D; color: white;">Testimonial</div>
+        <div class="sg-section-block" style="background: #FFFFFF; border: 1px solid #E5E5E5;">Ablauf</div>
+        <div class="sg-section-block" style="background: #E8F5F5;">Formular</div>
+        <div class="sg-section-block" style="background: #1A1A1A; color: white;">Footer</div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+</body>
+</html>

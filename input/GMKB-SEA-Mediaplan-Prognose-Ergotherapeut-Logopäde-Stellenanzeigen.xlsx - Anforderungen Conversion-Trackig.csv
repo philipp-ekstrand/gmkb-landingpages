@@ -1,0 +1,36 @@
+,"Conversion-Tracking: Google Ads, GA4 & GTM Setup"
+,
+,
+,Für die Einrichtung des neuen Google Ads Kontos:
+,Abrechnungsdaten: Kreditkarte
+,Conversion-Tracking einrichten mithilfe von Google Tag Manager
+,Google Tag Manager Container erstellen und auf allen Seiten der Website einbauen
+,Google Tag (Google Ads / Google Tag ID) über GTM auf der Landingpage implementieren
+,GA4 Configuration Tag im GTM einrichten
+,Google Ads Conversion-Tracking Tag im GTM anlegen
+,Conversion-Linker Tag aktivieren (wichtig für korrekte Attribution)
+,
+,Bewerbungs-Conversions sauber messen
+,Bewerbungsformular-Button Klick als Event tracken (click_event)
+,Formular-Submit Event tracken (nicht nur Button-Klick)
+,Danke-Seite nach erfolgreichem Absenden des Formulars erstellen
+,Page-View Event auf der Danke-Seite als Haupt-Conversion definieren
+,eindeutige URL für Danke-Seite verwenden (z. B. /danke-bewerbung)
+,Conversion nur einmal pro Bewerbung auslösen (Duplicate Prevention)
+,
+,Google Analytics (GA4)
+,Google Analytics (GA4) Konto erstellen
+,Datenstream für Website anlegen
+,GA4 über GTM implementieren (nicht direkt im Code)
+,Bewerbungs-Event in GA4 als Conversion markieren
+,Google Ads mit GA4 verknüpfen
+,
+,Consent Mode & DSGVO
+,Consent Management Tool integrieren
+,Google Consent Mode v2 im GTM aktivieren
+,Tags nur nach Marketing-Consent feuern lassen
+,Default Consent States konfigurieren
+,Conversion Modeling aktivieren (für verlorene Daten durch Consent)
+,
+,Lokale Signale & Trust
+,Google Business Profil erstellen bzw. aktualisieren (Köln & Bonn)

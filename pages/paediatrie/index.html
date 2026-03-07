@@ -16,7 +16,6 @@
   <meta property="og:description" content="Werde Teil unseres Teams: Unbefristete Stelle als Kinderarzt im Raum Bonn. Tarifliches Gehalt, Kita-Platz, 30 Tage Urlaub. Bewirb dich in 60 Sekunden.">
   <meta property="og:url" content="https://medizinundtherapie.de/karriere/paediatrie/">
   <meta property="og:locale" content="de_DE">
-  <!-- <meta property="og:image" content="https://medizinundtherapie.de/karriere/paediatrie/og-image.jpg"> -->
 
   <!-- Preload Fonts -->
   <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -24,233 +23,311 @@
   <!-- Styles -->
   <link rel="stylesheet" href="../../assets/css/base.css">
   <link rel="stylesheet" href="styles.css">
-
-  <!-- GTM Container (Platzhalter – ID wird spaeter eingesetzt) -->
-  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
 </head>
 <body>
-  <!-- GTM noscript (Platzhalter) -->
-  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
 
   <!-- ============================================================
-       [1] HERO SECTION
+       [0] SITE HEADER – Logo zentriert
+       ============================================================ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <!-- GMKB Logo – zentriert, auf hellem und dunklem BG -->
+      <!-- TODO: Echtes Logo-File hier einsetzen wenn verfuegbar -->
+      <a href="https://medizinundtherapie.de" class="site-header__logo" aria-label="GMKB – Gemeinnuetzige Medizinzentren KoelnBonn – Zur Startseite">
+        <svg class="site-header__logo-svg" viewBox="0 0 280 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+          <!-- Dekorativer Akzent-Dot -->
+          <circle cx="8" cy="24" r="6" fill="#046C6C"/>
+          <!-- GMKB Wordmark -->
+          <text x="24" y="20" font-family="Inter, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#046C6C" letter-spacing="0.08em">GMKB</text>
+          <!-- Subline -->
+          <text x="24" y="36" font-family="Inter, -apple-system, sans-serif" font-size="9.5" font-weight="500" fill="#5D6B71" letter-spacing="0.03em">Medizinzentren Koeln | Bonn</text>
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       [1] HERO SECTION – Dramatisch, emotional, Spotify-inspiriert
        ============================================================ -->
   <section class="hero" aria-label="Stellenangebot Facharzt Paediatrie">
+    <!-- Decorative Background Elements -->
+    <div class="hero__bg-shapes" aria-hidden="true">
+      <div class="hero__bg-circle hero__bg-circle--1"></div>
+      <div class="hero__bg-circle hero__bg-circle--2"></div>
+    </div>
+
     <div class="container hero__container">
 
       <!-- Text Column -->
       <div class="hero__content">
-        <!-- Logo -->
-        <div class="hero__logo" aria-hidden="true">
-          <!-- TODO: GMKB Logo SVG (weiss) einfuegen -->
-          <span class="hero__logo-placeholder">GMKB</span>
-        </div>
-
         <p class="hero__eyebrow">
-          Werde Teil der GMKB – Gemeinnuetzige Medizinzentren Koeln/Bonn als
+          <span class="hero__eyebrow-line"></span>
+          Karriere bei der GMKB
         </p>
 
         <h1 class="hero__title">
-          Fachärzt*in<br>Pädiatrie
+          Fachärzt*in<br>
+          <span class="hero__title-accent">Pädiatrie</span>
         </h1>
 
-        <p class="hero__subtitle">
-          <span>(m/w/d)</span>
-          <span aria-hidden="true">&middot;</span>
-          <span>Vollzeit</span>
-          <span aria-hidden="true">&middot;</span>
-          <span>Raum Bonn</span>
-          <span aria-hidden="true">&middot;</span>
-          <span>Ab sofort</span>
-        </p>
+        <div class="hero__meta">
+          <span class="hero__meta-tag">(m/w/d)</span>
+          <span class="hero__meta-tag">Vollzeit</span>
+          <span class="hero__meta-tag">Raum Bonn</span>
+          <span class="hero__meta-tag">Ab sofort</span>
+        </div>
 
         <p class="hero__hook">
           Du bist Profi im Umgang mit Kindern? Ihr Wohlbefinden liegt dir am Herzen? Dann bist du bei uns genau richtig.
         </p>
 
-        <div class="hero__cta">
-          <a href="#bewerbung" class="btn btn--primary-inverted btn--lg" data-track="cta-click" data-track-label="hero-cta">
+        <div class="hero__actions">
+          <a href="#bewerbung" class="btn btn--hero" data-track="cta-click" data-track-label="hero-cta">
             Bewirb Dich jetzt in 60 Sekunden
+            <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+            </svg>
           </a>
-          <p class="hero__cta-hint">Kein Lebenslauf noetig</p>
+          <span class="hero__cta-hint">Kein Lebenslauf noetig</span>
         </div>
       </div>
 
-      <!-- Image Column -->
-      <div class="hero__image">
-        <picture>
-          <!-- TODO: WebP-Version erstellen -->
-          <!-- <source srcset="../../assets/images/hero-paediatrie.webp" type="image/webp"> -->
-          <img
-            src="../../input/2CM07479-ret.jpg"
-            alt="Kinderarzt der GMKB bei der Untersuchung eines Kindes – Paediatrie Stelle in Bonn"
-            width="560"
-            height="747"
-            fetchpriority="high"
-          >
-        </picture>
+      <!-- Image Column – Asymmetrisches Layout -->
+      <div class="hero__visual">
+        <div class="hero__image-frame">
+          <picture>
+            <img
+              src="../../input/2CM07479-ret.jpg"
+              alt="Kinderarzt der GMKB bei der liebevollen Untersuchung eines Kindes"
+              width="560"
+              height="747"
+              fetchpriority="high"
+            >
+          </picture>
+          <!-- Floating Stats Badge -->
+          <div class="hero__badge" aria-hidden="true">
+            <span class="hero__badge-number">20+</span>
+            <span class="hero__badge-text">Jahre Erfahrung</span>
+          </div>
+        </div>
       </div>
 
     </div>
   </section>
 
   <!-- ============================================================
-       [2] TRUST-BAR
+       [2] TRUST-BAR – Animated counter feel
        ============================================================ -->
   <section class="trust-bar" aria-label="Vorteile auf einen Blick">
     <div class="container">
       <ul class="trust-bar__list">
-        <li class="trust-bar__item">
-          <svg class="trust-bar__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-          <span>Unbefristet angestellt</span>
+        <li class="trust-bar__item reveal">
+          <div class="trust-bar__icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <div class="trust-bar__text">
+            <strong>Unbefristet</strong>
+            <span>angestellt</span>
+          </div>
         </li>
-        <li class="trust-bar__item">
-          <svg class="trust-bar__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-          <span>30 Tage Urlaub</span>
+        <li class="trust-bar__item reveal">
+          <div class="trust-bar__icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+          </div>
+          <div class="trust-bar__text">
+            <strong>30 Tage</strong>
+            <span>Urlaub</span>
+          </div>
         </li>
-        <li class="trust-bar__item">
-          <svg class="trust-bar__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-          </svg>
-          <span>Tarifliches Gehalt</span>
+        <li class="trust-bar__item reveal">
+          <div class="trust-bar__icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          <div class="trust-bar__text">
+            <strong>Tarifliches</strong>
+            <span>Gehalt</span>
+          </div>
         </li>
-        <li class="trust-bar__item">
-          <svg class="trust-bar__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-          </svg>
-          <span>Kita-Platz</span>
+        <li class="trust-bar__item reveal">
+          <div class="trust-bar__icon-wrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+          </div>
+          <div class="trust-bar__text">
+            <strong>Kita-Platz</strong>
+            <span>vermittlung</span>
+          </div>
         </li>
       </ul>
     </div>
   </section>
 
   <!-- ============================================================
-       [3] BENEFITS SECTION
+       [3] BENEFITS SECTION – Stripe-inspirierte Cards
        ============================================================ -->
   <section class="benefits section" id="benefits" aria-labelledby="benefits-heading">
     <div class="container">
       <div class="benefits__header reveal">
         <span class="section-label">Unsere Benefits</span>
-        <h2 id="benefits-heading">Unser Versprechen<br>an Dich</h2>
+        <h2 id="benefits-heading">Was dich bei<br>uns erwartet</h2>
         <p class="benefits__intro">Wir bieten dir nicht nur einen Job, sondern ein Umfeld, in dem du dich fachlich und persoenlich entfalten kannst.</p>
       </div>
 
-      <div class="benefits__grid">
-        <!-- Card 1 -->
-        <article class="card reveal">
-          <div class="card__icon-wrap">
-            <svg class="card__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <div class="benefits__grid reveal-stagger">
+        <!-- Card 1: Sicherer Job -->
+        <article class="benefit-card reveal">
+          <div class="benefit-card__icon benefit-card__icon--blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4" stroke-width="2"/>
             </svg>
           </div>
-          <h3 class="card__title">Sicherer Job</h3>
-          <p class="card__text">Unbefristete Anstellung bei einem seit ueber 20 Jahren etablierten gemeinnuetzigen und diakonischen Traeger.</p>
+          <h3 class="benefit-card__title">Sicherer Job</h3>
+          <p class="benefit-card__text">Unbefristete Anstellung bei einem seit ueber 20 Jahren etablierten gemeinnuetzigen und diakonischen Traeger.</p>
+          <div class="benefit-card__accent" aria-hidden="true"></div>
         </article>
 
-        <!-- Card 2 -->
-        <article class="card reveal">
-          <div class="card__icon-wrap">
-            <svg class="card__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        <!-- Card 2: Tarifliches Gehalt -->
+        <article class="benefit-card reveal">
+          <div class="benefit-card__icon benefit-card__icon--green">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="6" x2="12" y2="18"/>
+              <path d="M16 10c0-1.1-1.8-2-4-2s-4 .9-4 2 1.8 2 4 2 4 .9 4 2-1.8 2-4 2-4-.9-4-2"/>
             </svg>
           </div>
-          <h3 class="card__title">Tarifliches Gehalt</h3>
-          <p class="card__text">Mit regelmaessigen Anpassungen, Mobilitaetszuschuss sowie variabler Verguetung und Zusatzleistungen.</p>
+          <h3 class="benefit-card__title">Tarifliches Gehalt</h3>
+          <p class="benefit-card__text">Mit regelmaessigen Anpassungen, Mobilitaetszuschuss sowie variabler Verguetung und Zusatzleistungen.</p>
+          <div class="benefit-card__accent" aria-hidden="true"></div>
         </article>
 
-        <!-- Card 3 -->
-        <article class="card reveal">
-          <div class="card__icon-wrap">
-            <svg class="card__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <!-- Card 3: Familie & Beruf -->
+        <article class="benefit-card reveal">
+          <div class="benefit-card__icon benefit-card__icon--rose">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
           </div>
-          <h3 class="card__title">Familie &amp; Beruf</h3>
-          <p class="card__text">Kita-Plaetze in Bonn und Rhein-Sieg-Kreis, flexible Arbeitszeitmodelle fuer eine bessere Vereinbarkeit.</p>
+          <h3 class="benefit-card__title">Familie &amp; Beruf</h3>
+          <p class="benefit-card__text">Kita-Plaetze in Bonn und Rhein-Sieg-Kreis, flexible Arbeitszeitmodelle fuer eine bessere Vereinbarkeit.</p>
+          <div class="benefit-card__accent" aria-hidden="true"></div>
         </article>
 
-        <!-- Card 4 -->
-        <article class="card reveal">
-          <div class="card__icon-wrap">
-            <svg class="card__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+        <!-- Card 4: 30 Tage Urlaub -->
+        <article class="benefit-card reveal">
+          <div class="benefit-card__icon benefit-card__icon--amber">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"/>
+              <line x1="12" y1="1" x2="12" y2="3"/>
+              <line x1="12" y1="21" x2="12" y2="23"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+              <line x1="1" y1="12" x2="3" y2="12"/>
+              <line x1="21" y1="12" x2="23" y2="12"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
             </svg>
           </div>
-          <h3 class="card__title">Kitaplatzvermittlung</h3>
-          <p class="card__text">Im Raum Bonn und Rhein-Sieg-Kreis – wir helfen dir, den passenden Betreuungsplatz zu finden.</p>
+          <h3 class="benefit-card__title">30 Tage Urlaub</h3>
+          <p class="benefit-card__text">Plus Heiligabend und Silvester frei. Mehr Erholung bei einer 5-Tage-Woche.</p>
+          <div class="benefit-card__accent" aria-hidden="true"></div>
         </article>
 
-        <!-- Card 5 -->
-        <article class="card reveal">
-          <div class="card__icon-wrap">
-            <svg class="card__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+        <!-- Card 5: Fort- & Weiterbildung -->
+        <article class="benefit-card reveal">
+          <div class="benefit-card__icon benefit-card__icon--purple">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
             </svg>
           </div>
-          <h3 class="card__title">30 Tage Urlaub</h3>
-          <p class="card__text">Plus Heiligabend und Silvester frei. Mehr Erholung bei einer 5-Tage-Woche.</p>
+          <h3 class="benefit-card__title">Fort- &amp; Weiterbildung</h3>
+          <p class="benefit-card__text">Individuelle Weiterentwicklung durch interne und externe Fortbildungsprogramme.</p>
+          <div class="benefit-card__accent" aria-hidden="true"></div>
         </article>
 
-        <!-- Card 6 -->
-        <article class="card reveal">
-          <div class="card__icon-wrap">
-            <svg class="card__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+        <!-- Card 6: Corporate Benefits -->
+        <article class="benefit-card reveal">
+          <div class="benefit-card__icon benefit-card__icon--teal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
             </svg>
           </div>
-          <h3 class="card__title">Corporate Benefits</h3>
-          <p class="card__text">Exklusive Mitarbeiterrabatte bei vielen Partnern und monatlicher, steuerfreier Zuschuss fuer dein Deutschlandticket.</p>
+          <h3 class="benefit-card__title">Corporate Benefits</h3>
+          <p class="benefit-card__text">Exklusive Mitarbeiterrabatte und monatlicher steuerfreier Zuschuss fuer dein Deutschlandticket.</p>
+          <div class="benefit-card__accent" aria-hidden="true"></div>
         </article>
       </div>
-
-      <!-- Feature Card: Interdisziplinaer – Volle Breite -->
-      <article class="card card--feature reveal">
-        <div class="card--feature__inner">
-          <div class="card--feature__content">
-            <div class="card__icon-wrap card__icon-wrap--light">
-              <svg class="card__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-              </svg>
-            </div>
-            <h3 class="card__title">Interdisziplinaere Zusammenarbeit</h3>
-            <p class="card__text">Wir sind eine Einrichtung die eng miteinander arbeitet – verzahnt mit Kindergarten, Logopaedie und Ergotherapie zur Foerderung von Kindern.</p>
-          </div>
-          <div class="card--feature__image">
-            <picture>
-              <img
-                src="../../input/2CM07520-ret.jpg"
-                alt="Arzt laechelnd im GMKB Medizinzentrum"
-                width="400"
-                height="300"
-                loading="lazy"
-              >
-            </picture>
-          </div>
-        </div>
-      </article>
     </div>
   </section>
 
   <!-- ============================================================
-       [4] CTA-ZWISCHENRUFER
+       [4] FEATURE SECTION – Interdisziplinaer (Bild + Text, asymmetrisch)
+       ============================================================ -->
+  <section class="feature section" aria-labelledby="feature-heading">
+    <div class="container feature__container">
+      <div class="feature__image reveal">
+        <picture>
+          <img
+            src="../../input/2CM07520-ret.jpg"
+            alt="Arzt laechelnd im Flur des GMKB Medizinzentrums"
+            width="560"
+            height="420"
+            loading="lazy"
+          >
+        </picture>
+        <!-- Decorative frame -->
+        <div class="feature__image-accent" aria-hidden="true"></div>
+      </div>
+      <div class="feature__content reveal">
+        <span class="section-label">Unser Team</span>
+        <h2 id="feature-heading">Interdisziplinaer.<br>Menschlich.<br><span class="text-teal">Zusammen.</span></h2>
+        <p>Wir sind eine Einrichtung die eng miteinander arbeitet – verzahnt mit Kindergarten, Logopaedie und Ergotherapie zur Foerderung von Kindern.</p>
+        <ul class="feature__list">
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#046C6C" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#046C6C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Enge Zusammenarbeit im Team
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#046C6C" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#046C6C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Verzahnung mit Therapie &amp; Paedagogik
+          </li>
+          <li>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="#046C6C" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="#046C6C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Ganzheitliche Kinderfoerderung
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [5] CTA-ZWISCHENRUFER – Dramatisch, Apple-inspiriert
        ============================================================ -->
   <section class="cta-banner" aria-label="Jetzt bewerben">
+    <div class="cta-banner__bg" aria-hidden="true">
+      <div class="cta-banner__glow"></div>
+    </div>
     <div class="container cta-banner__container">
-      <div class="cta-banner__content">
-        <p class="cta-banner__text">Klingt gut? Dann lass uns reden.</p>
-        <p class="cta-banner__subtext">Deine Bewerbung dauert nur 60 Sekunden – kein Lebenslauf noetig.</p>
-      </div>
-      <a href="#bewerbung" class="btn btn--primary-inverted btn--lg" data-track="cta-click" data-track-label="banner-cta">
+      <span class="cta-banner__eyebrow">Bereit fuer den naechsten Schritt?</span>
+      <p class="cta-banner__text">
+        Klingt gut?<br>Dann lass uns reden.
+      </p>
+      <p class="cta-banner__subtext">Deine Bewerbung dauert nur 60 Sekunden – kein Lebenslauf noetig.</p>
+      <a href="#bewerbung" class="btn btn--glow" data-track="cta-click" data-track-label="banner-cta">
         Jetzt bewerben
+        <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
+        </svg>
       </a>
     </div>
   </section>

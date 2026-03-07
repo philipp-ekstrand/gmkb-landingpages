@@ -1,9 +1,9 @@
 # GMKB Recruiting-Landingpages – Fortschritt
 
-**Letztes Update:** 2026-03-06
+**Letztes Update:** 2026-03-07
 **Aktiver Meilenstein:** M0 – Analyse & Grobkonzept
 **Status:** IN_PROGRESS
-**Naechster Schritt:** Grobkonzept Review durch Projektleiter
+**Naechster Schritt:** Review durch Projektleiter (Konzept + Design-Konzept + Wireframe)
 
 ---
 
@@ -35,7 +35,11 @@
 - [x] CLAUDE.md fuer dieses Projekt angepasst
 - [x] project.md erstellt
 - [x] Grobkonzept erstellt (konzept.md)
-- [ ] Grobkonzept vom Projektleiter freigegeben
+- [x] Design-Konzept mit Benchmark-Analyse erstellt (design-konzept.md)
+- [x] CI-Extraktion von medizinundtherapie.de + recruiting-Subdomain
+- [x] Wireframe erstellt (wireframe.md) – 9 Sections + Sticky Mobile CTA
+- [x] Design-Konzept + Wireframe mit extrahierter CI abgeglichen
+- [ ] Grobkonzept + Design-Konzept + Wireframe vom Projektleiter freigegeben
 
 ---
 

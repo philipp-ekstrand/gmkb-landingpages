@@ -60,6 +60,25 @@ Jede Landingpage besteht aus 4 Dateien:
   fonts/              <- Self-hosted Fonts (DSGVO)
 ```
 
+## COMMIT-KONVENTION
+
+Format: `M<Nr>: <Kurzbeschreibung> – <Keywords>`
+
+```
+M0: Projektsetup – Analyse, Grobkonzept und Projektstruktur
+M0: CI-Extraktion – Farbpalette, Typografie, Wireframe-Update
+M1: Styleguide – CSS Custom Properties, Inter Font, Design Tokens
+M2: HTML-Struktur – Hero, Benefits, Formular, Sticky CTA
+M3: Responsive CSS – Mobile-First, alle Breakpoints
+```
+
+Regeln:
+- Meilenstein-Prefix `M<Nr>:` ist Pflicht
+- Kurzbeschreibung (max 50 Zeichen vor dem Dash)
+- Nach `–` (Halbgeviertstrich): Keywords/betroffene Bereiche
+- Ein Commit pro logischer Einheit (nicht pro Datei)
+- Keine generischen Messages ("update", "fix", "changes")
+
 ## KRITISCHE PROZESS-REGELN
 
 1. **NIEMALS einen neuen Meilenstein starten ohne ausdrueckliches OK vom Projektleiter.** Nach jedem Checkpoint: Ergebnis melden, warten, erst nach expliziter Freigabe den naechsten Meilenstein beginnen.

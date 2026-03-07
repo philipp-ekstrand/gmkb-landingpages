@@ -18,7 +18,9 @@ Thumbs.db
 
 # Benchmark/Research Screenshots (temporaer, nicht Teil des Projekts)
 *.jpeg
+*.jpg
 *.png
 !assets/**/*.png
 !assets/**/*.jpeg
+!assets/**/*.jpg
 !input/**/*.jpg

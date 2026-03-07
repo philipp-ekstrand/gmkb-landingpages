@@ -20,6 +20,9 @@
   <!-- Preload Fonts -->
   <link rel="preload" href="../../assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 
+  <!-- Preload Hero Image -->
+  <link rel="preload" as="image" type="image/webp" imagesrcset="../../assets/images/hero-480w.webp 480w, ../../assets/images/hero-960w.webp 960w, ../../assets/images/hero-1440w.webp 1440w" imagesizes="(max-width: 900px) 100vw, 55vw">
+
   <!-- Google Tag Manager (wird nach Cookie-Consent aktiviert) -->
   <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -27,6 +30,20 @@
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
   <script>window.dataLayer = window.dataLayer || [];</script>
+
+  <!-- Google Consent Mode v2 – Default States (vor GTM laden) -->
+  <script>
+    window.dataLayer.push('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+  </script>
 
   <!-- Structured Data: JobPosting -->
   <script type="application/ld+json">
@@ -140,11 +157,18 @@
       <div class="hero__visual">
         <div class="hero__image-frame">
           <picture>
+            <source
+              type="image/webp"
+              srcset="../../assets/images/hero-480w.webp 480w, ../../assets/images/hero-960w.webp 960w, ../../assets/images/hero-1440w.webp 1440w"
+              sizes="(max-width: 900px) 100vw, 55vw"
+            >
             <img
-              src="../../input/2CM07479-ret.jpg"
+              src="../../assets/images/hero-960w.jpg"
+              srcset="../../assets/images/hero-480w.jpg 480w, ../../assets/images/hero-960w.jpg 960w, ../../assets/images/hero-1440w.jpg 1440w"
+              sizes="(max-width: 900px) 100vw, 55vw"
               alt="Kinderarzt der GMKB bei der liebevollen Untersuchung eines Kindes"
-              width="560"
-              height="747"
+              width="960"
+              height="2603"
               fetchpriority="high"
             >
           </picture>
@@ -321,11 +345,18 @@
     <div class="container feature__container">
       <div class="feature__image reveal">
         <picture>
+          <source
+            type="image/webp"
+            srcset="../../assets/images/feature-480w.webp 480w, ../../assets/images/feature-960w.webp 960w, ../../assets/images/feature-1440w.webp 1440w"
+            sizes="(max-width: 900px) 100vw, 50vw"
+          >
           <img
-            src="../../input/2CM07520-ret.jpg"
+            src="../../assets/images/feature-960w.jpg"
+            srcset="../../assets/images/feature-480w.jpg 480w, ../../assets/images/feature-960w.jpg 960w, ../../assets/images/feature-1440w.jpg 1440w"
+            sizes="(max-width: 900px) 100vw, 50vw"
             alt="Arzt lächelnd im Flur des GMKB Medizinzentrums"
-            width="560"
-            height="420"
+            width="960"
+            height="1662"
             loading="lazy"
           >
         </picture>
@@ -390,14 +421,23 @@
       <div class="video__player reveal" role="group" aria-label="Team-Video">
         <div class="video__frame">
           <!-- Poster image with play overlay (Apple-Style) -->
-          <img
-            src="../../input/2CM07044-ret.jpg"
-            alt="Das GMKB Team – Ärzte und Therapeuten im Medizinzentrum"
-            width="1200"
-            height="675"
-            loading="lazy"
-            class="video__poster"
-          >
+          <picture>
+            <source
+              type="image/webp"
+              srcset="../../assets/images/video-thumb-480w.webp 480w, ../../assets/images/video-thumb-960w.webp 960w, ../../assets/images/video-thumb-1440w.webp 1440w"
+              sizes="(max-width: 768px) 100vw, 80vw"
+            >
+            <img
+              src="../../assets/images/video-thumb-960w.jpg"
+              srcset="../../assets/images/video-thumb-480w.jpg 480w, ../../assets/images/video-thumb-960w.jpg 960w, ../../assets/images/video-thumb-1440w.jpg 1440w"
+              sizes="(max-width: 768px) 100vw, 80vw"
+              alt="Das GMKB Team – Ärzte und Therapeuten im Medizinzentrum"
+              width="960"
+              height="2350"
+              loading="lazy"
+              class="video__poster"
+            >
+          </picture>
           <div class="video__gradient-overlay" aria-hidden="true"></div>
           <button class="video__play-btn" aria-label="Team-Video abspielen" data-track="video-play" data-track-label="team-video">
             <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -442,13 +482,22 @@
         <!-- Image Column – Card with overlay (Apple-Style) -->
         <div class="testimonial__visual reveal">
           <div class="testimonial__image-card">
-            <img
-              src="../../input/2CM07091-ret.jpg"
-              alt="Dr. Alexander Gröner, Kinder- und Jugendarzt bei der GMKB"
-              width="480"
-              height="600"
-              loading="lazy"
-            >
+            <picture>
+              <source
+                type="image/webp"
+                srcset="../../assets/images/testimonial-480w.webp 480w, ../../assets/images/testimonial-960w.webp 960w, ../../assets/images/testimonial-1440w.webp 1440w"
+                sizes="(max-width: 900px) 100vw, 40vw"
+              >
+              <img
+                src="../../assets/images/testimonial-960w.jpg"
+                srcset="../../assets/images/testimonial-480w.jpg 480w, ../../assets/images/testimonial-960w.jpg 960w, ../../assets/images/testimonial-1440w.jpg 1440w"
+                sizes="(max-width: 900px) 100vw, 40vw"
+                alt="Dr. Alexander Gröner, Kinder- und Jugendarzt bei der GMKB"
+                width="960"
+                height="1461"
+                loading="lazy"
+              >
+            </picture>
             <div class="testimonial__image-overlay" aria-hidden="true">
               <span class="testimonial__image-tag">GMKB Team</span>
             </div>

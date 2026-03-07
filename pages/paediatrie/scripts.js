@@ -252,20 +252,30 @@
   /* ------------------------------------------------------------
      7. TRACKING EVENT HELPER
      ------------------------------------------------------------ */
+  function pushEvent(eventName, eventLabel) {
+    if (typeof window.dataLayer === 'undefined') return;
+    window.dataLayer.push({
+      event: eventName,
+      eventLabel: eventLabel || ''
+    });
+  }
+
   function initTracking() {
     document.querySelectorAll('[data-track]').forEach(function (el) {
       el.addEventListener('click', function () {
         var event = this.getAttribute('data-track');
         var label = this.getAttribute('data-track-label') || '';
-        // Push to dataLayer if GTM is loaded
-        if (typeof window.dataLayer !== 'undefined') {
-          window.dataLayer.push({
-            event: event,
-            eventLabel: label
-          });
-        }
+        pushEvent(event, label);
       });
     });
+
+    // Track form submission separately (on valid submit)
+    var form = document.getElementById('bewerbung-form');
+    if (form) {
+      form.addEventListener('submit', function () {
+        pushEvent('form_submit', 'bewerbung-paediatrie');
+      });
+    }
   }
 
   /* ------------------------------------------------------------

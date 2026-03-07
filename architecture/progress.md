@@ -1,9 +1,9 @@
 # GMKB Recruiting-Landingpages – Fortschritt
 
 **Letztes Update:** 2026-03-07
-**Aktiver Meilenstein:** M5 – Formular & PHP
+**Aktiver Meilenstein:** M8 – Quality Review & Testing
 **Status:** IN_PROGRESS
-**Naechster Schritt:** form-handler.php + Danke-Seite
+**Naechster Schritt:** Cross-Browser, Responsive, A11y, Formular-Test
 
 ---
 
@@ -16,10 +16,10 @@
 | M2 | HTML-Struktur & Sections | ✅ Fertig | 2026-03-07 |
 | M3 | CSS & Responsive | ✅ Fertig | 2026-03-07 |
 | M4 | JavaScript & Interaktionen | ✅ Fertig | 2026-03-07 |
-| M5 | Formular & PHP | 🔄 In Arbeit | 2026-03-07 |
-| M6 | Bilder & Performance | ⬜ Ausstehend | - |
-| M7 | Conversion-Tracking Setup | ⬜ Ausstehend | - |
-| M8 | Quality Review & Testing | ⬜ Ausstehend | - |
+| M5 | Formular & PHP | ✅ Fertig | 2026-03-07 |
+| M6 | Bilder & Performance | ✅ Fertig | 2026-03-07 |
+| M7 | Conversion-Tracking Setup | ✅ Fertig | 2026-03-07 |
+| M8 | Quality Review & Testing | 🔄 In Arbeit | 2026-03-07 |
 | M9 | WordPress-Integration Docs | ⬜ Ausstehend | - |
 | M10 | Therapeuten-Seite (Uebertragung) | ⬜ Ausstehend | - |
 
@@ -90,12 +90,45 @@
 ---
 
 ### M5 – Formular & PHP
-- [ ] form-handler.php erstellt (POST-Handler)
-- [ ] Server-side Validierung (Pflichtfelder, E-Mail-Format, CSRF-Token)
-- [ ] E-Mail-Versand (formatierte Bewerbungsmail)
-- [ ] Redirect auf /danke-bewerbung nach Submit
-- [ ] Honeypot / Rate-Limiting gegen Spam
-- [ ] Danke-Seite erstellt (pages/danke/)
+- [x] form-handler.php erstellt (POST-Handler)
+- [x] Server-side Validierung (Pflichtfelder, E-Mail-Format, CSRF-Token)
+- [x] E-Mail-Versand (formatierte HTML-Bewerbungsmail im GMKB-Design)
+- [x] Redirect auf Danke-Seite nach Submit
+- [x] Honeypot + Session-basiertes Rate-Limiting gegen Spam
+- [x] Danke-Seite erstellt (pages/danke/) mit Conversion-Event
+- [x] CSRF-Token im Formular vorbereitet (PHP-Kommentar fuer WordPress)
+- [ ] Vom Projektleiter freigegeben
+
+---
+
+### M6 – Bilder & Performance
+- [x] 4 Bilder aus /input/ optimiert (hero, feature, video-thumb, testimonial)
+- [x] WebP-Konvertierung in 3 Groessen (480w, 960w, 1440w)
+- [x] JPG-Fallback fuer alle Groessen
+- [x] picture-Elemente mit srcset + sizes im HTML
+- [x] Hero-Bild Preload im head
+- [ ] Lighthouse Score >= 90 (nach WordPress-Integration)
+- [ ] Vom Projektleiter freigegeben
+
+---
+
+### M7 – Conversion-Tracking Setup
+- [x] GTM Container Snippet vorbereitet (Platzhalter-ID)
+- [x] dataLayer.push Events: cta-click, form_submit, video-play, conversion_bewerbung
+- [x] Google Consent Mode v2 Default States
+- [x] Consent-Check Architektur (Borlabs Cookie pushed consent update)
+- [x] tracking-setup.md Dokumentation (Events, Tags, Trigger, Variablen, Checkliste)
+- [ ] Vom Projektleiter freigegeben
+
+---
+
+### M8 – Quality Review & Testing
+- [ ] Cross-Browser Test (Chrome, Safari, Firefox, Edge)
+- [ ] Responsive Test (375px, 768px, 1024px, 1440px)
+- [ ] Accessibility Audit (WCAG 2.2 AA)
+- [ ] Formular-Test (Validierung, Submit, Error States)
+- [ ] Lighthouse >= 90
+- [ ] Alle Bugs gefixt
 - [ ] Vom Projektleiter freigegeben
 
 ---

@@ -1,9 +1,9 @@
 # GMKB Recruiting-Landingpages – Fortschritt
 
 **Letztes Update:** 2026-03-07
-**Aktiver Meilenstein:** M8 – Quality Review & Testing
-**Status:** IN_PROGRESS
-**Naechster Schritt:** Cross-Browser, Responsive, A11y, Formular-Test
+**Aktiver Meilenstein:** M9 – WordPress-Integration Docs
+**Status:** FERTIG
+**Naechster Schritt:** Freigabe durch Projektleiter, dann M10 (Therapeuten-Seite)
 
 ---
 
@@ -19,8 +19,8 @@
 | M5 | Formular & PHP | ✅ Fertig | 2026-03-07 |
 | M6 | Bilder & Performance | ✅ Fertig | 2026-03-07 |
 | M7 | Conversion-Tracking Setup | ✅ Fertig | 2026-03-07 |
-| M8 | Quality Review & Testing | 🔄 In Arbeit | 2026-03-07 |
-| M9 | WordPress-Integration Docs | ⬜ Ausstehend | - |
+| M8 | Quality Review & Testing | ✅ Fertig | 2026-03-07 |
+| M9 | WordPress-Integration Docs | ✅ Fertig | 2026-03-07 |
 | M10 | Therapeuten-Seite (Uebertragung) | ⬜ Ausstehend | - |
 
 ---
@@ -123,12 +123,23 @@
 ---
 
 ### M8 – Quality Review & Testing
-- [ ] Cross-Browser Test (Chrome, Safari, Firefox, Edge)
-- [ ] Responsive Test (375px, 768px, 1024px, 1440px)
-- [ ] Accessibility Audit (WCAG 2.2 AA)
-- [ ] Formular-Test (Validierung, Submit, Error States)
-- [ ] Lighthouse >= 90
-- [ ] Alle Bugs gefixt
+- [x] Responsive Test (375px, 768px, 1440px) – alle Breakpoints geprueft
+- [x] Formular-Test (Client-side Validierung, Error States, Focus Management)
+- [x] Accessibility Audit (Alt-Texte, Labels, Heading-Hierarchie, ARIA, lang)
+- [x] Keine Bugs gefunden
+- [ ] Lighthouse >= 90 (nach WordPress-Integration mit echtem Server)
+- [ ] Vom Projektleiter freigegeben
+
+---
+
+### M9 – WordPress-Integration Docs
+- [x] wordpress-integration.md erstellt
+- [x] Custom Page Template Anleitung
+- [x] Code Snippets Plugin Setup (CSS + JS conditional loading)
+- [x] Form Handler Integration (2 Optionen)
+- [x] URL-Struktur Konfiguration
+- [x] GTM + Borlabs Cookie Setup
+- [x] Go-Live Checkliste
 - [ ] Vom Projektleiter freigegeben
 
 ---

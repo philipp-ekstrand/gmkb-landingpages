@@ -1,0 +1,138 @@
+/* ============================================================
+   Paediatrie Landingpage – Styles
+   ============================================================
+   Mobile-First. Importiert base.css fuer Design Tokens.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   [1] HERO SECTION
+   ------------------------------------------------------------ */
+
+.hero {
+  background-color: var(--color-teal);
+  padding-block: var(--space-12) var(--space-16);
+  overflow: hidden;
+}
+
+.hero__container {
+  display: grid;
+  gap: var(--space-10);
+}
+
+.hero__logo {
+  margin-bottom: var(--space-6);
+}
+
+.hero__logo-placeholder {
+  display: inline-block;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  opacity: 0.9;
+  letter-spacing: 0.05em;
+}
+
+.hero__eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-white);
+  opacity: 0.85;
+  max-width: none;
+  margin-bottom: var(--space-3);
+}
+
+.hero__title {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-white);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+  margin-bottom: var(--space-4);
+}
+
+.hero__subtitle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+  opacity: 0.7;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-6);
+  max-width: none;
+}
+
+.hero__hook {
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  line-height: var(--line-height-body);
+  max-width: 480px;
+  margin-bottom: var(--space-8);
+}
+
+.hero__cta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.hero__cta .btn {
+  align-self: flex-start;
+}
+
+.hero__cta-hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-white);
+  opacity: 0.6;
+  max-width: none;
+}
+
+.hero__image {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.hero__image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-xl);
+}
+
+/* --- Mobile: CTA volle Breite --- */
+@media (max-width: 480px) {
+  .hero__cta .btn {
+    align-self: stretch;
+  }
+}
+
+/* --- Tablet (768px+) --- */
+@media (min-width: 768px) {
+  .hero {
+    padding-block: var(--space-16) var(--space-20);
+  }
+
+  .hero__container {
+    grid-template-columns: 55% 1fr;
+    align-items: center;
+    gap: var(--space-12);
+  }
+
+  .hero__image img {
+    aspect-ratio: 3 / 4;
+    max-height: 600px;
+  }
+}
+
+/* --- Laptop (1101px+) --- */
+@media (min-width: 1101px) {
+  .hero {
+    padding-block: var(--space-20) var(--space-24);
+  }
+
+  .hero__image img {
+    max-height: 700px;
+  }
+}

@@ -39,6 +39,11 @@
   --color-teal-light:      #E8F5F5;
   --color-teal-text:       #006971;
 
+  /* Accent: GMKB Rot (aus Hauptseite, sekundaere CI-Farbe) */
+  --color-accent:          #BC1D1D;
+  --color-accent-dark:     #9A1818;
+  --color-accent-light:    #FDF2F2;
+
   --color-white:           #FFFFFF;
   --color-gray-light:      #F6F6F6;
   --color-gray-border:     #E5E5E5;
@@ -51,6 +56,11 @@
 
   --color-error:           #DC2626;
   --color-success:         #059669;
+
+  /* --- Gradients --- */
+  --gradient-teal:         linear-gradient(135deg, #057A7A 0%, #046C6C 50%, #034E4E 100%);
+  --gradient-teal-hover:   linear-gradient(135deg, #046C6C 0%, #034E4E 50%, #022D2D 100%);
+  --gradient-teal-subtle:  linear-gradient(180deg, #046C6C 0%, #035858 100%);
 
   /* --- Typography --- */
   --font-family:           'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -277,10 +287,6 @@ p {
   border: 2px solid transparent;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-}
-
 .btn:active {
   transform: translateY(0);
 }
@@ -290,26 +296,34 @@ p {
   outline-offset: 2px;
 }
 
-/* Primary: Teal background, white text (default on light BGs) */
+/* Primary: Teal gradient, white text (default on light BGs) */
 .btn--primary {
-  background-color: var(--color-teal);
+  background: var(--gradient-teal);
   color: var(--color-white);
+  box-shadow: 0 2px 8px rgba(4, 108, 108, 0.3);
 }
 
 .btn--primary:hover {
-  background-color: var(--color-teal-dark);
-  box-shadow: var(--shadow-md);
+  background: var(--gradient-teal-hover);
+  box-shadow: 0 4px 16px rgba(4, 108, 108, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn--primary:active {
+  box-shadow: 0 1px 4px rgba(4, 108, 108, 0.3);
 }
 
 /* Primary inverted: White background, teal text (on dark/teal BGs) */
 .btn--primary-inverted {
   background-color: var(--color-white);
   color: var(--color-teal);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn--primary-inverted:hover {
   background-color: #F0FAFA;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 /* Large button (for CTAs) */

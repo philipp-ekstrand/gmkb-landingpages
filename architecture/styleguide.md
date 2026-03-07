@@ -35,6 +35,25 @@
 | `--color-text-body` | `#374151` | Fliesstext |
 | `--color-text-muted` | `#6B7280` | Labels, Placeholder, sekundaerer Text |
 
+### Accent (GMKB Rot – sekundaere CI-Farbe)
+
+Extrahiert von der Hauptseite medizinundtherapie.de. Dort gleichberechtigt mit Teal eingesetzt (Leistungen-Card, Statistik-Leiste, Bild-Rahmen).
+Auf der Landingpage dezent als Akzent: Testimonial-Anfuehrungszeichen, Trust-Icons, kleine Akzent-Linien.
+
+| Token | Hex | Verwendung |
+|-------|-----|-----------|
+| `--color-accent` | `#BC1D1D` | Dekorative Akzente, Anfuehrungszeichen, Icon-Highlights |
+| `--color-accent-dark` | `#9A1818` | Hover-State fuer Accent-Elemente |
+| `--color-accent-light` | `#FDF2F2` | Dezente Hintergrund-Tonung (optional) |
+
+### Gradients
+
+| Token | Wert | Verwendung |
+|-------|------|-----------|
+| `--gradient-teal` | `linear-gradient(135deg, #057A7A, #046C6C, #034E4E)` | CTA-Buttons (Default) |
+| `--gradient-teal-hover` | `linear-gradient(135deg, #046C6C, #034E4E, #022D2D)` | CTA-Buttons (Hover) |
+| `--gradient-teal-subtle` | `linear-gradient(180deg, #046C6C, #035858)` | Section-Hintergruende |
+
 ### Feedback
 
 | Token | Hex | Verwendung |
@@ -166,15 +185,19 @@ Section-Padding: `clamp(4rem, 8vw, 8rem)` – skaliert fluid zwischen 64px und 1
 ### Buttons
 
 **Primary (auf hellem BG):**
-- BG: `--color-teal`, Text: Weiss
-- Hover: `--color-teal-dark`, translateY(-1px), Shadow
+- BG: `--gradient-teal` (135deg Gradient fuer Premium-Look)
+- Text: Weiss
+- Box-Shadow: `0 2px 8px rgba(4,108,108,0.3)`
+- Hover: `--gradient-teal-hover`, translateY(-2px), Shadow verstaerkt auf `0 4px 16px rgba(4,108,108,0.4)`
+- Active: translateY(0), Shadow reduziert
 - Padding: `1rem 2rem` (Standard), `1.25rem 2.5rem` (Large)
 - Border-Radius: `--radius-md` (8px)
 - Font-Weight: 600
 
 **Primary Inverted (auf Teal-BG):**
 - BG: Weiss, Text: `--color-teal`
-- Hover: leichtes Teal-Tint (#F0FAFA)
+- Box-Shadow: `0 2px 8px rgba(0,0,0,0.15)`
+- Hover: Teal-Tint (#F0FAFA), translateY(-2px), Shadow verstaerkt
 
 **Modifier:**
 - `.btn--lg` – Groesserer Padding + Font

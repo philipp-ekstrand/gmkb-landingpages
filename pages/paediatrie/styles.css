@@ -757,3 +757,656 @@
     padding-block: var(--space-24);
   }
 }
+
+/* ------------------------------------------------------------
+   [6] VIDEO SECTION – Apple-Inspired Card with Play Overlay
+   ------------------------------------------------------------ */
+
+.video {
+  background: var(--color-white);
+}
+
+.video__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.video__header h2 {
+  margin-bottom: var(--space-4);
+}
+
+.video__intro {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+/* Video frame – Apple-style image card with overlay */
+.video__frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-gray-dark);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.video__frame:hover {
+  transform: scale(1.005);
+  box-shadow:
+    0 32px 100px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.video__poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.video__frame:hover .video__poster {
+  transform: scale(1.03);
+}
+
+/* Gradient overlay – dark at bottom for text legibility */
+.video__gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 30%,
+    rgba(0, 0, 0, 0.15) 60%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+}
+
+/* Play button – centered, Apple-style frosted glass */
+.video__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--color-teal-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+  transition:
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.video__play-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow:
+    0 12px 48px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.4);
+  background: var(--color-white);
+}
+
+.video__play-btn:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: 4px;
+}
+
+.video__play-btn svg {
+  margin-left: 3px; /* Optically center play triangle */
+}
+
+/* Caption label in bottom-left */
+.video__caption {
+  position: absolute;
+  bottom: var(--space-5);
+  left: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  opacity: 0.8;
+}
+
+.video__caption-icon {
+  display: flex;
+}
+
+@media (min-width: 768px) {
+  .video__header {
+    margin-bottom: var(--space-12);
+  }
+
+  .video__play-btn {
+    width: 88px;
+    height: 88px;
+  }
+
+  .video__play-btn svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (min-width: 1101px) {
+  .video__frame {
+    border-radius: 20px;
+  }
+}
+
+/* ------------------------------------------------------------
+   [7] TESTIMONIAL SECTION – Dark, emotional, Apple-Blockquote
+   ------------------------------------------------------------ */
+
+.testimonial {
+  background: linear-gradient(160deg, #022D2D 0%, #034E4E 60%, #035858 100%);
+  overflow: hidden;
+}
+
+.testimonial__container {
+  display: grid;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+/* Quote Column */
+.testimonial__content h2 {
+  margin-bottom: var(--space-8);
+}
+
+.testimonial__quote {
+  position: relative;
+}
+
+.testimonial__quote-mark {
+  font-size: clamp(5rem, 10vw, 8rem);
+  font-weight: var(--font-weight-extrabold);
+  line-height: 0.8;
+  color: rgba(255, 255, 255, 0.08);
+  position: absolute;
+  top: -0.15em;
+  left: -0.05em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.testimonial__quote blockquote p {
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.5rem);
+  font-weight: var(--font-weight-regular);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  max-width: 520px;
+  margin-bottom: var(--space-6);
+}
+
+.testimonial__name {
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-white);
+  margin-bottom: var(--space-1);
+}
+
+.testimonial__role {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Image Card – Apple-style with subtle overlay tag */
+.testimonial__image-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial__image-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+}
+
+.testimonial__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(2, 45, 45, 0.6) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-5);
+}
+
+.testimonial__image-tag {
+  display: inline-block;
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile: image first, then quote */
+.testimonial__visual {
+  order: -1;
+}
+
+@media (min-width: 768px) {
+  .testimonial__container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+  }
+
+  .testimonial__visual {
+    order: unset;
+  }
+
+  .testimonial__image-card img {
+    aspect-ratio: 3 / 4;
+  }
+}
+
+@media (min-width: 1101px) {
+  .testimonial__container {
+    grid-template-columns: 55% 1fr;
+  }
+}
+
+/* ------------------------------------------------------------
+   [8] PROCESS SECTION – "So einfach geht's", 3 Schritte
+   ------------------------------------------------------------ */
+
+.process {
+  background: var(--color-white);
+}
+
+.process__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.process__header h2 {
+  margin-bottom: var(--space-4);
+}
+
+.process__intro {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  max-width: 480px;
+  margin-inline: auto;
+}
+
+.process__steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.process__step {
+  position: relative;
+  background: var(--color-gray-light);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.process__step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.process__step-number {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-teal);
+  opacity: 0.1;
+  line-height: 1;
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-6);
+  pointer-events: none;
+}
+
+.process__step-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-teal-light);
+  color: var(--color-teal);
+  margin: 0 auto var(--space-5);
+}
+
+.process__step h3 {
+  margin-bottom: var(--space-2);
+}
+
+.process__step p {
+  color: var(--color-text-body);
+  margin-inline: auto;
+}
+
+/* Connector lines between steps */
+.process__connector {
+  color: var(--color-teal);
+  opacity: 0.3;
+  transform: rotate(90deg);
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .process__header {
+    margin-bottom: var(--space-16);
+  }
+
+  .process__steps {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-5);
+    align-items: stretch;
+  }
+
+  .process__step {
+    flex: 1;
+    max-width: 320px;
+  }
+
+  .process__connector {
+    transform: none;
+    height: auto;
+    width: 40px;
+    flex-shrink: 0;
+    align-self: center;
+  }
+}
+
+@media (min-width: 1101px) {
+  .process__steps {
+    gap: var(--space-6);
+  }
+
+  .process__step {
+    padding: var(--space-10);
+    max-width: 360px;
+  }
+}
+
+/* ------------------------------------------------------------
+   [9] FORM SECTION – "In 60 Sekunden bewerben"
+   ------------------------------------------------------------ */
+
+.form-section {
+  background: var(--color-teal-light);
+}
+
+.form-section__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+}
+
+.form-section__header h2 {
+  margin-bottom: var(--space-4);
+}
+
+.form-section__intro {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  margin-inline: auto;
+}
+
+/* Form Card – elevated white card */
+.form-card {
+  background: var(--color-white);
+  border-radius: var(--radius-xl);
+  padding: var(--space-8);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Form row – side by side on larger screens */
+.form__row {
+  display: grid;
+  gap: var(--space-5);
+}
+
+/* Alert banner */
+.form__alert {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-6);
+}
+
+.form__alert--error {
+  background: #FEF2F2;
+  color: var(--color-error);
+  border: 1px solid #FEE2E2;
+}
+
+.form__alert[hidden] {
+  display: none;
+}
+
+/* Submit button loading state */
+.form__submit {
+  margin-top: var(--space-6);
+  position: relative;
+}
+
+.form__submit-loading {
+  display: none;
+}
+
+.form__submit-loading[hidden] {
+  display: none;
+}
+
+.form__submit--loading .form__submit-text {
+  visibility: hidden;
+}
+
+.form__submit--loading .form__submit-loading {
+  display: flex;
+  position: absolute;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__submit--loading .form__submit-loading[hidden] {
+  display: flex;
+}
+
+/* Spinner animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.form__spinner {
+  animation: spin 1s linear infinite;
+}
+
+@media (min-width: 481px) {
+  .form__row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .form-card {
+    padding: var(--space-10) var(--space-12);
+  }
+}
+
+/* ------------------------------------------------------------
+   [10] FOOTER – Minimal, premium dark
+   ------------------------------------------------------------ */
+
+.site-footer {
+  background: var(--color-gray-dark);
+  padding-block: var(--space-10);
+}
+
+.site-footer__container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.site-footer__top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.site-footer__logo {
+  display: block;
+  transition: opacity var(--transition-fast);
+}
+
+.site-footer__logo:hover {
+  opacity: 0.7;
+}
+
+.site-footer__logo svg {
+  height: 40px;
+  width: auto;
+}
+
+.site-footer__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+}
+
+.site-footer__nav a,
+.site-footer__cookie-btn {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.5);
+  transition: color var(--transition-fast);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0;
+}
+
+.site-footer__nav a:hover,
+.site-footer__cookie-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.site-footer__divider {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.site-footer__bottom {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: var(--space-6);
+}
+
+.site-footer__bottom p {
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.3);
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .site-footer {
+    padding-block: var(--space-12);
+  }
+
+  .site-footer__top {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .site-footer__bottom {
+    text-align: left;
+  }
+}
+
+/* ------------------------------------------------------------
+   [STICKY] MOBILE CTA – Fixed bottom bar
+   ------------------------------------------------------------ */
+
+.sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.sticky-cta--visible {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.sticky-cta__inner {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: var(--space-3) var(--space-4);
+  box-shadow: var(--shadow-sticky);
+}
+
+.sticky-cta__btn {
+  padding-block: var(--space-4);
+}
+
+/* Hide on desktop */
+@media (min-width: 768px) {
+  .sticky-cta {
+    display: none;
+  }
+}

@@ -85,155 +85,127 @@
   <!-- Google Tag Manager (noscript) – wird nach Cookie-Consent aktiviert -->
   <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
 
-  <!-- ============================================================
-       [0] SITE HEADER – Logo zentriert
-       ============================================================ -->
-  <header class="site-header">
-    <div class="container site-header__inner">
-      <!-- GMKB Logo – zentriert, auf hellem und dunklem BG -->
-      <!-- TODO: Echtes Logo-File hier einsetzen wenn verfügbar -->
-      <a href="https://medizinundtherapie.de" class="site-header__logo" aria-label="GMKB – Gemeinnützige Medizinzentren KölnBonn – Zur Startseite">
-        <svg class="site-header__logo-svg" viewBox="0 0 280 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-          <!-- Dekorativer Akzent-Dot -->
-          <circle cx="8" cy="24" r="6" fill="#046C6C"/>
-          <!-- GMKB Wordmark -->
-          <text x="24" y="20" font-family="Inter, -apple-system, sans-serif" font-size="18" font-weight="800" fill="#046C6C" letter-spacing="0.08em">GMKB</text>
-          <!-- Subline -->
-          <text x="24" y="36" font-family="Inter, -apple-system, sans-serif" font-size="9.5" font-weight="500" fill="#5D6B71" letter-spacing="0.03em">Medizinzentren Köln | Bonn</text>
-        </svg>
-      </a>
-    </div>
-  </header>
-
   <main>
 
   <!-- ============================================================
-       [1] HERO SECTION – Dramatisch, emotional, Spotify-inspiriert
+       [1] HERO SECTION
        ============================================================ -->
-  <section class="hero" aria-label="Stellenangebot Facharzt Pädiatrie">
-    <!-- Decorative Background Elements -->
-    <div class="hero__bg-shapes" aria-hidden="true">
-      <div class="hero__bg-circle hero__bg-circle--1"></div>
-      <div class="hero__bg-circle hero__bg-circle--2"></div>
-    </div>
+  <section class="hero-v2" aria-label="Stellenangebot Facharzt Pädiatrie">
+    <header class="hero-v2__header">
+      <div class="container">
+        <a href="https://medizinundtherapie.de" class="hero-v2__logo" aria-label="Medizin & Therapie – Zur Startseite">
+          <picture>
+            <source type="image/webp" srcset="../../assets/images/gmkb-logo.webp">
+            <img src="../../assets/images/gmkb-logo.png" alt="Medizin & Therapie" class="hero-v2__logo-img" width="219" height="110">
+          </picture>
+        </a>
+      </div>
+    </header>
 
-    <div class="container hero__container">
+    <div class="container">
+     <div class="hero-v2__card">
+      <div class="hero-v2__content">
+        <p class="hero-v2__eyebrow">Karriere bei der GMKB Medizinzentren Köln/Bonn</p>
 
-      <!-- Text Column -->
-      <div class="hero__content">
-        <p class="hero__eyebrow">
-          <span class="hero__eyebrow-line"></span>
-          Karriere bei der GMKB Medizinzentren Köln/Bonn
-        </p>
-
-        <h1 class="hero__title">
-          Fachärzt*in<br>
-          <span class="hero__title-accent">Pädiatrie</span>
+        <h1 class="hero-v2__title">
+          <span class="hero-v2__title-muted">Fachärzt*in</span>
+          <span class="hero-v2__title-accent">Pädiatrie gesucht</span>
         </h1>
 
-        <div class="hero__meta">
-          <span class="hero__meta-tag">(m/w/d)</span>
-          <span class="hero__meta-tag">Vollzeit</span>
-          <span class="hero__meta-tag">Raum Bonn</span>
-          <span class="hero__meta-tag">Ab sofort</span>
-        </div>
-
-        <p class="hero__hook">
-          Du bist Profi im Umgang mit Kindern? Ihr Wohlbefinden liegt dir am Herzen? Dann bist du bei uns genau richtig.
+        <p class="hero-v2__meta">
+          (m/w/d)
+          <svg class="hero-v2__meta-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          Vollzeit
+          <svg class="hero-v2__meta-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          Raum Bonn
+          <svg class="hero-v2__meta-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          Ab sofort
         </p>
 
-        <div class="hero__actions">
-          <a href="#bewerbung" class="btn btn--hero" data-track="cta-click" data-track-label="hero-cta">
-            Bewirb Dich jetzt in 60 Sekunden
-            <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-            </svg>
+        <p class="hero-v2__hook">Du bist Profi im Umgang mit Kindern? Ihr Wohlbefinden liegt dir am Herzen? Dann bist du bei uns genau richtig.</p>
+
+        <div class="hero-v2__actions">
+          <a href="#bewerbung" class="btn btn--flip">
+            <span class="btn__texts">
+              <span class="btn__text">Bewirb Dich jetzt in 60 Sekunden</span>
+              <span class="btn__text">Bewirb Dich jetzt in 60 Sekunden</span>
+            </span>
+            <span class="btn__arrows">
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
           </a>
-          <span class="hero__cta-hint">Kein Lebenslauf nötig</span>
+          <span class="hero-v2__cta-hint">Kein Lebenslauf nötig ·  Antwort in 48 h</span>
         </div>
       </div>
 
-      <!-- Image Column – Asymmetrisches Layout -->
-      <div class="hero__visual">
-        <div class="hero__image-frame">
-          <picture>
-            <source
-              type="image/webp"
-              srcset="../../assets/images/hero-480w.webp 480w, ../../assets/images/hero-960w.webp 960w, ../../assets/images/hero-1440w.webp 1440w"
-              sizes="(max-width: 900px) 100vw, 55vw"
-            >
-            <img
-              src="../../assets/images/hero-960w.jpg"
-              srcset="../../assets/images/hero-480w.jpg 480w, ../../assets/images/hero-960w.jpg 960w, ../../assets/images/hero-1440w.jpg 1440w"
-              sizes="(max-width: 900px) 100vw, 55vw"
-              alt="Kinderarzt der GMKB bei der liebevollen Untersuchung eines Kindes"
-              width="960"
-              height="2603"
-              fetchpriority="high"
-            >
+      <div class="hero-v2__visual">
+        <div class="hero-v2__slider" data-interval="5000">
+          <picture class="hero-v2__slide hero-v2__slide--active">
+            <source type="image/webp" srcset="../../assets/images/feature-480w.webp 480w, ../../assets/images/feature-960w.webp 960w, ../../assets/images/feature-1440w.webp 1440w" sizes="(max-width: 900px) 100vw, 50vw">
+            <img src="../../assets/images/feature-960w.jpg" srcset="../../assets/images/feature-480w.jpg 480w, ../../assets/images/feature-960w.jpg 960w, ../../assets/images/feature-1440w.jpg 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Kinderarzt der GMKB gibt einem Kind High-Five" width="960" height="1440" class="hero-v2__img">
           </picture>
-          <!-- Floating Stats Badge -->
-          <div class="hero__badge" aria-hidden="true">
-            <span class="hero__badge-number">20+</span>
-            <span class="hero__badge-text">Jahre Erfahrung</span>
+          <picture class="hero-v2__slide">
+            <source type="image/webp" srcset="../../assets/images/hero-480w.webp 480w, ../../assets/images/hero-960w.webp 960w, ../../assets/images/hero-1440w.webp 1440w" sizes="(max-width: 900px) 100vw, 50vw">
+            <img src="../../assets/images/hero-960w.jpg" srcset="../../assets/images/hero-480w.jpg 480w, ../../assets/images/hero-960w.jpg 960w, ../../assets/images/hero-1440w.jpg 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Kinderarzt der GMKB bei der Untersuchung eines Kindes" width="960" height="2603" class="hero-v2__img">
+          </picture>
+          <div class="hero-v2__progress">
+            <span class="hero-v2__progress-bar hero-v2__progress-bar--active"></span>
+            <span class="hero-v2__progress-bar"></span>
           </div>
         </div>
       </div>
+     </div>
 
-    </div>
-  </section>
-
-  <!-- ============================================================
-       [2] TRUST-BAR – Animated counter feel
-       ============================================================ -->
-  <section class="trust-bar" aria-label="Vorteile auf einen Blick">
-    <div class="container">
-      <ul class="trust-bar__list">
-        <li class="trust-bar__item reveal">
-          <div class="trust-bar__icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-          <div class="trust-bar__text">
-            <strong>Unbefristet</strong>
-            <span>angestellt</span>
-          </div>
-        </li>
-        <li class="trust-bar__item reveal">
-          <div class="trust-bar__icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-            </svg>
-          </div>
-          <div class="trust-bar__text">
-            <strong>30 Tage</strong>
-            <span>Urlaub</span>
-          </div>
-        </li>
-        <li class="trust-bar__item reveal">
-          <div class="trust-bar__icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
-          </div>
-          <div class="trust-bar__text">
-            <strong>Tarifliches</strong>
-            <span>Gehalt</span>
-          </div>
-        </li>
-        <li class="trust-bar__item reveal">
-          <div class="trust-bar__icon-wrap">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
-          </div>
-          <div class="trust-bar__text">
-            <strong>Kita-Platz</strong>
-            <span>vermittlung</span>
-          </div>
-        </li>
-      </ul>
+      <!-- Trust-Bar inside hero, below card -->
+      <div class="hero-v2__trust">
+        <ul class="trust-bar__list">
+          <li class="trust-bar__item reveal">
+            <div class="trust-bar__icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="trust-bar__text">
+              <strong>Unbefristet</strong>
+              <span>angestellt</span>
+            </div>
+          </li>
+          <li class="trust-bar__item reveal">
+            <div class="trust-bar__icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="trust-bar__text">
+              <strong>30 Tage</strong>
+              <span>Urlaub</span>
+            </div>
+          </li>
+          <li class="trust-bar__item reveal">
+            <div class="trust-bar__icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="trust-bar__text">
+              <strong>Tarifliches</strong>
+              <span>Gehalt</span>
+            </div>
+          </li>
+          <li class="trust-bar__item reveal">
+            <div class="trust-bar__icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <div class="trust-bar__text">
+              <strong>Kita-Platz</strong>
+              <span>vermittlung</span>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -243,96 +215,109 @@
   <section class="benefits section" id="benefits" aria-labelledby="benefits-heading">
     <div class="container">
       <div class="benefits__header reveal">
-        <span class="section-label">Unsere Benefits</span>
-        <h2 id="benefits-heading">Unser Versprechen<br>an Dich</h2>
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Unsere Benefits
+        </span>
+        <h2 id="benefits-heading">Unser Versprechen an Dich</h2>
         <p class="benefits__intro">Wir bieten dir nicht nur einen Job, sondern ein Umfeld, in dem du dich fachlich und persönlich entfalten kannst.</p>
       </div>
 
       <div class="benefits__grid reveal-stagger">
         <!-- Card 1: Sicherer Job -->
         <article class="benefit-card reveal">
-          <div class="benefit-card__icon benefit-card__icon--blue">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-              <path d="M9 12l2 2 4-4" stroke-width="2"/>
-            </svg>
+          <div class="benefit-card__image">
+            <img src="../../assets/images/benefit-secure.jpg" alt="Sicherer Arbeitsplatz im Medizinzentrum" loading="lazy" width="1200" height="1600">
           </div>
-          <h3 class="benefit-card__title">Sicherer Job</h3>
-          <p class="benefit-card__text">Unbefristete Anstellung bei einem seit über 20 Jahren etablierten gemeinnützigen und diakonischen Träger.</p>
-          <div class="benefit-card__accent" aria-hidden="true"></div>
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Sicherer Job</h3>
+            <p class="benefit-card__text">Unbefristete Anstellung bei einem seit über 20 Jahren etablierten gemeinnützigen und diakonischen Träger.</p>
+          </div>
         </article>
 
         <!-- Card 2: Tarifliches Gehalt -->
         <article class="benefit-card reveal">
-          <div class="benefit-card__icon benefit-card__icon--green">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="6" x2="12" y2="18"/>
-              <path d="M16 10c0-1.1-1.8-2-4-2s-4 .9-4 2 1.8 2 4 2 4 .9 4 2-1.8 2-4 2-4-.9-4-2"/>
-            </svg>
+          <div class="benefit-card__image">
+            <img src="../../assets/images/benefit-salary.jpg" alt="Faire Vergütung und Gehaltsstruktur" loading="lazy" width="1200" height="1600">
           </div>
-          <h3 class="benefit-card__title">Tarifliches Gehalt</h3>
-          <p class="benefit-card__text">Mit regelmäßigen Anpassungen, Mobilitätszuschuss sowie variabler Vergütung und Zusatzleistungen.</p>
-          <div class="benefit-card__accent" aria-hidden="true"></div>
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Tarifliches Gehalt</h3>
+            <p class="benefit-card__text">Mit regelmäßigen Anpassungen, Mobilitätszuschuss sowie variabler Vergütung und Zusatzleistungen.</p>
+          </div>
         </article>
 
         <!-- Card 3: Familie & Beruf -->
         <article class="benefit-card reveal">
-          <div class="benefit-card__icon benefit-card__icon--rose">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-            </svg>
+          <div class="benefit-card__image">
+            <img src="../../assets/images/benefit-family.jpg" alt="Vereinbarkeit von Familie und Beruf" loading="lazy" width="1200" height="1600">
           </div>
-          <h3 class="benefit-card__title">Familie &amp; Beruf</h3>
-          <p class="benefit-card__text">Kita-Plätze in Bonn und Rhein-Sieg-Kreis, flexible Arbeitszeitmodelle für eine bessere Vereinbarkeit.</p>
-          <div class="benefit-card__accent" aria-hidden="true"></div>
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Familie &amp; Beruf</h3>
+            <p class="benefit-card__text">Kita-Plätze in Bonn und Rhein-Sieg-Kreis, flexible Arbeitszeitmodelle für eine bessere Vereinbarkeit.</p>
+          </div>
         </article>
 
         <!-- Card 4: 30 Tage Urlaub -->
         <article class="benefit-card reveal">
-          <div class="benefit-card__icon benefit-card__icon--amber">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="5"/>
-              <line x1="12" y1="1" x2="12" y2="3"/>
-              <line x1="12" y1="21" x2="12" y2="23"/>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-              <line x1="1" y1="12" x2="3" y2="12"/>
-              <line x1="21" y1="12" x2="23" y2="12"/>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-            </svg>
+          <div class="benefit-card__image">
+            <img src="../../assets/images/benefit-vacation.jpg" alt="Strand und Erholung im Urlaub" loading="lazy" width="1200" height="1600">
           </div>
-          <h3 class="benefit-card__title">30 Tage Urlaub</h3>
-          <p class="benefit-card__text">Plus Heiligabend und Silvester frei. Mehr Erholung bei einer 5-Tage-Woche.</p>
-          <div class="benefit-card__accent" aria-hidden="true"></div>
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">30 Tage Urlaub</h3>
+            <p class="benefit-card__text">Plus Heiligabend und Silvester frei. Mehr Erholung bei einer 5-Tage-Woche.</p>
+          </div>
         </article>
 
         <!-- Card 5: Fort- & Weiterbildung -->
         <article class="benefit-card reveal">
-          <div class="benefit-card__icon benefit-card__icon--purple">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
-            </svg>
+          <div class="benefit-card__image">
+            <img src="../../assets/images/benefit-education.jpg" alt="Fortbildung und Weiterbildung" loading="lazy" width="1200" height="1600">
           </div>
-          <h3 class="benefit-card__title">Fort- &amp; Weiterbildung</h3>
-          <p class="benefit-card__text">Individuelle Weiterbildung Pädiatrie durch interne und externe Fortbildungsprogramme – auch fachübergreifend.</p>
-          <div class="benefit-card__accent" aria-hidden="true"></div>
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Fort- &amp; Weiterbildung</h3>
+            <p class="benefit-card__text">Individuelle Weiterbildung Pädiatrie durch interne und externe Fortbildungsprogramme – auch fachübergreifend.</p>
+          </div>
         </article>
 
         <!-- Card 6: Corporate Benefits -->
         <article class="benefit-card reveal">
-          <div class="benefit-card__icon benefit-card__icon--teal">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-              <line x1="12" y1="22.08" x2="12" y2="12"/>
-            </svg>
+          <div class="benefit-card__image">
+            <img src="../../assets/images/benefit-perks.jpg" alt="Mitarbeitervorteile und Vergünstigungen" loading="lazy" width="1200" height="1600">
           </div>
-          <h3 class="benefit-card__title">Corporate Benefits</h3>
-          <p class="benefit-card__text">Exklusive Mitarbeiterrabatte und monatlicher steuerfreier Zuschuss für dein Deutschlandticket.</p>
-          <div class="benefit-card__accent" aria-hidden="true"></div>
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Corporate Benefits</h3>
+            <p class="benefit-card__text">Exklusive Mitarbeiterrabatte und monatlicher steuerfreier Zuschuss für dein Deutschlandticket.</p>
+          </div>
         </article>
       </div>
     </div>
@@ -364,7 +349,10 @@
         <div class="feature__image-accent" aria-hidden="true"></div>
       </div>
       <div class="feature__content reveal">
-        <span class="section-label">Unser Team</span>
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Unser Team
+        </span>
         <h2 id="feature-heading">Interdisziplinär.<br>Menschlich.<br><span class="text-teal">Zusammen.</span></h2>
         <p>Wir sind eine Einrichtung die eng miteinander arbeitet – verzahnt mit Kindergarten, Logopädie und Ergotherapie. Fortbildung Pädiatrie wird bei uns großgeschrieben, damit du Kinder ganzheitlich fördern kannst.</p>
         <ul class="feature__list">
@@ -386,26 +374,37 @@
   </section>
 
   <!-- ============================================================
-       [5] CTA-ZWISCHENRUFER – Dramatisch, Apple-inspiriert
+       [5] CTA-ZWISCHENRUFER – Contained Card
        ============================================================ -->
-  <section class="cta-banner" aria-label="Jetzt bewerben">
-    <div class="cta-banner__bg" aria-hidden="true">
-      <div class="cta-banner__glow"></div>
+  <div class="section cta-banner-wrap">
+    <div class="container">
+      <section class="cta-banner" aria-label="Jetzt bewerben">
+        <div class="cta-banner__bg" aria-hidden="true">
+          <div class="cta-banner__glow"></div>
+        </div>
+        <div class="cta-banner__container">
+          <span class="benefits__tag benefits__tag--dark">
+            <span class="benefits__tag-dot"></span>
+            Bereit für den nächsten Schritt?
+          </span>
+          <p class="cta-banner__text">
+            Klingt gut?<br>Dann lass uns reden.
+          </p>
+          <p class="cta-banner__subtext">Deine Bewerbung dauert nur 60 Sekunden – kein Lebenslauf nötig.</p>
+          <a href="#bewerbung" class="btn btn--flip btn--white" data-track="cta-click" data-track-label="banner-cta">
+            <span class="btn__texts">
+              <span class="btn__text">Jetzt bewerben</span>
+              <span class="btn__text">Jetzt bewerben</span>
+            </span>
+            <span class="btn__arrows">
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </section>
     </div>
-    <div class="container cta-banner__container">
-      <span class="cta-banner__eyebrow">Bereit für den nächsten Schritt?</span>
-      <p class="cta-banner__text">
-        Klingt gut?<br>Dann lass uns reden.
-      </p>
-      <p class="cta-banner__subtext">Deine Bewerbung dauert nur 60 Sekunden – kein Lebenslauf nötig.</p>
-      <a href="#bewerbung" class="btn btn--glow" data-track="cta-click" data-track-label="banner-cta">
-        Jetzt bewerben
-        <svg class="btn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-    </div>
-  </section>
+  </div>
 
   <!-- ============================================================
        [6] VIDEO SECTION – "Lerne uns kennen", Apple-Card-Stil
@@ -413,7 +412,10 @@
   <section class="video section" id="video" aria-labelledby="video-heading">
     <div class="container">
       <div class="video__header reveal">
-        <span class="section-label">Unser Team</span>
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Unser Team
+        </span>
         <h2 id="video-heading">Lerne uns kennen –<br>aus erster Hand</h2>
         <p class="video__intro">Unser Team erzählt, warum die GMKB ein besonderer Arbeitsplatz ist.</p>
       </div>
@@ -456,21 +458,24 @@
   </section>
 
   <!-- ============================================================
-       [7] TESTIMONIAL SECTION – Dunkle Section, Apple-Blockquote
+       [7] TESTIMONIAL SECTION – Full-Width Hintergrundbild + Zitat
        ============================================================ -->
   <section class="testimonial section" aria-labelledby="testimonial-heading">
     <div class="container">
-      <div class="testimonial__container">
+      <div class="testimonial__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Stimmen aus dem Team
+        </span>
+        <h2 id="testimonial-heading">Das sagt dein<br>zukünftiges Team</h2>
+      </div>
 
-        <!-- Text Column -->
-        <div class="testimonial__content reveal">
-          <span class="section-label section-label--light">Stimmen aus dem Team</span>
-          <h2 id="testimonial-heading" class="text-white">Das sagt dein<br>zukünftiges Team</h2>
-
+      <div class="testimonial__card reveal">
+        <div class="testimonial__quote-col">
           <figure class="testimonial__quote">
             <div class="testimonial__quote-mark" aria-hidden="true">"</div>
             <blockquote>
-              <p>Diese interdisziplinäre Zusammenarbeit auf Augenhöhe ist für mich ein zentraler Teil guter Medizin. Bei der GMKB kann ich Pädiatrie so leben, wie ich es mir immer vorgestellt habe.</p>
+              <p>"Diese interdisziplinäre Zusammenarbeit auf Augenhöhe ist für mich ein zentraler Teil guter Medizin. Bei der GMKB kann ich Pädiatrie so leben, wie ich es mir immer vorgestellt habe."</p>
             </blockquote>
             <figcaption>
               <strong class="testimonial__name">Dr. med. Alexander Gröner</strong>
@@ -478,32 +483,9 @@
             </figcaption>
           </figure>
         </div>
-
-        <!-- Image Column – Card with overlay (Apple-Style) -->
-        <div class="testimonial__visual reveal">
-          <div class="testimonial__image-card">
-            <picture>
-              <source
-                type="image/webp"
-                srcset="../../assets/images/testimonial-480w.webp 480w, ../../assets/images/testimonial-960w.webp 960w, ../../assets/images/testimonial-1440w.webp 1440w"
-                sizes="(max-width: 900px) 100vw, 40vw"
-              >
-              <img
-                src="../../assets/images/testimonial-960w.jpg"
-                srcset="../../assets/images/testimonial-480w.jpg 480w, ../../assets/images/testimonial-960w.jpg 960w, ../../assets/images/testimonial-1440w.jpg 1440w"
-                sizes="(max-width: 900px) 100vw, 40vw"
-                alt="Dr. Alexander Gröner, Kinder- und Jugendarzt bei der GMKB"
-                width="960"
-                height="1461"
-                loading="lazy"
-              >
-            </picture>
-            <div class="testimonial__image-overlay" aria-hidden="true">
-              <span class="testimonial__image-tag">GMKB Team</span>
-            </div>
-          </div>
+        <div class="testimonial__image-col">
+          <img src="../../assets/images/testimonial-groener.jpg" alt="Dr. med. Alexander Gröner, Kinder- und Jugendarzt bei der GMKB" loading="lazy" width="600" height="400">
         </div>
-
       </div>
     </div>
   </section>
@@ -514,7 +496,10 @@
   <section class="process section" id="ablauf" aria-labelledby="process-heading">
     <div class="container">
       <div class="process__header reveal">
-        <span class="section-label">Bewerbungsprozess</span>
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Bewerbungsprozess
+        </span>
         <h2 id="process-heading">So einfach geht's</h2>
         <p class="process__intro">Drei Schritte zu deiner neuen Kinderarzt Stelle in Bonn bei der GMKB.</p>
       </div>
@@ -529,14 +514,16 @@
                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
               </svg>
             </div>
-            <h3>Formular ausfüllen</h3>
+            <h3>1. Formular ausfüllen</h3>
             <p>Keine 60 Sekunden, kein Lebenslauf nötig. Einfach Name, Kontakt und los.</p>
           </div>
         </article>
 
-        <!-- Connector -->
+        <!-- Connector 1 -->
         <div class="process__connector" aria-hidden="true">
-          <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4"/></svg>
+          <span class="process__dot"></span>
+          <span class="process__dot"></span>
+          <span class="process__dot"></span>
         </div>
 
         <!-- Step 2 -->
@@ -548,14 +535,16 @@
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
               </svg>
             </div>
-            <h3>Wir melden uns</h3>
+            <h3>2. Wir melden uns</h3>
             <p>Innerhalb von 72 Stunden hörst du von uns – versprochen.</p>
           </div>
         </article>
 
-        <!-- Connector -->
-        <div class="process__connector" aria-hidden="true">
-          <svg width="40" height="2" viewBox="0 0 40 2"><line x1="0" y1="1" x2="40" y2="1" stroke="currentColor" stroke-width="2" stroke-dasharray="6 4"/></svg>
+        <!-- Connector 2 -->
+        <div class="process__connector process__connector--second" aria-hidden="true">
+          <span class="process__dot"></span>
+          <span class="process__dot"></span>
+          <span class="process__dot"></span>
         </div>
 
         <!-- Step 3 -->
@@ -567,7 +556,7 @@
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
             </div>
-            <h3>Kennenlernen</h3>
+            <h3>3. Kennenlernen</h3>
             <p>Bei einem Match laden wir dich zum persönlichen Gespräch ein – ganz entspannt.</p>
           </div>
         </article>
@@ -581,20 +570,17 @@
   <section class="form-section section" id="bewerbung" aria-labelledby="form-heading">
     <div class="container container--narrow">
       <div class="form-section__header reveal">
-        <span class="section-label">Jetzt bewerben</span>
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Jetzt bewerben
+        </span>
         <h2 id="form-heading">In 60 Sekunden<br>bewerben</h2>
         <p class="form-section__intro">Kein Lebenslauf nötig. Wir melden uns innerhalb von 72 Stunden bei dir.</p>
       </div>
 
       <div class="form-card reveal">
-        <form action="form-handler.php" method="POST" class="form" id="bewerbung-form" novalidate data-track="form-submit" data-track-label="bewerbung-paediatrie">
+        <form action="form-handler.php" method="POST" class="form" id="bewerbung-form" novalidate enctype="multipart/form-data" data-track="form-submit" data-track-label="bewerbung-paediatrie">
 
-          <!-- CSRF Token (wird in WordPress via PHP generiert) -->
-          <!-- <?php
-            if (session_status() === PHP_SESSION_NONE) session_start();
-            if (empty($_SESSION['csrf_token'])) $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-          ?>
-          <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>"> -->
           <input type="hidden" name="csrf_token" value="dev-token-placeholder" id="csrf-token">
 
           <!-- Alert for errors -->
@@ -606,35 +592,49 @@
           <!-- Name Row -->
           <div class="form__row">
             <div class="form-group">
-              <input type="text" id="vorname" name="vorname" class="form-input" placeholder=" " required autocomplete="given-name">
               <label for="vorname" class="form-label">Vorname *</label>
+              <input type="text" id="vorname" name="vorname" class="form-input" placeholder="Max" required autocomplete="given-name">
               <span class="form-error">Bitte gib deinen Vornamen ein.</span>
             </div>
             <div class="form-group">
-              <input type="text" id="nachname" name="nachname" class="form-input" placeholder=" " required autocomplete="family-name">
               <label for="nachname" class="form-label">Nachname *</label>
+              <input type="text" id="nachname" name="nachname" class="form-input" placeholder="Mustermann" required autocomplete="family-name">
               <span class="form-error">Bitte gib deinen Nachnamen ein.</span>
             </div>
           </div>
 
           <!-- Email -->
           <div class="form-group">
-            <input type="email" id="email" name="email" class="form-input" placeholder=" " required autocomplete="email">
             <label for="email" class="form-label">E-Mail-Adresse *</label>
+            <input type="email" id="email" name="email" class="form-input" placeholder="max@beispiel.de" required autocomplete="email">
             <span class="form-error">Bitte gib eine gültige E-Mail-Adresse ein.</span>
           </div>
 
           <!-- Phone -->
           <div class="form-group">
-            <input type="tel" id="telefon" name="telefon" class="form-input" placeholder=" " required autocomplete="tel">
-            <label for="telefon" class="form-label">Telefonnummer *</label>
-            <span class="form-error">Bitte gib deine Telefonnummer ein.</span>
+            <label for="telefon" class="form-label">Telefonnummer (optional)</label>
+            <input type="tel" id="telefon" name="telefon" class="form-input" placeholder="+49 123 456 789" autocomplete="tel">
           </div>
 
-          <!-- Message -->
+          <!-- File Upload -->
           <div class="form-group">
-            <textarea id="nachricht" name="nachricht" class="form-input" placeholder=" " rows="3"></textarea>
-            <label for="nachricht" class="form-label">Kurze Nachricht (optional)</label>
+            <label class="form-label">Bewerbungsunterlagen (optional)</label>
+            <label class="form-file" id="file-upload-label">
+              <input type="file" name="bewerbung_datei" id="bewerbung-datei" accept=".pdf,.doc,.docx,.jpg,.png,.zip" multiple>
+              <svg class="form-file__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+              <span>
+                <span class="form-file__text">PDF, DOC, JPG oder ZIP – max. 5 MB</span>
+                <span class="form-file__name" id="file-name"></span>
+              </span>
+            </label>
+          </div>
+
+          <!-- Turnstile Captcha -->
+          <div class="form-turnstile" id="turnstile-container">
+            <!-- Cloudflare Turnstile wird hier per JS eingebettet -->
+            <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY_PLACEHOLDER" data-callback="onTurnstileSuccess"></div>
           </div>
 
           <!-- Privacy Checkbox -->
@@ -650,10 +650,14 @@
           </div>
 
           <!-- Submit -->
-          <button type="submit" class="btn btn--primary btn--lg btn--full form__submit">
-            <span class="form__submit-text">Bewerbung absenden</span>
-            <span class="form__submit-loading" hidden aria-hidden="true">
-              <svg class="form__spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          <button type="submit" class="btn btn--flip btn--full form__submit">
+            <span class="btn__texts">
+              <span class="btn__text form__submit-text">Bewerbung absenden</span>
+              <span class="btn__text">Bewerbung absenden</span>
+            </span>
+            <span class="btn__arrows">
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
             </span>
           </button>
 
@@ -675,12 +679,17 @@
     <div class="container site-footer__container">
       <div class="site-footer__top">
         <!-- Logo -->
-        <a href="https://medizinundtherapie.de" class="site-footer__logo" aria-label="GMKB – Zur Startseite">
-          <svg viewBox="0 0 280 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
-            <circle cx="8" cy="24" r="6" fill="rgba(255,255,255,0.4)"/>
-            <text x="24" y="20" font-family="Inter, -apple-system, sans-serif" font-size="18" font-weight="800" fill="rgba(255,255,255,0.8)" letter-spacing="0.08em">GMKB</text>
-            <text x="24" y="36" font-family="Inter, -apple-system, sans-serif" font-size="9.5" font-weight="500" fill="rgba(255,255,255,0.4)" letter-spacing="0.03em">Medizinzentren Köln | Bonn</text>
-          </svg>
+        <a href="https://medizinundtherapie.de" class="site-footer__logo" aria-label="Medizin & Therapie – Zur Startseite">
+          <picture>
+            <source type="image/webp" srcset="../../assets/images/gmkb-logo.webp">
+            <img
+              src="../../assets/images/gmkb-logo.png"
+              alt="Medizin & Therapie – Interdisziplinäre Versorgung im Großraum KölnBonn"
+              class="site-footer__logo-img"
+              width="160"
+              height="80"
+            >
+          </picture>
         </a>
 
         <!-- Legal Links -->
@@ -704,11 +713,15 @@
        ============================================================ -->
   <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
     <div class="sticky-cta__inner">
-      <a href="#bewerbung" class="btn btn--primary btn--full sticky-cta__btn" data-track="cta-click" data-track-label="sticky-mobile">
-        Jetzt bewerben
-        <svg class="btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14"/><path d="M12 5l7 7-7 7"/>
-        </svg>
+      <a href="#bewerbung" class="btn btn--flip btn--full sticky-cta__btn" data-track="cta-click" data-track-label="sticky-mobile">
+        <span class="btn__texts">
+          <span class="btn__text">Jetzt bewerben</span>
+          <span class="btn__text">Jetzt bewerben</span>
+        </span>
+        <span class="btn__arrows">
+          <svg class="btn__arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          <svg class="btn__arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </span>
       </a>
     </div>
   </div>

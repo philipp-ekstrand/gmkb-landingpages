@@ -279,6 +279,51 @@
   }
 
   /* ------------------------------------------------------------
+     8. HERO V2 IMAGE SLIDER (fade + progress bar)
+     ------------------------------------------------------------ */
+  function initHeroSlider() {
+    var slider = document.querySelector('.hero-v2__slider');
+    if (!slider) return;
+
+    var card = slider.closest('.hero-v2__card');
+    var slides = slider.querySelectorAll('.hero-v2__slide');
+    var bars = card.querySelectorAll('.hero-v2__progress-bar');
+    if (slides.length < 2) return;
+
+    var interval = parseInt(slider.dataset.interval, 10) || 5000;
+    var current = 0;
+    var timer = null;
+
+    // Respect reduced motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function goTo(index) {
+      slides[current].classList.remove('hero-v2__slide--active');
+      bars[current].classList.remove('hero-v2__progress-bar--active');
+
+      current = index % slides.length;
+
+      slides[current].classList.add('hero-v2__slide--active');
+      // Re-trigger animation by removing and re-adding class
+      bars[current].classList.remove('hero-v2__progress-bar--active');
+      void bars[current].offsetWidth; // force reflow
+      bars[current].classList.add('hero-v2__progress-bar--active');
+    }
+
+    function next() {
+      goTo(current + 1);
+    }
+
+    // Start auto-play
+    bars[0].classList.add('hero-v2__progress-bar--active');
+    timer = setInterval(next, interval);
+
+    // Pause on hover
+    slider.addEventListener('mouseenter', function () { clearInterval(timer); });
+    slider.addEventListener('mouseleave', function () { timer = setInterval(next, interval); });
+  }
+
+  /* ------------------------------------------------------------
      INIT
      ------------------------------------------------------------ */
   document.addEventListener('DOMContentLoaded', function () {
@@ -289,6 +334,7 @@
     initFormValidation();
     initVideoPlayer();
     initTracking();
+    initHeroSlider();
   });
 
 })();

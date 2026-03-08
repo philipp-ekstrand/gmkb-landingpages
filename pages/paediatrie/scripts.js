@@ -327,24 +327,41 @@
      9. FAQ ACCORDION
      ------------------------------------------------------------ */
   function initFaqAccordion() {
-    var items = document.querySelectorAll('.faq__item');
-    if (!items.length) return;
+    var columns = document.querySelectorAll('.faq__col');
+    if (!columns.length) return;
 
-    items.forEach(function (item) {
-      var btn = item.querySelector('.faq__question');
-      var answer = item.querySelector('.faq__answer');
-      if (!btn || !answer) return;
+    var isDesktop = window.innerWidth >= 768;
 
-      btn.addEventListener('click', function () {
-        var isOpen = item.classList.contains('faq__item--open');
+    columns.forEach(function (col, colIndex) {
+      var items = col.querySelectorAll('.faq__item');
 
-        if (isOpen) {
-          item.classList.remove('faq__item--open');
-          btn.setAttribute('aria-expanded', 'false');
-        } else {
+      items.forEach(function (item, index) {
+        var btn = item.querySelector('.faq__question');
+        if (!btn) return;
+
+        // Desktop: open first item of each column. Mobile: only first column's first item
+        var shouldOpen = index === 0 && (isDesktop || colIndex === 0);
+        if (shouldOpen) {
           item.classList.add('faq__item--open');
           btn.setAttribute('aria-expanded', 'true');
         }
+
+        btn.addEventListener('click', function () {
+          var isOpen = item.classList.contains('faq__item--open');
+
+          // Close all other items in this column
+          items.forEach(function (sibling) {
+            sibling.classList.remove('faq__item--open');
+            var siblingBtn = sibling.querySelector('.faq__question');
+            if (siblingBtn) siblingBtn.setAttribute('aria-expanded', 'false');
+          });
+
+          // If it was closed, open it (if it was open, it stays closed = all closed)
+          if (!isOpen) {
+            item.classList.add('faq__item--open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
       });
     });
   }

@@ -395,42 +395,42 @@
     if (!slider) return;
 
     var slides = slider.querySelectorAll('.testimonial__slide');
-    var bars = slider.querySelectorAll('.testimonial__progress-bar');
+    var dots = slider.querySelectorAll('.testimonial__dot');
+    var prevBtn = slider.querySelector('.testimonial__arrow--prev');
+    var nextBtn = slider.querySelector('.testimonial__arrow--next');
     if (slides.length < 2) return;
 
-    var interval = parseInt(slider.dataset.interval, 10) || 6000;
+    var interval = 4500;
     var current = 0;
     var timer = null;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
     function goTo(index) {
       slides[current].classList.remove('testimonial__slide--active');
-      bars[current].classList.remove('testimonial__progress-bar--active');
+      if (dots[current]) dots[current].classList.remove('testimonial__dot--active');
 
-      current = index % slides.length;
+      current = ((index % slides.length) + slides.length) % slides.length;
 
       slides[current].classList.add('testimonial__slide--active');
-      bars[current].classList.remove('testimonial__progress-bar--active');
-      void bars[current].offsetWidth;
-      bars[current].classList.add('testimonial__progress-bar--active');
+      if (dots[current]) dots[current].classList.add('testimonial__dot--active');
     }
 
-    function next() {
-      goTo(current + 1);
-    }
+    function next() { goTo(current + 1); }
+    function prev() { goTo(current - 1); }
 
-    // Click on progress bars
-    bars.forEach(function (bar, i) {
-      bar.addEventListener('click', function () {
+    // Arrow buttons
+    if (nextBtn) nextBtn.addEventListener('click', function () { clearInterval(timer); next(); timer = setInterval(next, interval); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { clearInterval(timer); prev(); timer = setInterval(next, interval); });
+
+    // Click on dots
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
         clearInterval(timer);
         goTo(i);
         timer = setInterval(next, interval);
       });
     });
 
-    // Start auto-play
-    bars[0].classList.add('testimonial__progress-bar--active');
+    // Auto-play
     timer = setInterval(next, interval);
 
     // Pause on hover

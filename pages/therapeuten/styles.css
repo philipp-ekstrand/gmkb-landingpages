@@ -85,17 +85,18 @@ body {
   display: block;
 }
 
-/* Content-driven height: quote col sets height, image adapts */
+/* Card layout */
 .testimonial__card {
   display: grid;
   grid-template-columns: 1fr;
   overflow: hidden;
+  min-height: 320px;
 }
 
 @media (min-width: 768px) {
   .testimonial__card {
     grid-template-columns: 1fr 1fr;
-    min-height: 0;
+    min-height: 420px;
   }
 
   .testimonial__quote-col {
@@ -118,45 +119,55 @@ body {
   }
 }
 
-/* Progress bars */
-.testimonial__progress {
+@media (min-width: 1101px) {
+  .testimonial__card {
+    min-height: 480px;
+  }
+}
+
+/* Navigation: arrows + dots */
+.testimonial__nav {
   display: flex;
-  gap: var(--space-2, 8px);
+  align-items: center;
   justify-content: center;
+  gap: var(--space-4, 16px);
   margin-top: var(--space-6, 24px);
 }
 
-.testimonial__progress-bar {
-  width: 48px;
-  height: 3px;
-  border-radius: 2px;
+.testimonial__arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(4, 108, 108, 0.2);
+  background: var(--color-white, #fff);
+  color: var(--color-teal, #046C6C);
+  cursor: pointer;
+  transition: background var(--transition-base, 0.2s), border-color var(--transition-base, 0.2s);
+}
+
+.testimonial__arrow:hover {
+  background: var(--color-teal, #046C6C);
+  color: var(--color-white, #fff);
+  border-color: var(--color-teal, #046C6C);
+}
+
+.testimonial__dots {
+  display: flex;
+  gap: var(--space-2, 8px);
+}
+
+.testimonial__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
   background: rgba(4, 108, 108, 0.15);
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
+  transition: background var(--transition-base, 0.2s);
 }
 
-.testimonial__progress-bar--active {
-  background: rgba(4, 108, 108, 0.15);
-}
-
-.testimonial__progress-bar--active::after {
-  content: '';
-  position: absolute;
-  inset: 0;
+.testimonial__dot--active {
   background: var(--color-teal, #046C6C);
-  border-radius: 2px;
-  animation: testimonialProgress 6s linear forwards;
-}
-
-@keyframes testimonialProgress {
-  from { width: 0; }
-  to   { width: 100%; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .testimonial__progress-bar--active::after {
-    animation: none;
-    width: 100%;
-  }
 }

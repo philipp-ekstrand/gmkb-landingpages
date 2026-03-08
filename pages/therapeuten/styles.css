@@ -21,12 +21,137 @@ body {
 .faq                    { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .form-section           { background: #F5FAFA; }
 
-/* --- Feature Image: Therapeut im Bewegungsraum soll sichtbar sein --- */
+/* --- Feature Image --- */
 .feature__image img {
   object-position: 60% 25%;
 }
 
-/* --- Testimonial: Abstand zwischen den beiden Cards --- */
-.testimonial__card + .testimonial__card {
-  margin-top: var(--space-8, 32px);
+/* --- Benefit Cards: Icon-Only (keine Bilder) --- */
+.benefit-card--icon-only {
+  aspect-ratio: auto;
+  background: var(--color-white, #fff);
+  border: 1px solid rgba(4, 108, 108, 0.1);
+}
+
+.benefit-card--icon-only .benefit-card__body {
+  position: static;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  margin: 0;
+  padding: var(--space-6, 24px);
+}
+
+.benefit-card--icon-only:hover {
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.1));
+}
+
+/* --- Wider Text Sections --- */
+.benefits__header,
+.testimonial__header,
+.faq__header {
+  max-width: 720px;
+}
+
+.benefits__intro,
+.faq__intro {
+  max-width: 640px;
+}
+
+.process__intro {
+  max-width: 600px;
+}
+
+.cta-banner__subtext {
+  max-width: 560px;
+}
+
+/* --- Testimonial Slider --- */
+.testimonial__slider {
+  position: relative;
+}
+
+.testimonial__slide {
+  display: none;
+}
+
+.testimonial__slide--active {
+  display: block;
+}
+
+/* Content-driven height: quote col sets height, image adapts */
+.testimonial__card {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .testimonial__card {
+    grid-template-columns: 1fr 1fr;
+    min-height: 0;
+  }
+
+  .testimonial__quote-col {
+    padding: 60px var(--space-12, 48px);
+    display: flex;
+    align-items: center;
+  }
+
+  .testimonial__image-col {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial__image-col img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* Progress bars */
+.testimonial__progress {
+  display: flex;
+  gap: var(--space-2, 8px);
+  justify-content: center;
+  margin-top: var(--space-6, 24px);
+}
+
+.testimonial__progress-bar {
+  width: 48px;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(4, 108, 108, 0.15);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial__progress-bar--active {
+  background: rgba(4, 108, 108, 0.15);
+}
+
+.testimonial__progress-bar--active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-teal, #046C6C);
+  border-radius: 2px;
+  animation: testimonialProgress 6s linear forwards;
+}
+
+@keyframes testimonialProgress {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial__progress-bar--active::after {
+    animation: none;
+    width: 100%;
+  }
 }

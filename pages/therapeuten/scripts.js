@@ -388,6 +388,57 @@
   }
 
   /* ------------------------------------------------------------
+     10. TESTIMONIAL SLIDER
+     ------------------------------------------------------------ */
+  function initTestimonialSlider() {
+    var slider = document.querySelector('.testimonial__slider');
+    if (!slider) return;
+
+    var slides = slider.querySelectorAll('.testimonial__slide');
+    var bars = slider.querySelectorAll('.testimonial__progress-bar');
+    if (slides.length < 2) return;
+
+    var interval = parseInt(slider.dataset.interval, 10) || 6000;
+    var current = 0;
+    var timer = null;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    function goTo(index) {
+      slides[current].classList.remove('testimonial__slide--active');
+      bars[current].classList.remove('testimonial__progress-bar--active');
+
+      current = index % slides.length;
+
+      slides[current].classList.add('testimonial__slide--active');
+      bars[current].classList.remove('testimonial__progress-bar--active');
+      void bars[current].offsetWidth;
+      bars[current].classList.add('testimonial__progress-bar--active');
+    }
+
+    function next() {
+      goTo(current + 1);
+    }
+
+    // Click on progress bars
+    bars.forEach(function (bar, i) {
+      bar.addEventListener('click', function () {
+        clearInterval(timer);
+        goTo(i);
+        timer = setInterval(next, interval);
+      });
+    });
+
+    // Start auto-play
+    bars[0].classList.add('testimonial__progress-bar--active');
+    timer = setInterval(next, interval);
+
+    // Pause on hover
+    slider.addEventListener('mouseenter', function () { clearInterval(timer); });
+    slider.addEventListener('mouseleave', function () { timer = setInterval(next, interval); });
+  }
+
+  /* ------------------------------------------------------------
      INIT
      ------------------------------------------------------------ */
   document.addEventListener('DOMContentLoaded', function () {
@@ -401,6 +452,7 @@
     initHeroSlider();
     initFaqAccordion();
     initFileUpload();
+    initTestimonialSlider();
   });
 
 })();

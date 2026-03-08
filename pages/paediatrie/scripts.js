@@ -324,6 +324,53 @@
   }
 
   /* ------------------------------------------------------------
+     9. FAQ ACCORDION
+     ------------------------------------------------------------ */
+  function initFaqAccordion() {
+    var items = document.querySelectorAll('.faq__item');
+    if (!items.length) return;
+
+    items.forEach(function (item) {
+      var btn = item.querySelector('.faq__question');
+      var answer = item.querySelector('.faq__answer');
+      if (!btn || !answer) return;
+
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.contains('faq__item--open');
+
+        if (isOpen) {
+          item.classList.remove('faq__item--open');
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('faq__item--open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  }
+
+  /* ------------------------------------------------------------
+     10. FILE UPLOAD DISPLAY
+     ------------------------------------------------------------ */
+  function initFileUpload() {
+    var fileInput = document.getElementById('bewerbung-datei');
+    var fileName = document.getElementById('file-name');
+    var fileText = document.querySelector('.form-file__text');
+    if (!fileInput || !fileName) return;
+
+    fileInput.addEventListener('change', function () {
+      if (fileInput.files.length > 0) {
+        var names = Array.from(fileInput.files).map(function (f) { return f.name; });
+        fileName.textContent = names.join(', ');
+        if (fileText) fileText.style.display = 'none';
+      } else {
+        fileName.textContent = '';
+        if (fileText) fileText.style.display = '';
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------
      INIT
      ------------------------------------------------------------ */
   document.addEventListener('DOMContentLoaded', function () {
@@ -335,6 +382,8 @@
     initVideoPlayer();
     initTracking();
     initHeroSlider();
+    initFaqAccordion();
+    initFileUpload();
   });
 
 })();

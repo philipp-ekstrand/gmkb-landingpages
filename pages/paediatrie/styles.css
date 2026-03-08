@@ -212,11 +212,11 @@ body {
 /* Dark tag variant (for dark backgrounds) */
 .benefits__tag--dark {
   background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--color-white);
 }
 
 .benefits__tag--dark .benefits__tag-dot {
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--color-white);
 }
 
 /* Visual column */
@@ -589,13 +589,16 @@ body {
   margin-bottom: var(--space-3);
 }
 
-/* White content container at bottom */
+/* Glassmorphism content container at bottom */
 .benefit-card__body {
   position: relative;
   z-index: 2;
   margin: var(--space-3);
   padding: var(--space-5);
-  background: var(--color-white);
+  background: rgba(240, 253, 253, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(4, 108, 108, 0.2);
   border-radius: var(--radius-md);
 }
 
@@ -1112,7 +1115,7 @@ body {
 
 /* Quote side */
 .testimonial__quote-col {
-  padding: var(--space-8);
+  padding: var(--space-10) var(--space-8);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1146,8 +1149,8 @@ body {
 
 .testimonial__name {
   display: block;
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xl, 1.25rem);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text-dark);
   margin-bottom: var(--space-1);
 }
@@ -1159,7 +1162,7 @@ body {
 
 /* Image side */
 .testimonial__image-col {
-  min-height: 300px;
+  min-height: 360px;
   position: relative;
 }
 
@@ -1185,7 +1188,7 @@ body {
   }
 
   .testimonial__quote-col {
-    padding: var(--space-10);
+    padding: var(--space-12) var(--space-10);
   }
 
   .testimonial__image-col {
@@ -1201,7 +1204,7 @@ body {
 
 @media (min-width: 1101px) {
   .testimonial__quote-col {
-    padding: var(--space-12) var(--space-10);
+    padding: var(--space-14, 56px) var(--space-10);
   }
 }
 
@@ -1211,7 +1214,7 @@ body {
   }
 
   .testimonial__quote-col {
-    padding: var(--space-14, 56px) var(--space-12);
+    padding: var(--space-16, 64px) var(--space-12);
   }
 }
 
@@ -1399,7 +1402,151 @@ body {
 }
 
 /* ------------------------------------------------------------
-   [9] FORM SECTION – "In 60 Sekunden bewerben"
+   [9] FAQ SECTION – Akkordeon
+   ------------------------------------------------------------ */
+
+.faq {
+  /* background inherited from body */
+}
+
+.faq__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq__header h2 {
+  margin-bottom: var(--space-4);
+}
+
+.faq__intro {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+/* Grid: 1 column mobile, 2 columns desktop */
+.faq__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/* Individual FAQ item */
+.faq__item {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(4, 108, 108, 0.12);
+  overflow: hidden;
+  transition: box-shadow var(--transition-base);
+}
+
+.faq__item:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Question button */
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-5) var(--space-6);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-dark);
+  text-align: left;
+  line-height: 1.4;
+  transition: color var(--transition-fast);
+}
+
+.faq__question:hover {
+  color: var(--color-teal);
+}
+
+.faq__question:focus-visible {
+  outline: 3px solid var(--color-teal);
+  outline-offset: -3px;
+  border-radius: var(--radius-lg);
+}
+
+/* Plus/Minus icon */
+.faq__icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 6px;
+  border-radius: 50%;
+  background: var(--color-teal-light);
+  color: var(--color-teal);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.faq__item--open .faq__icon {
+  transform: rotate(45deg);
+  background: var(--color-teal);
+  color: var(--color-white);
+}
+
+/* Answer panel – collapsed by default */
+.faq__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0 var(--space-6);
+}
+
+.faq__answer > p {
+  overflow: hidden;
+  font-size: var(--font-size-base);
+  color: var(--color-text-body);
+  line-height: var(--line-height-body);
+}
+
+.faq__item--open .faq__answer {
+  grid-template-rows: 1fr;
+  padding: 0 var(--space-6) var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .faq__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-5);
+  }
+
+  .faq__header {
+    margin-bottom: var(--space-12);
+  }
+}
+
+@media (min-width: 1101px) {
+  .faq__grid {
+    gap: var(--space-6);
+  }
+
+  .faq__question {
+    padding: var(--space-6) var(--space-8);
+  }
+
+  .faq__answer {
+    padding-left: var(--space-8);
+    padding-right: var(--space-8);
+  }
+
+  .faq__item--open .faq__answer {
+    padding: 0 var(--space-8) var(--space-8);
+  }
+}
+
+/* ------------------------------------------------------------
+   [10] FORM SECTION – "In 60 Sekunden bewerben"
    ------------------------------------------------------------ */
 
 .form-section {

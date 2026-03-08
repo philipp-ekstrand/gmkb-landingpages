@@ -1,5 +1,5 @@
 /* ============================================================
-   Pädiatrie Landingpage – Page-Specific Styles
+   Therapeuten Landingpage – Page-Specific Styles
    ============================================================
    Only backgrounds, image crops, and page-specific overrides.
    All component styles live in /assets/css/components.css.
@@ -10,7 +10,7 @@ body {
   background-color: #F5FAFA;
 }
 
-/* --- Section Backgrounds (Welleneffekt hell ↔ kräftig) --- */
+/* --- Section Backgrounds (Welleneffekt hell <-> kräftig) --- */
 .hero-v2                { background: #F5FAFA; }
 .benefits               { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
 .feature                { background: #D4EAEA; }
@@ -21,7 +21,12 @@ body {
 .faq                    { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .form-section           { background: #F5FAFA; }
 
-/* --- Feature Image: Bildausschnitt anpassen (Mann soll sichtbar sein) --- */
+/* --- Feature Image: Therapeut im Bewegungsraum soll sichtbar sein --- */
 .feature__image img {
-  object-position: 30% 15%;
+  object-position: 60% 25%;
+}
+
+/* --- Testimonial: Abstand zwischen den beiden Cards --- */
+.testimonial__card + .testimonial__card {
+  margin-top: var(--space-8, 32px);
 }

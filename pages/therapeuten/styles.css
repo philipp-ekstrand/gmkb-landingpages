@@ -21,6 +21,11 @@ body {
 .faq                    { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .form-section           { background: #F5FAFA; }
 
+/* --- Hero: Zweites Bild (therapeut-tisch) weiter nach unten croppen --- */
+.hero-v2__slide:nth-child(2) .hero-v2__img {
+  object-position: center 70%;
+}
+
 /* --- Feature Image --- */
 .feature__image img {
   object-position: 60% 25%;

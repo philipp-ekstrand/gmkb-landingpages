@@ -510,33 +510,73 @@
     if (!slider) return;
 
     var track = slider.querySelector('.testimonial__track');
-    var slides = slider.querySelectorAll('.testimonial__slide');
+    var slides = Array.prototype.slice.call(slider.querySelectorAll('.testimonial__slide'));
     var prevBtn = slider.querySelector('.testimonial__arrow--prev');
     var nextBtn = slider.querySelector('.testimonial__arrow--next');
     if (!track || slides.length < 2) return;
 
     var interval = 4500;
-    var current = 0;
-    var timer = null;
+    var total = slides.length;
+    var isTransitioning = false;
 
-    function goTo(index) {
-      current = ((index % slides.length) + slides.length) % slides.length;
+    // Clone first and last slides for seamless loop
+    var firstClone = slides[0].cloneNode(true);
+    var lastClone = slides[total - 1].cloneNode(true);
+    firstClone.setAttribute('aria-hidden', 'true');
+    lastClone.setAttribute('aria-hidden', 'true');
+    track.appendChild(firstClone);
+    track.insertBefore(lastClone, track.firstChild);
+
+    // Position starts at 1 (the real first slide, after the prepended clone)
+    var current = 1;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+    function goTo(index, animate) {
+      if (isTransitioning) return;
+      if (animate !== false) {
+        isTransitioning = true;
+        track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      } else {
+        track.style.transition = 'none';
+      }
+      current = index;
       track.style.transform = 'translateX(-' + (current * 100) + '%)';
     }
+
+    // After transition ends, snap to real slide if on a clone
+    track.addEventListener('transitionend', function () {
+      isTransitioning = false;
+      // If on the first clone (after last real slide) → jump to real first
+      if (current === total + 1) {
+        track.style.transition = 'none';
+        current = 1;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      }
+      // If on the last clone (before first real slide) → jump to real last
+      if (current === 0) {
+        track.style.transition = 'none';
+        current = total;
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      }
+    });
 
     function next() { goTo(current + 1); }
     function prev() { goTo(current - 1); }
 
+    var timer = null;
+    function startAutoplay() { timer = setInterval(next, interval); }
+    function stopAutoplay() { clearInterval(timer); }
+
     // Arrow buttons
-    if (nextBtn) nextBtn.addEventListener('click', function () { clearInterval(timer); next(); timer = setInterval(next, interval); });
-    if (prevBtn) prevBtn.addEventListener('click', function () { clearInterval(timer); prev(); timer = setInterval(next, interval); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { stopAutoplay(); next(); startAutoplay(); });
+    if (prevBtn) prevBtn.addEventListener('click', function () { stopAutoplay(); prev(); startAutoplay(); });
 
     // Auto-play
-    timer = setInterval(next, interval);
+    startAutoplay();
 
     // Pause on hover
-    slider.addEventListener('mouseenter', function () { clearInterval(timer); });
-    slider.addEventListener('mouseleave', function () { timer = setInterval(next, interval); });
+    slider.addEventListener('mouseenter', stopAutoplay);
+    slider.addEventListener('mouseleave', startAutoplay);
   }
 
   /* ------------------------------------------------------------

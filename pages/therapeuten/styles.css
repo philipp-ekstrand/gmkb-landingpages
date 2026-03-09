@@ -31,9 +31,15 @@ body {
   object-position: 60% 12%;
 }
 
+/* --- Benefits Grid: no stretch for icon-only cards --- */
+.benefits__grid {
+  align-items: start;
+}
+
 /* --- Benefit Cards: Icon-Only (keine Bilder) --- */
 .benefit-card--icon-only {
   aspect-ratio: auto;
+  justify-content: flex-start;
   background: var(--color-white, #fff);
   border: 1px solid rgba(4, 108, 108, 0.1);
 }

@@ -141,25 +141,134 @@
   }
 
   /* ------------------------------------------------------------
-     5. FORM VALIDATION
+     5. MULTI-STEP FORM
+     ------------------------------------------------------------ */
+  function initMultiStepForm() {
+    var form = document.getElementById('bewerbung-form');
+    var track = document.getElementById('form-track');
+    if (!form || !track) return;
+
+    var steps = form.querySelectorAll('.form-steps__step');
+    var bars = form.querySelectorAll('.form-steps__bar');
+    var backBtn = document.getElementById('form-back');
+    var currentStep = 0;
+    var stepMap = {};
+    var stepHistory = ['0'];
+
+    steps.forEach(function (step, i) {
+      stepMap[step.getAttribute('data-step')] = i;
+    });
+
+    function updateTrackHeight() {
+      var activeStep = steps[currentStep];
+      if (activeStep) {
+        track.style.height = activeStep.scrollHeight + 'px';
+      }
+    }
+
+    function updateBackButton(key) {
+      if (backBtn) {
+        if (key === '0') {
+          backBtn.classList.remove('form-steps__back--visible');
+        } else {
+          backBtn.classList.add('form-steps__back--visible');
+        }
+      }
+    }
+
+    function goToStep(key) {
+      var index = stepMap[key];
+      if (index === undefined) return;
+      currentStep = index;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      updateTrackHeight();
+      updateBackButton(key);
+
+      bars.forEach(function (bar) {
+        var barStep = parseInt(bar.getAttribute('data-step'), 10);
+        if (key === 'reject') {
+          bar.style.display = 'none';
+        } else {
+          bar.style.display = '';
+          if (barStep <= parseInt(key, 10)) {
+            bar.classList.add('form-steps__bar--active');
+          } else {
+            bar.classList.remove('form-steps__bar--active');
+          }
+        }
+      });
+
+      form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    // Set initial height after render
+    requestAnimationFrame(function () {
+      updateTrackHeight();
+    });
+
+    // Back button
+    if (backBtn) {
+      backBtn.addEventListener('click', function () {
+        if (stepHistory.length > 1) {
+          stepHistory.pop();
+          var prevKey = stepHistory[stepHistory.length - 1];
+
+          // Clear selection styling on the step we're leaving
+          steps[currentStep].querySelectorAll('.form-step__choice--selected').forEach(function (el) {
+            el.classList.remove('form-step__choice--selected');
+          });
+
+          goToStep(prevKey);
+        }
+      });
+    }
+
+    form.addEventListener('click', function (e) {
+      var choice = e.target.closest('.form-step__choice');
+      if (!choice) return;
+
+      var nextStep = choice.getAttribute('data-next');
+      var value = choice.getAttribute('data-value');
+      var step = choice.closest('.form-steps__step');
+      var stepKey = step.getAttribute('data-step');
+
+      choice.classList.add('form-step__choice--selected');
+
+      if (stepKey === '0') {
+        var qField = document.getElementById('hidden-qualifikation');
+        if (qField) qField.value = value;
+      } else if (stepKey === '1') {
+        var sField = document.getElementById('hidden-starttermin');
+        if (sField) sField.value = value;
+      }
+
+      setTimeout(function () {
+        stepHistory.push(nextStep);
+        goToStep(nextStep);
+      }, 250);
+    });
+  }
+
+  /* ------------------------------------------------------------
+     5b. FORM VALIDATION (Step 3 only)
      ------------------------------------------------------------ */
   function initFormValidation() {
     var form = document.getElementById('bewerbung-form');
     if (!form) return;
 
-    var alertBox = form.querySelector('.form__alert');
-
     form.addEventListener('submit', function (e) {
+      var alertBox = form.querySelector('.form__alert');
       var isValid = true;
       var firstInvalid = null;
 
-      // Clear previous errors
       form.querySelectorAll('.form-group--error').forEach(function (g) {
         g.classList.remove('form-group--error');
       });
 
-      // Validate required inputs
-      form.querySelectorAll('[required]').forEach(function (input) {
+      var contactStep = form.querySelector('.form-steps__step[data-step="2"]');
+      if (!contactStep) return;
+
+      contactStep.querySelectorAll('[required]').forEach(function (input) {
         var group = input.closest('.form-group');
         var valid = true;
 
@@ -183,7 +292,6 @@
         }
       });
 
-      // Honeypot check
       var honeypot = form.querySelector('input[name="website"]');
       if (honeypot && honeypot.value) {
         e.preventDefault();
@@ -192,16 +300,11 @@
 
       if (!isValid) {
         e.preventDefault();
-        if (alertBox) {
-          alertBox.hidden = false;
-        }
-        if (firstInvalid) {
-          firstInvalid.focus();
-        }
+        if (alertBox) alertBox.hidden = false;
+        if (firstInvalid) firstInvalid.focus();
         return;
       }
 
-      // Show loading state
       var submitBtn = form.querySelector('.form__submit');
       if (submitBtn) {
         submitBtn.classList.add('form__submit--loading');
@@ -211,7 +314,6 @@
       if (alertBox) alertBox.hidden = true;
     });
 
-    // Clear field errors on input
     form.addEventListener('input', function (e) {
       var group = e.target.closest('.form-group');
       if (group && group.classList.contains('form-group--error')) {
@@ -220,7 +322,6 @@
       }
     });
 
-    // Clear checkbox error on change
     form.addEventListener('change', function (e) {
       if (e.target.type === 'checkbox') {
         var group = e.target.closest('.form-group');
@@ -395,6 +496,7 @@
     initReveal();
     initSmoothScroll();
     initStickyCTA();
+    initMultiStepForm();
     initFormValidation();
     initVideoPlayer();
     initTracking();

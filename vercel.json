@@ -1,5 +1,8 @@
 {
   "rewrites": [
+    { "source": "/", "destination": "/pages/paediatrie/index.html" },
+    { "source": "/styles.css", "destination": "/pages/paediatrie/styles.css" },
+    { "source": "/scripts.js", "destination": "/pages/paediatrie/scripts.js" },
     { "source": "/paediatrie", "destination": "/pages/paediatrie/index.html" },
     { "source": "/paediatrie/", "destination": "/pages/paediatrie/index.html" },
     { "source": "/paediatrie/styles.css", "destination": "/pages/paediatrie/styles.css" },

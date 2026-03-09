@@ -652,16 +652,25 @@
 .benefit-card__icon svg *:nth-child(8) { animation-delay: 0.6s; }
 .benefit-card__icon svg *:nth-child(9) { animation-delay: 0.75s; }
 
-/* On hover: re-draw the icon */
+/* On hover: re-draw the icon (separate keyframe so it re-triggers) */
 .benefit-card:hover .benefit-card__icon svg path,
 .benefit-card:hover .benefit-card__icon svg line,
 .benefit-card:hover .benefit-card__icon svg circle,
 .benefit-card:hover .benefit-card__icon svg polyline,
 .benefit-card:hover .benefit-card__icon svg rect {
-  animation: strokeDrawOnce 1.2s ease-out forwards;
+  animation: strokeDrawHover 1.2s ease-out forwards;
 }
 
 @keyframes strokeDrawOnce {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes strokeDrawHover {
   0% {
     stroke-dashoffset: 100;
   }
@@ -954,6 +963,7 @@
   position: relative;
   text-align: left;
   border-radius: var(--radius-xl);
+  box-shadow: 0 4px 20px rgba(4, 108, 108, 0.35);
 }
 
 /* Ambient Glow Effect */
@@ -2047,19 +2057,220 @@
 .form-email-alt {
   text-align: center;
   margin-top: var(--space-8);
-  padding-top: var(--space-6);
-  border-top: 1px solid rgba(4, 108, 108, 0.12);
-}
-
-.form-email-alt .btn {
-  max-width: 100%;
-  font-size: var(--font-size-sm);
 }
 
 .form-email-alt__text {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
-  margin-bottom: var(--space-4);
+}
+
+.form-email-alt__link {
+  color: var(--color-teal, #046C6C);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-base, 0.2s);
+}
+
+.form-email-alt__link:hover {
+  color: var(--color-teal-dark, #035555);
+}
+
+/* --- Multi-Step Form --- */
+.form-steps {
+  overflow: hidden;
+}
+
+.form-steps__track {
+  display: flex;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-steps__step {
+  flex: 0 0 100%;
+  min-width: 0;
+  align-self: flex-start;
+}
+
+/* Form steps header (back button + progress) */
+.form-steps__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-8, 32px);
+}
+
+.form-steps__back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: none;
+  color: var(--color-teal, #046C6C);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background var(--transition-base, 0.2s), opacity var(--transition-base, 0.2s), width var(--transition-base, 0.2s), margin var(--transition-base, 0.2s);
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  overflow: hidden;
+}
+
+.form-steps__back--visible {
+  opacity: 1;
+  pointer-events: auto;
+  width: 36px;
+  margin-right: var(--space-2, 8px);
+}
+
+.form-steps__back:hover {
+  background: rgba(4, 108, 108, 0.08);
+}
+
+/* Progress indicator */
+.form-steps__progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2, 8px);
+  flex: 1;
+}
+
+.form-steps__bar {
+  height: 4px;
+  flex: 1;
+  max-width: 25%;
+  border-radius: 2px;
+  background: rgba(4, 108, 108, 0.15);
+  transition: background var(--transition-base, 0.2s);
+}
+
+.form-steps__bar--active {
+  background: var(--color-teal, #046C6C);
+}
+
+/* Step question layout */
+.form-step__question {
+  text-align: center;
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: 600;
+  color: var(--color-text, #1a1a1a);
+  margin-bottom: var(--space-6, 24px);
+  line-height: 1.4;
+}
+
+/* Choice buttons grid */
+.form-step__choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4, 16px);
+  margin-bottom: var(--space-6, 24px);
+}
+
+.form-step__choices--cols-4 {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 768px) {
+  .form-step__choices--cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.form-step__choice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-4, 16px) var(--space-3, 12px);
+  border: 2px solid rgba(4, 108, 108, 0.15);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--color-white, #fff);
+  color: var(--color-text, #1a1a1a);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color var(--transition-base, 0.2s),
+              background var(--transition-base, 0.2s),
+              color var(--transition-base, 0.2s),
+              transform var(--transition-base, 0.2s);
+}
+
+.form-step__choice:hover {
+  border-color: var(--color-teal, #046C6C);
+  transform: translateY(-2px);
+}
+
+.form-step__choice--selected {
+  border-color: var(--color-teal, #046C6C);
+  background: var(--color-teal, #046C6C);
+  color: var(--color-white, #fff);
+}
+
+/* Rejection screen */
+.form-step__reject {
+  text-align: center;
+  padding: var(--space-8, 32px) 0;
+}
+
+.form-step__reject-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-4, 16px);
+}
+
+.form-step__reject-title {
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: 700;
+  color: var(--color-text, #1a1a1a);
+  margin-bottom: var(--space-4, 16px);
+}
+
+.form-step__reject-text {
+  font-size: var(--font-size-base, 1rem);
+  color: var(--color-text-muted, #666);
+  margin-bottom: var(--space-6, 24px);
+  line-height: 1.6;
+}
+
+.form-step__reject-phone {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2, 8px);
+  font-size: var(--font-size-lg, 1.125rem);
+  font-weight: 600;
+  color: var(--color-teal, #046C6C);
+  text-decoration: none;
+}
+
+.form-step__reject-phone:hover {
+  text-decoration: underline;
+}
+
+/* Contact time select */
+.form-select {
+  width: 100%;
+  padding: var(--space-3, 12px) var(--space-4, 16px);
+  border: 1px solid rgba(4, 108, 108, 0.2);
+  border-radius: var(--radius-md, 8px);
+  background: var(--color-white, #fff);
+  color: var(--color-text, #1a1a1a);
+  font-size: var(--font-size-base, 1rem);
+  font-family: inherit;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23046C6C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 40px;
+  cursor: pointer;
+  transition: border-color var(--transition-base, 0.2s);
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: var(--color-teal, #046C6C);
+  box-shadow: 0 0 0 3px rgba(4, 108, 108, 0.1);
 }
 
 /* ------------------------------------------------------------

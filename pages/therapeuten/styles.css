@@ -28,7 +28,7 @@ body {
 
 /* --- Feature Image --- */
 .feature__image img {
-  object-position: 60% 25%;
+  object-position: 60% 12%;
 }
 
 /* --- Benefit Cards: Icon-Only (keine Bilder) --- */
@@ -72,17 +72,21 @@ body {
   max-width: 560px;
 }
 
-/* --- Testimonial Slider --- */
+/* --- Testimonial Slider (horizontal slide effect) --- */
 .testimonial__slider {
   position: relative;
+  overflow: hidden;
+}
+
+.testimonial__track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .testimonial__slide {
-  display: none;
-}
-
-.testimonial__slide--active {
-  display: block;
+  width: 100%;
+  min-width: 0;
+  flex: 0 0 100%;
 }
 
 /* Card layout */
@@ -91,6 +95,11 @@ body {
   grid-template-columns: 1fr;
   overflow: hidden;
   min-height: 320px;
+}
+
+/* Felix (Slide 2): Gesicht oben zeigen */
+.testimonial__slide:nth-child(2) .testimonial__image-col img {
+  object-position: center 15%;
 }
 
 @media (min-width: 768px) {
@@ -125,7 +134,7 @@ body {
   }
 }
 
-/* Navigation: arrows + dots */
+/* Navigation: arrows only */
 .testimonial__nav {
   display: flex;
   align-items: center;
@@ -152,22 +161,4 @@ body {
   background: var(--color-teal, #046C6C);
   color: var(--color-white, #fff);
   border-color: var(--color-teal, #046C6C);
-}
-
-.testimonial__dots {
-  display: flex;
-  gap: var(--space-2, 8px);
-}
-
-.testimonial__dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(4, 108, 108, 0.15);
-  cursor: pointer;
-  transition: background var(--transition-base, 0.2s);
-}
-
-.testimonial__dot--active {
-  background: var(--color-teal, #046C6C);
 }

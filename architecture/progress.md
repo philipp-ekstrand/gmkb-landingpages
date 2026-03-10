@@ -2,8 +2,8 @@
 
 **Letztes Update:** 2026-03-10
 **Aktiver Meilenstein:** Korrekturrunde (vom Projektleiter)
-**Status:** Warte auf Korrekturliste
-**Naechster Schritt:** Korrekturen umsetzen
+**Status:** Korrekturen werden umgesetzt
+**Naechster Schritt:** Weitere Korrekturen abwarten
 
 ---
 
@@ -35,8 +35,9 @@
 | Paediatrie | `/pages/paediatrie/` | `gmkb-peadiatrie.greyt.de/paediatrie/` |
 | Logopaedie | `/pages/logopaedie/` | `gmkb-peadiatrie.greyt.de/logopaedie/` |
 | Ergotherapie | `/pages/ergotherapie/` | `gmkb-peadiatrie.greyt.de/ergotherapie/` |
-| Therapeuten | `/pages/therapeuten/` | `gmkb-peadiatrie.greyt.de/therapeuten/` |
 | Danke-Seite | `/pages/danke/` | `gmkb-peadiatrie.greyt.de/danke/` |
+
+**Hinweis:** Therapeuten-Seite (`/pages/therapeuten/`) wurde am 2026-03-10 entfernt. Nur noch Einzelseiten pro Beruf.
 
 **CSS-Architektur:** `base.css` (Tokens) → `components.css` (Shared Components) → seitenspezifische `styles.css`
 
@@ -215,11 +216,21 @@ Umsetzung des ersten Kunden-Feedbacks (dokumentiert in `architecture/feedback-v1
 
 ---
 
+### Korrekturrunde – Feedback vom Paid Specialist (2026-03-10)
+
+- [x] Quereinsteiger-FAQ aus Logopaedie + Ergotherapie entfernt
+- [x] Neues Bild (2CM06953-ret.jpg) fuer Feature + Video-Poster auf Logo-Seite (logo-therapie-* in 3 Groessen)
+- [x] Vimeo-ID 1172314710 auf allen 3 Seiten eingesetzt (Paed/Logo/Ergo)
+- [x] Therapeuten-Seite komplett entfernt – nur noch Einzelseiten pro Beruf (Paed/Logo/Ergo)
+- [x] progress.md komplett ueberarbeitet (M0–M13 mit Detaillog)
+- [x] CLAUDE.md: Commit-Regel fuer progress.md, Therapeuten-Referenzen entfernt
+
+---
+
 ## Offene Punkte
 
-- [ ] WordPress-Zugang fuer Integration (spaeter)
+- [ ] WordPress-Zugang fuer Integration (wird angefragt wenn Seiten an GMKB gehen)
 - [ ] E-Mail-Empfaenger fuer Bewerbungsformular definieren
 - [ ] Consent Management: Borlabs Cookie Kompatibilitaet klaeren
-- [ ] Vimeo-Video-IDs einsetzen (aktuell Platzhalter VIMEO_ID_*)
 - [ ] Lighthouse Score >= 90 (nach WordPress-Integration)
 - [ ] M5–M9 formale Freigabe durch Projektleiter ausstehend

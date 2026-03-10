@@ -57,7 +57,7 @@ Jede Landingpage besteht aus 4 Dateien:
   scripts.js
   form-handler.php
 
-/pages/therapeuten/        <- Archiv, nicht mehr aktiv
+/pages/therapeuten/        <- Aktiv (alle Therapeuten-Berufe)
   index.html
   styles.css
   scripts.js
@@ -90,6 +90,7 @@ Regeln:
 - Nach `–` (Halbgeviertstrich): Keywords/betroffene Bereiche
 - Ein Commit pro logischer Einheit (nicht pro Datei)
 - Keine generischen Messages ("update", "fix", "changes")
+- **NACH JEDEM COMMIT:** `/architecture/progress.md` aktualisieren! Neuen Eintrag mit Details hinzufuegen (was genau geaendert wurde, welche Dateien/Seiten betroffen, technische Details). Das Detaillog muss ausfuehrlicher sein als die Commit-Message, damit jede neue Session den vollen Kontext hat.
 
 ## KRITISCHE PROZESS-REGELN
 

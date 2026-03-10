@@ -334,19 +334,27 @@
      6. VIDEO PLAYER
      ------------------------------------------------------------ */
   function initVideoPlayer() {
-    var playBtn = document.querySelector('.video__play-btn');
-    if (!playBtn) return;
+    var consentBtn = document.querySelector('.video__consent-btn');
+    if (!consentBtn) return;
 
-    playBtn.addEventListener('click', function () {
-      // TODO: Replace with actual video embed URL when available
-      // For now, this is a placeholder – will be replaced with
-      // YouTube/Vimeo embed or self-hosted video element
-      var frame = playBtn.closest('.video__frame');
+    consentBtn.addEventListener('click', function () {
+      var vimeoId = consentBtn.getAttribute('data-vimeo-id');
+      if (!vimeoId || vimeoId.indexOf('VIMEO_ID') === 0) return;
+
+      var frame = consentBtn.closest('.video__frame');
       if (!frame) return;
 
-      // Placeholder: Toggle a "playing" state
-      // In production, this will inject an iframe or video element
-      frame.classList.toggle('video__frame--playing');
+      var iframe = document.createElement('iframe');
+      iframe.className = 'video__iframe';
+      iframe.src = 'https://player.vimeo.com/video/' + vimeoId + '?autoplay=1&title=0&byline=0&portrait=0&dnt=1';
+      iframe.setAttribute('allow', 'autoplay; fullscreen; picture-in-picture');
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('loading', 'lazy');
+      iframe.setAttribute('title', 'Team-Video');
+      frame.appendChild(iframe);
+      frame.classList.add('video__frame--playing');
+
+      pushEvent('video_play', consentBtn.getAttribute('data-track-label') || 'team-video');
     });
   }
 

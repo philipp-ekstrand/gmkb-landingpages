@@ -11,18 +11,19 @@ body {
 }
 
 /* --- Section Backgrounds (Welleneffekt hell ↔ kräftig) --- */
+/* Reihenfolge: Hero → Benefits → Aufgaben → Feature → CTA → Testimonial → Video → Process → Form → FAQ */
 .hero-v2                { background: #F5FAFA; }
 .benefits               { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.feature                { background: #D4EAEA; }
-.cta-banner-wrap        { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.feature                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+.cta-banner-wrap        { background: #D4EAEA; }
+.testimonial            { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .video                  { background: #F5FAFA; }
-.testimonial            { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.process                { background: #D4EAEA; }
-.faq                    { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
-.form-section           { background: #F5FAFA; }
+.process                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+.form-section           { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.faq                    { background: #F5FAFA; }
 
 /* --- Aufgaben & Profil Section --- */
-.aufgaben { background: #F5FAFA; }
+.aufgaben { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 
 .aufgaben__header {
   max-width: 720px;
@@ -96,8 +97,7 @@ body {
   transform: rotate(-45deg);
 }
 
-/* --- Section Background: Aufgaben between Benefits and Feature --- */
-.aufgaben + .feature { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+/* --- (aufgaben + feature Hintergrund jetzt oben korrekt definiert) --- */
 
 /* --- Benefit Cards: gleiche Höhe --- */
 .benefits__grid {
@@ -119,7 +119,4 @@ body {
   object-position: 30% 15%;
 }
 
-/* --- Section backgrounds adjusted for new order --- */
-.testimonial            { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
-.video                  { background: #F5FAFA; }
-.process                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+/* --- (section backgrounds oben zentral definiert) --- */

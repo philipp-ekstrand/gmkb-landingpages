@@ -45,7 +45,19 @@ Jede Landingpage besteht aus 4 Dateien:
   scripts.js          <- Interaktionen, Tracking-Events, Sticky CTA
   form-handler.php    <- Formularverarbeitung + E-Mail-Versand
 
-/pages/therapeuten/
+/pages/logopaedie/
+  index.html
+  styles.css
+  scripts.js
+  form-handler.php
+
+/pages/ergotherapie/
+  index.html
+  styles.css
+  scripts.js
+  form-handler.php
+
+/pages/therapeuten/        <- Archiv, nicht mehr aktiv
   index.html
   styles.css
   scripts.js
@@ -119,6 +131,40 @@ Regeln:
 - Social Proof: Team-Testimonials, Video
 - Benefits klar und scanbar (Icon + Headline + Kurztext)
 - Danke-Seite mit eindeutiger URL `/danke-bewerbung` fuer Conversion-Tracking
+
+## VERCEL DEPLOYMENT (Staging/Preview)
+
+Die Landingpages sind auf Vercel deployed fuer Staging und Review:
+
+- **Production-Domain:** `https://gmkb-peadiatrie.greyt.de`
+- **Projekt:** `gmkb-landingpages`
+- **Auto-Deploy:** Push auf `main` triggert automatisch ein Deployment
+- **Rewrites:** Definiert in `/vercel.json` – jede neue Seite braucht Rewrites fuer `/`, `/styles.css`, `/scripts.js`
+- **URLs:**
+  - `https://gmkb-peadiatrie.greyt.de/paediatrie/`
+  - `https://gmkb-peadiatrie.greyt.de/logopaedie/`
+  - `https://gmkb-peadiatrie.greyt.de/ergotherapie/`
+  - `https://gmkb-peadiatrie.greyt.de/therapeuten/` (Archiv)
+
+**WICHTIG:** Wenn neue Seiten erstellt werden, IMMER auch die Vercel-Rewrites in `vercel.json` ergaenzen. Ohne Rewrites sind die Seiten nicht erreichbar. Nach Push immer die Live-URL mit Playwright pruefen.
+
+## SECTION-BACKGROUNDS (Welleneffekt)
+
+Die Sections haben einen sanften Welleneffekt zwischen hell (#F5FAFA) und kraeftig (#D4EAEA). **KRITISCH:** Wenn Sections umgeordnet werden, MUESSEN die Hintergrund-Farben angepasst werden, damit keine harten Kanten entstehen. Jede Section muss dort anfangen, wo die vorherige aufhoert.
+
+Aktuelle Section-Reihenfolge (alle Seiten):
+```
+Hero:        #F5FAFA (hell, flat)
+Benefits:    #F5FAFA → #D4EAEA (hell → kraeftig)
+Aufgaben:    #D4EAEA → #F5FAFA (kraeftig → hell)
+Feature:     #F5FAFA → #D4EAEA (hell → kraeftig)
+CTA-Banner:  #D4EAEA (kraeftig, flat)
+Testimonial: #D4EAEA → #F5FAFA (kraeftig → hell)
+Video:       #F5FAFA (hell, flat)
+Process:     #F5FAFA → #D4EAEA (hell → kraeftig)
+Form:        #D4EAEA → #F5FAFA (kraeftig → hell)
+FAQ:         #F5FAFA (hell, flat)
+```
 
 ## WORDPRESS-INTEGRATION
 

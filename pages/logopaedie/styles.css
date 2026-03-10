@@ -11,16 +11,17 @@ body {
 }
 
 /* --- Section Backgrounds (Welleneffekt hell <-> kräftig) --- */
+/* Reihenfolge: Hero → Benefits → Aufgaben → Feature → CTA → Testimonial → Video → Process → Form → FAQ */
 .hero-v2                { background: #F5FAFA; }
 .benefits               { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.aufgaben               { background: #F5FAFA; }
+.aufgaben               { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .feature                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
 .cta-banner-wrap        { background: #D4EAEA; }
 .testimonial            { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .video                  { background: #F5FAFA; }
 .process                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.faq                    { background: #D4EAEA; }
 .form-section           { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.faq                    { background: #F5FAFA; }
 
 /* --- Hero Image Position --- */
 .hero-v2__img {

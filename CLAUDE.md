@@ -57,12 +57,6 @@ Jede Landingpage besteht aus 4 Dateien:
   scripts.js
   form-handler.php
 
-/pages/therapeuten/        <- Aktiv (alle Therapeuten-Berufe)
-  index.html
-  styles.css
-  scripts.js
-  form-handler.php
-
 /pages/danke/
   index.html          <- Danke-Seite nach Bewerbung (Conversion-Tracking)
   styles.css
@@ -145,7 +139,6 @@ Die Landingpages sind auf Vercel deployed fuer Staging und Review:
   - `https://gmkb-peadiatrie.greyt.de/paediatrie/`
   - `https://gmkb-peadiatrie.greyt.de/logopaedie/`
   - `https://gmkb-peadiatrie.greyt.de/ergotherapie/`
-  - `https://gmkb-peadiatrie.greyt.de/therapeuten/` (Archiv)
 
 **WICHTIG:** Wenn neue Seiten erstellt werden, IMMER auch die Vercel-Rewrites in `vercel.json` ergaenzen. Ohne Rewrites sind die Seiten nicht erreichbar. Nach Push immer die Live-URL mit Playwright pruefen.
 

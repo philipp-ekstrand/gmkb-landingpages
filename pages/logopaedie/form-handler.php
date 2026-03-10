@@ -21,7 +21,7 @@ $config = [
     'recipient_name'  => 'GMKB Bewerbungen',
     'from_email'      => 'noreply@medizinundtherapie.de',
     'from_name'       => 'GMKB Karriereportal',
-    'subject'         => 'Neue Bewerbung: Facharzt Paediatrie (m/w/d)',
+    'subject'         => 'Neue Bewerbung: Logopäde (m/w/d)',
     'danke_url'       => '/karriere/danke-bewerbung/', // WordPress-URL nach Integration
     'danke_url_dev'   => '../danke/index.html',        // Lokale Entwicklung
     'rate_limit'      => 3,       // Max Submissions pro Session
@@ -101,7 +101,6 @@ $vorname   = sanitize_input($_POST['vorname'] ?? '');
 $nachname  = sanitize_input($_POST['nachname'] ?? '');
 $email     = sanitize_email($_POST['email'] ?? '');
 $telefon   = sanitize_input($_POST['telefon'] ?? '');
-$standort  = sanitize_input($_POST['standort'] ?? '');
 $nachricht = sanitize_textarea($_POST['nachricht'] ?? '');
 
 $errors = [];
@@ -243,7 +242,7 @@ function build_email_body(string $vorname, string $nachname, string $email, stri
         Neue Bewerbung eingegangen
       </h1>
       <p style="margin:8px 0 0; color:rgba(255,255,255,0.85); font-size:14px;">
-        Facharzt Paediatrie (m/w/d) &ndash; GMKB Karriereportal
+        Logopäde (m/w/d) &ndash; GMKB Karriereportal
       </p>
     </td>
   </tr>
@@ -285,7 +284,7 @@ function build_email_body(string $vorname, string $nachname, string $email, stri
     <td style="background:#f8f8f8; padding:16px 32px; border-top:1px solid #eee;">
       <p style="margin:0; font-size:12px; color:#888;">
         Eingegangen am {$datum} Uhr &bull;
-        Quelle: Karriere-Landingpage Paediatrie &bull;
+        Quelle: Karriere-Landingpage Logopädie &bull;
         <a href="mailto:{$email}" style="color:#0D7377;">Direkt antworten</a>
       </p>
     </td>

@@ -2,8 +2,8 @@
 
 **Letztes Update:** 2026-03-10
 **Aktiver Meilenstein:** Korrekturrunde (vom Projektleiter)
-**Status:** Korrekturen werden umgesetzt
-**Naechster Schritt:** Weitere Korrekturen abwarten
+**Status:** Korrekturrunde abgeschlossen
+**Naechster Schritt:** Weitere Korrekturen/Freigabe abwarten
 
 ---
 
@@ -224,6 +224,7 @@ Umsetzung des ersten Kunden-Feedbacks (dokumentiert in `architecture/feedback-v1
 - [x] Therapeuten-Seite komplett entfernt – nur noch Einzelseiten pro Beruf (Paed/Logo/Ergo)
 - [x] progress.md komplett ueberarbeitet (M0–M13 mit Detaillog)
 - [x] CLAUDE.md: Commit-Regel fuer progress.md, Therapeuten-Referenzen entfernt
+- [x] Ergo Feature-Bild: Weisses Dreieck aus therapeut-balance Quellbild entfernt (68% Crop, alle Groessen + WebP neu generiert, HTML-srcset angepasst)
 
 ---
 

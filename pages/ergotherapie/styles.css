@@ -28,9 +28,14 @@ body {
   object-position: center 15%;
 }
 
-/* --- Feature Image --- */
+/* --- Feature Image: Ergotherapeut + Kind komplett sichtbar --- */
 .feature__image img {
-  object-position: center 30%;
+  object-position: center 45%;
+}
+
+/* --- Video Poster: gleiches Bild --- */
+.video__poster {
+  object-position: center 45%;
 }
 
 /* --- Aufgaben & Profil Section (identisch mit Pädiatrie) --- */

@@ -10,6 +10,14 @@
     { "source": "/therapeuten", "destination": "/pages/therapeuten/index.html" },
     { "source": "/therapeuten/", "destination": "/pages/therapeuten/index.html" },
     { "source": "/therapeuten/styles.css", "destination": "/pages/therapeuten/styles.css" },
-    { "source": "/therapeuten/scripts.js", "destination": "/pages/therapeuten/scripts.js" }
+    { "source": "/therapeuten/scripts.js", "destination": "/pages/therapeuten/scripts.js" },
+    { "source": "/logopaedie", "destination": "/pages/logopaedie/index.html" },
+    { "source": "/logopaedie/", "destination": "/pages/logopaedie/index.html" },
+    { "source": "/logopaedie/styles.css", "destination": "/pages/logopaedie/styles.css" },
+    { "source": "/logopaedie/scripts.js", "destination": "/pages/logopaedie/scripts.js" },
+    { "source": "/ergotherapie", "destination": "/pages/ergotherapie/index.html" },
+    { "source": "/ergotherapie/", "destination": "/pages/ergotherapie/index.html" },
+    { "source": "/ergotherapie/styles.css", "destination": "/pages/ergotherapie/styles.css" },
+    { "source": "/ergotherapie/scripts.js", "destination": "/pages/ergotherapie/scripts.js" }
   ]
 }

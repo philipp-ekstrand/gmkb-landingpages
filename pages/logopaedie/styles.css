@@ -30,12 +30,12 @@ body {
 
 /* --- Feature Image: Therapeutin + Kind sichtbar (Bild extrem vertikal) --- */
 .feature__image img {
-  object-position: center 42%;
+  object-position: 35% 62%;
 }
 
 /* --- Video Poster: gleiches Bild, Menschen zeigen --- */
 .video__poster {
-  object-position: center 42%;
+  object-position: 35% 62%;
 }
 
 /* --- Aufgaben & Profil Section (identisch mit Pädiatrie) --- */

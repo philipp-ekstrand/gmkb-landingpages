@@ -10,18 +10,18 @@ body {
   background-color: #F5FAFA;
 }
 
-/* --- Section Backgrounds (Welleneffekt hell <-> kräftig) --- */
+/* --- Section Backgrounds (4-Phasen-Welle: hell → gradient ↓ → kräftig → gradient ↑) --- */
 /* Reihenfolge: Hero → Benefits → Aufgaben → Feature → CTA → Testimonial → Video → Process → Form → FAQ */
 .hero-v2                { background: #F5FAFA; }
 .benefits               { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.aufgaben               { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
-.feature                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.cta-banner-wrap        { background: #D4EAEA; }
-.testimonial            { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
-.video                  { background: #F5FAFA; }
+.aufgaben-profil        { background: #D4EAEA; }
+.feature                { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.cta-banner-wrap        { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+.testimonial            { background: #D4EAEA; }
+.video                  { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .process                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.form-section           { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
-.faq                    { background: #F5FAFA; }
+.form-section           { background: #D4EAEA; }
+.faq                    { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 
 /* --- Hero Image Position --- */
 .hero-v2__img {

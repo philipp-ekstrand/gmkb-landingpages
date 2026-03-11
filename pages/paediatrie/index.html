@@ -827,13 +827,7 @@
     <div class="container">
       <div class="standorte__card reveal">
         <div class="standorte__map">
-          <iframe
-            src="https://www.google.com/maps?q=GMKB+Medizinzentren+KölnBonn&z=11&output=embed"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="GMKB Standorte – über 12 Einrichtungen im Raum Köln und Bonn">
-          </iframe>
+          <div id="standorte-map" aria-label="GMKB Standorte – über 12 Einrichtungen im Raum Köln und Bonn"></div>
         </div>
         <div class="standorte__content">
           <span class="benefits__tag">
@@ -1216,6 +1210,8 @@
 
   <!-- Scripts (defer) -->
   <script src="scripts.js" defer></script>
+  <script src="../../assets/js/standorte-map.js" defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNX7zRGX7ctkzT6M4ZPnzR0S6-co-vix0&callback=initStandorteMap" defer></script>
 </body>
 </html>
 

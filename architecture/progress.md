@@ -1,9 +1,9 @@
 # GMKB Recruiting-Landingpages – Fortschritt
 
-**Letztes Update:** 2026-03-10
-**Aktiver Meilenstein:** Korrekturrunde (vom Projektleiter)
-**Status:** Korrekturrunde abgeschlossen
-**Naechster Schritt:** Weitere Korrekturen/Freigabe abwarten
+**Letztes Update:** 2026-03-11
+**Aktiver Meilenstein:** M14 – Feedback-Runde 2
+**Status:** In Arbeit
+**Naechster Schritt:** Weitere Feedback-Punkte abarbeiten
 
 ---
 
@@ -25,6 +25,7 @@
 | M11 | FAQ, Feedback-Runde 1, SEO-Keywords | ✅ Fertig | 2026-03-08 bis 2026-03-10 |
 | M12 | Responsive & UI-Polish | ✅ Fertig | 2026-03-08 |
 | M13 | SEO-Optimierung Paediatrie | ✅ Fertig | 2026-03-08 |
+| M14 | Feedback-Runde 2 | 🔄 In Arbeit | 2026-03-10 bis laufend |
 
 ---
 
@@ -225,6 +226,42 @@ Umsetzung des ersten Kunden-Feedbacks (dokumentiert in `architecture/feedback-v1
 - [x] progress.md komplett ueberarbeitet (M0–M13 mit Detaillog)
 - [x] CLAUDE.md: Commit-Regel fuer progress.md, Therapeuten-Referenzen entfernt
 - [x] Ergo Feature-Bild: Weisses Dreieck aus therapeut-balance Quellbild entfernt (68% Crop, alle Groessen + WebP neu generiert, HTML-srcset angepasst)
+
+---
+
+### M14 – Feedback-Runde 2 (2026-03-10 bis laufend)
+
+**Alle 12 GMKB-Standorte (2026-03-10):**
+- [x] Alle 12 GMKB-Einrichtungen recherchiert und in Standorte-Section eingepflegt (5 Medizinzentren + 7 Therapie-Praxen)
+- [x] Standorte-Section: Card-Style Redesign, Google Maps Embed
+- [x] Standorte-Headline in Card-Container verschoben, kompakteres Layout
+- [x] Map-Pin SVG-Icons vor jedem Standort-Eintrag (::before Pseudo-Element)
+- [x] Standorte-Tag align-self: flex-start (statt stretch auf Desktop)
+
+**Section-Reorder (2026-03-10):**
+- [x] Neue Reihenfolge: Hero → Benefits → Aufgaben → Testimonial → Process → Form → Feature → CTA → Video → Standorte → FAQ
+- [x] Section-Backgrounds fuer neue Reihenfolge angepasst (Wellen-Farbfluss nahtlos)
+- [x] Python-Script fuer zuverlaessige Section-Umordnung in allen 3 HTML-Dateien
+
+**Step-Navigation im Formular (2026-03-10):**
+- [x] Progress-Bars (3 Balken) durch nummerierte Kreise (1-2-3) ersetzt
+- [x] Aktiver Schritt: Teal-Hintergrund + weisse Schrift; Inaktiv: Teal-Border + Teal-Text
+- [x] Verbindungslinien zwischen Schritten, werden Teal wenn Schritt abgeschlossen
+- [x] JS-Logik in allen 3 scripts.js aktualisiert (dots/lines statt bars)
+- [x] Auf allen 3 Seiten (Paed/Logo/Ergo) angewendet
+
+**Doppeltes Formular + Feature-Card-Fix (2026-03-11):**
+- [x] Bewerbungsformular zweimal auf jeder Seite: einmal nach Process-Section, einmal vor FAQ/Footer
+- [x] JS komplett refactored: querySelectorAll('.form') statt getElementById, Multi-Form-Support
+- [x] Alle getElementById-Aufrufe durch form-relative Queries ersetzt (form.querySelector)
+- [x] initMultiStepForm, initFormValidation, initFileUpload, initTracking: alle Multi-Form-faehig
+- [x] Sticky CTA verschwindet wenn JEDES Formular sichtbar (IntersectionObserver zaehlt visible forms)
+- [x] Anker-Links (#bewerbung) scrollen immer zum naechsten Formular unterhalb der aktuellen Scroll-Position
+- [x] Zweites Formular: HTML mit -2 suffixed IDs (bewerbung-2, vorname-2, email-2 etc.) fuer HTML-Validitaet
+- [x] Section-Backgrounds angepasst: FAQ jetzt #F5FAFA → #D4EAEA (statt umgekehrt)
+- [x] Feature-Card 3. Element auf Mobile: zentriert, volle Breite, Icon+Text inline (flex-direction: row)
+- [x] Alle 3 Seiten (Paed/Logo/Ergo) + components.css betroffen
+- [x] Auf Vercel verifiziert (Paed + Logo): Beide Formulare sichtbar, Step-Navigation funktional
 
 ---
 

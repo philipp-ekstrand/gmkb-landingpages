@@ -23,11 +23,11 @@ function initStandorteMap() {
     { lat: 50.7352, lng: 7.0965, name: 'GMBiff', address: 'Joachimstr. 10–12, 53113 Bonn', type: 'therapie' }
   ];
 
-  var center = { lat: 50.78, lng: 7.02 };
+  var center = { lat: 50.79, lng: 7.00 };
 
   var map = new google.maps.Map(mapEl, {
     center: center,
-    zoom: 11,
+    zoom: 10,
     mapId: 'gmkb-standorte',
     disableDefaultUI: false,
     zoomControl: true,
@@ -46,6 +46,9 @@ function initStandorteMap() {
 
   var infoWindow = new google.maps.InfoWindow();
 
+  /* SVG pin marker path (standard map pin shape) */
+  var PIN_PATH = 'M12 0C7.03 0 3 4.03 3 9c0 6.75 9 15 9 15s9-8.25 9-15c0-4.97-4.03-9-9-9zm0 12.75c-2.07 0-3.75-1.68-3.75-3.75S9.93 5.25 12 5.25 15.75 6.93 15.75 9 14.07 12.75 12 12.75z';
+
   locations.forEach(function (loc) {
     var pinColor = loc.type === 'mez' ? '#046C6C' : '#0D9B9B';
 
@@ -54,12 +57,13 @@ function initStandorteMap() {
       map: map,
       title: loc.name,
       icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 10,
+        path: PIN_PATH,
         fillColor: pinColor,
         fillOpacity: 1,
         strokeColor: '#FFFFFF',
-        strokeWeight: 2.5
+        strokeWeight: 1.5,
+        scale: 1.5,
+        anchor: new google.maps.Point(12, 24)
       }
     });
 
@@ -68,9 +72,6 @@ function initStandorteMap() {
         '<div style="font-family:Inter,system-ui,sans-serif;padding:4px 2px;">' +
           '<strong style="color:#046C6C;font-size:14px;">' + loc.name + '</strong><br>' +
           '<span style="color:#4A5A5A;font-size:13px;">' + loc.address + '</span>' +
-          '<br><a href="https://www.google.com/maps/dir/?api=1&destination=' +
-          encodeURIComponent(loc.address) +
-          '" target="_blank" rel="noopener" style="color:#0D7377;font-size:13px;text-decoration:none;font-weight:600;">Route planen →</a>' +
         '</div>'
       );
       infoWindow.open(map, marker);

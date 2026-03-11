@@ -149,7 +149,8 @@
     if (!form || !track) return;
 
     var steps = form.querySelectorAll('.form-steps__step');
-    var bars = form.querySelectorAll('.form-steps__bar');
+    var dots = form.querySelectorAll('.form-steps__dot');
+    var lines = form.querySelectorAll('.form-steps__line');
     var backBtn = document.getElementById('form-back');
     var currentStep = 0;
     var stepMap = {};
@@ -184,19 +185,29 @@
       updateTrackHeight();
       updateBackButton(key);
 
-      bars.forEach(function (bar) {
-        var barStep = parseInt(bar.getAttribute('data-step'), 10);
-        if (key === 'reject') {
-          bar.style.display = 'none';
-        } else {
-          bar.style.display = '';
-          if (barStep <= parseInt(key, 10)) {
-            bar.classList.add('form-steps__bar--active');
+      var nav = form.querySelector('.form-steps__nav');
+      if (key === 'reject') {
+        if (nav) nav.style.display = 'none';
+      } else {
+        if (nav) nav.style.display = '';
+        var stepNum = parseInt(key, 10);
+        dots.forEach(function (dot) {
+          var dotStep = parseInt(dot.getAttribute('data-step'), 10);
+          if (dotStep <= stepNum) {
+            dot.classList.add('form-steps__dot--active');
           } else {
-            bar.classList.remove('form-steps__bar--active');
+            dot.classList.remove('form-steps__dot--active');
           }
-        }
-      });
+        });
+        lines.forEach(function (line) {
+          var lineIdx = parseInt(line.getAttribute('data-line'), 10);
+          if (lineIdx < stepNum) {
+            line.classList.add('form-steps__line--active');
+          } else {
+            line.classList.remove('form-steps__line--active');
+          }
+        });
+      }
 
       form.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }

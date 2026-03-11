@@ -2352,25 +2352,43 @@
   background: rgba(4, 108, 108, 0.08);
 }
 
-/* Progress indicator */
-.form-steps__progress {
+/* Step navigation (numbered circles + connecting lines) */
+.form-steps__nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2, 8px);
   flex: 1;
 }
 
-.form-steps__bar {
-  height: 4px;
-  flex: 1;
-  max-width: 25%;
-  border-radius: 2px;
-  background: rgba(4, 108, 108, 0.15);
+.form-steps__dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--color-teal, #046C6C);
+  background: transparent;
+  color: var(--color-teal, #046C6C);
+  font-size: var(--font-size-sm, 0.875rem);
+  font-weight: var(--font-weight-bold, 700);
+  flex-shrink: 0;
+  transition: background var(--transition-base, 0.2s), color var(--transition-base, 0.2s);
+}
+
+.form-steps__dot--active {
+  background: var(--color-teal, #046C6C);
+  color: #fff;
+}
+
+.form-steps__line {
+  height: 2px;
+  width: 40px;
+  background: rgba(4, 108, 108, 0.25);
   transition: background var(--transition-base, 0.2s);
 }
 
-.form-steps__bar--active {
+.form-steps__line--active {
   background: var(--color-teal, #046C6C);
 }
 

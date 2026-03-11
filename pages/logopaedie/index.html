@@ -514,11 +514,13 @@
             <button type="button" class="form-steps__back" id="form-back" aria-label="Zurück zum vorherigen Schritt">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
-            <div class="form-steps__progress">
-              <div class="form-steps__bar form-steps__bar--active" data-step="0"></div>
-              <div class="form-steps__bar" data-step="1"></div>
-              <div class="form-steps__bar" data-step="2"></div>
-            </div>
+            <nav class="form-steps__nav" aria-label="Formular-Fortschritt">
+              <span class="form-steps__dot form-steps__dot--active" data-step="0">1</span>
+              <span class="form-steps__line" data-line="0"></span>
+              <span class="form-steps__dot" data-step="1">2</span>
+              <span class="form-steps__line" data-line="1"></span>
+              <span class="form-steps__dot" data-step="2">3</span>
+            </nav>
           </div>
 
           <div class="form-steps">

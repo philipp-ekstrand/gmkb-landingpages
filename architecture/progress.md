@@ -298,6 +298,11 @@ Umsetzung des ersten Kunden-Feedbacks (dokumentiert in `architecture/feedback-v1
 - [x] Fix in allen 3 scripts.js: Hero-Slider + Karussell-Slider (mouseenter/mouseleave nur bei hover: hover)
 - [x] Verifiziert auf Vercel (390x844): Paed Slider laeuft, beide Bilder zeigen Personen; Logo + Ergo Einzelbilder OK
 
+**Hero H1 + Trust-Bar Mobile-Polish (2026-03-11):**
+- [x] H1 font-size fluider: clamp(1.875rem, 1.25rem+2.5vw, 3.25rem) – "Facharzt / Fachärztin" bricht nicht mehr um bei 380px
+- [x] Trust-Bar Icons 38px statt 44px auf Mobile (kompaktere Darstellung)
+- [x] Verifiziert auf Vercel (380x844): H1 einzeilig, Icons proportional
+
 ---
 
 ## Offene Punkte

@@ -150,14 +150,16 @@ Aktuelle Section-Reihenfolge (alle Seiten):
 ```
 Hero:        #F5FAFA (hell, flat)
 Benefits:    #F5FAFA → #D4EAEA (hell → kraeftig)
-Aufgaben:    #D4EAEA → #F5FAFA (kraeftig → hell)
-Feature:     #F5FAFA → #D4EAEA (hell → kraeftig)
-CTA-Banner:  #D4EAEA (kraeftig, flat)
+Aufgaben:    #D4EAEA (kraeftig, flat)
 Testimonial: #D4EAEA → #F5FAFA (kraeftig → hell)
-Video:       #F5FAFA (hell, flat)
 Process:     #F5FAFA → #D4EAEA (hell → kraeftig)
 Form:        #D4EAEA → #F5FAFA (kraeftig → hell)
-FAQ:         #F5FAFA (hell, flat)
+Feature:     #F5FAFA → #D4EAEA (hell → kraeftig)
+Video:       #D4EAEA → #F5FAFA (kraeftig → hell)
+CTA-Banner:  #F5FAFA (hell, flat)
+Standorte:   #F5FAFA → #D4EAEA (hell → kraeftig)
+Form2:       #D4EAEA → #F5FAFA (kraeftig → hell)
+FAQ:         #F5FAFA → #D4EAEA (hell → kraeftig)
 ```
 
 ## WORDPRESS-INTEGRATION

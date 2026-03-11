@@ -263,6 +263,15 @@ Umsetzung des ersten Kunden-Feedbacks (dokumentiert in `architecture/feedback-v1
 - [x] Alle 3 Seiten (Paed/Logo/Ergo) + components.css betroffen
 - [x] Auf Vercel verifiziert (Paed + Logo): Beide Formulare sichtbar, Step-Navigation funktional
 
+**Video/CTA-Section Tausch (2026-03-11):**
+- [x] Video-Section ("Lerne dein Team kennen") und CTA-Banner ("Bereit fuer den naechsten Schritt") getauscht
+- [x] Neue Reihenfolge: Feature → Video → CTA-Banner → Standorte → Form2 → FAQ
+- [x] Python-Script `/tmp/swap_video_cta.py` fuer zuverlaessigen Tausch in allen 3 HTML-Dateien
+- [x] Section-Backgrounds angepasst: .cta-banner-wrap von #D4EAEA auf #F5FAFA (da jetzt nach Video, das auf #F5FAFA endet)
+- [x] CSS-Kommentare in allen 3 styles.css aktualisiert (neue Reihenfolge)
+- [x] CLAUDE.md Section-Backgrounds Referenz aktualisiert
+- [x] Auf Vercel verifiziert (Paed): Reihenfolge korrekt, Hintergrund-Uebergaenge nahtlos
+
 ---
 
 ## Offene Punkte

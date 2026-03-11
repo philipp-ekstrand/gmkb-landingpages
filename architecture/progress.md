@@ -272,6 +272,26 @@ Umsetzung des ersten Kunden-Feedbacks (dokumentiert in `architecture/feedback-v1
 - [x] CLAUDE.md Section-Backgrounds Referenz aktualisiert
 - [x] Auf Vercel verifiziert (Paed): Reihenfolge korrekt, Hintergrund-Uebergaenge nahtlos
 
+**Video-laden-Button Redesign (2026-03-11):**
+- [x] Video-Consent-Button (.video__consent-btn) komplett umgestylt: eckig → rund (border-radius: var(--radius-md))
+- [x] Gradient-Hintergrund wie btn--white (grau-weiss-grau), Hover-Effekt mit ::before Pseudo-Element
+- [x] Auf allen 3 Seiten wirksam (gemeinsame components.css)
+
+**Google Maps JavaScript API (2026-03-11):**
+- [x] Embed-API (Einzelstandort) durch Maps JavaScript API (alle 12 Standorte) ersetzt
+- [x] Neues Script /assets/js/standorte-map.js mit allen 12 GMKB-Einrichtungen (5 MEZ + 7 Therapie)
+- [x] Custom SVG Pin-Marker (Teal-Farben, Medizinzentren dunkler als Therapie-Praxen)
+- [x] InfoWindows bei Klick (Name + Adresse), kein "Route planen"-Link
+- [x] Karte staerker rausgezoomt (zoom: 10), Kartenfarben passend zum GMKB Design
+- [x] CSS Pin-Icons in Standorte-Liste: Farben invertiert (Teal-Fill, heller Punkt innen)
+- [x] API-Key HTTP-Referrer-Restriction auf gmkb-peadiatrie.greyt.de/* und medizinundtherapie.de/*
+
+**Feature-Section: Arbeitgeber-Fokus (2026-03-11):**
+- [x] Tag "Unser Team" → "Dein Arbeitgeber" (alle 3 Seiten)
+- [x] Feature-Cards: seitenspezifische Fakten ersetzt durch Orga-Facts (Gemeinnuetziger Traeger seit 2003 / Ueber 140 Mitarbeitende / 12 Standorte in Koeln & Bonn)
+- [x] Headline: "Die GMKB – Medizin & Therapie unter einem Dach." (alle 3 Seiten)
+- [x] Body-Text: GMKB als gemeinnuetziger Traeger, 20+ Jahre Erfahrung, interdisziplinaere Zusammenarbeit – seitenspezifisch (Paed: Kinderaerzte/Therapeuten/Paedagogen, Logo: Logopaeden/Kinderaerzte/Ergotherapeuten, Ergo: Ergotherapeuten/Kinderaerzte/Logopaeden)
+
 ---
 
 ## Offene Punkte

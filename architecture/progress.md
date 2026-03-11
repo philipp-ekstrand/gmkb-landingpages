@@ -292,6 +292,12 @@ Umsetzung des ersten Kunden-Feedbacks (dokumentiert in `architecture/feedback-v1
 - [x] Headline: "Die GMKB – Medizin & Therapie unter einem Dach." (alle 3 Seiten)
 - [x] Body-Text: GMKB als gemeinnuetziger Traeger, 20+ Jahre Erfahrung, interdisziplinaere Zusammenarbeit – seitenspezifisch (Paed: Kinderaerzte/Therapeuten/Paedagogen, Logo: Logopaeden/Kinderaerzte/Ergotherapeuten, Ergo: Ergotherapeuten/Kinderaerzte/Logopaeden)
 
+**Hero-Slider Mobile-Fix (2026-03-11):**
+- [x] object-position: center top fuer .hero-v2__img auf Mobile (base in components.css) – Personen im 1:1-Crop sichtbar
+- [x] Slider Hover-Pause nur noch auf Desktop (hover: hover Media Query) – verhindert Haengenbleiben auf Touch-Geraeten
+- [x] Fix in allen 3 scripts.js: Hero-Slider + Karussell-Slider (mouseenter/mouseleave nur bei hover: hover)
+- [x] Verifiziert auf Vercel (390x844): Paed Slider laeuft, beide Bilder zeigen Personen; Logo + Ergo Einzelbilder OK
+
 ---
 
 ## Offene Punkte

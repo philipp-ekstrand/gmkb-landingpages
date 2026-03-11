@@ -471,9 +471,11 @@
     bars[0].classList.add('hero-v2__progress-bar--active');
     timer = setInterval(next, interval);
 
-    // Pause on hover
-    slider.addEventListener('mouseenter', function () { clearInterval(timer); });
-    slider.addEventListener('mouseleave', function () { timer = setInterval(next, interval); });
+    // Pause on hover (desktop only – touch devices fire mouseenter without reliable mouseleave)
+    if (window.matchMedia('(hover: hover)').matches) {
+      slider.addEventListener('mouseenter', function () { clearInterval(timer); });
+      slider.addEventListener('mouseleave', function () { timer = setInterval(next, interval); });
+    }
   }
 
   /* ------------------------------------------------------------
@@ -609,9 +611,11 @@
     // Auto-play
     startAutoplay();
 
-    // Pause on hover
-    slider.addEventListener('mouseenter', stopAutoplay);
-    slider.addEventListener('mouseleave', startAutoplay);
+    // Pause on hover (desktop only)
+    if (window.matchMedia('(hover: hover)').matches) {
+      slider.addEventListener('mouseenter', stopAutoplay);
+      slider.addEventListener('mouseleave', startAutoplay);
+    }
   }
 
   /* ------------------------------------------------------------

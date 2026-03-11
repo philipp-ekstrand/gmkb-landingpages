@@ -11,7 +11,7 @@ body {
 }
 
 /* --- Section Backgrounds (Welle: hell ↔ kräftig, nahtlose Übergänge) --- */
-/* Reihenfolge: Hero → Benefits → Aufgaben → Testimonial → Process → Form → Feature → CTA → Video → Standorte → FAQ */
+/* Reihenfolge: Hero → Benefits → Aufgaben → Testimonial → Process → Form → Feature → CTA → Video → Standorte → Form2 → FAQ */
 .hero-v2                { background: #F5FAFA; }
 .benefits               { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
 .aufgaben-profil        { background: #D4EAEA; }
@@ -22,7 +22,7 @@ body {
 .cta-banner-wrap        { background: #D4EAEA; }
 .video                  { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .standorte              { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.faq                    { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.faq                    { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
 
 /* --- Hero Image Position --- */
 .hero-v2__img {

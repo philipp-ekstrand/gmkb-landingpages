@@ -81,6 +81,31 @@
       link.addEventListener('click', function (e) {
         var targetId = this.getAttribute('href');
         if (targetId === '#') return;
+
+        // For #bewerbung links: scroll to the next form section below current position
+        if (targetId === '#bewerbung') {
+          e.preventDefault();
+          var formSections = document.querySelectorAll('.form-section');
+          var scrollTop = window.scrollY || window.pageYOffset;
+          var target = null;
+
+          formSections.forEach(function (section) {
+            if (!target && section.offsetTop > scrollTop + 100) {
+              target = section;
+            }
+          });
+
+          // Fallback to last form section
+          if (!target && formSections.length) {
+            target = formSections[formSections.length - 1];
+          }
+
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+          return;
+        }
+
         var target = document.querySelector(targetId);
         if (target) {
           e.preventDefault();
@@ -95,36 +120,46 @@
      ------------------------------------------------------------ */
   function initStickyCTA() {
     var stickyCta = document.getElementById('sticky-cta');
-    var formSection = document.getElementById('bewerbung');
+    var formSections = document.querySelectorAll('.form-section');
     var heroSection = document.querySelector('.hero');
 
-    if (!stickyCta || !formSection) return;
+    if (!stickyCta || !formSections.length) return;
 
     // Only on mobile
     if (window.innerWidth >= 768) return;
 
+    var visibleForms = 0;
+
     var formObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          stickyCta.classList.remove('sticky-cta--visible');
+          visibleForms++;
         } else {
-          // Only show if we've scrolled past the hero
-          if (heroSection) {
-            var heroRect = heroSection.getBoundingClientRect();
-            if (heroRect.bottom < 0) {
-              stickyCta.classList.add('sticky-cta--visible');
-            }
-          } else {
-            stickyCta.classList.add('sticky-cta--visible');
-          }
+          visibleForms--;
         }
       });
+
+      if (visibleForms > 0) {
+        stickyCta.classList.remove('sticky-cta--visible');
+      } else {
+        // Only show if we've scrolled past the hero
+        if (heroSection) {
+          var heroRect = heroSection.getBoundingClientRect();
+          if (heroRect.bottom < 0) {
+            stickyCta.classList.add('sticky-cta--visible');
+          }
+        } else {
+          stickyCta.classList.add('sticky-cta--visible');
+        }
+      }
     }, {
       threshold: 0,
       rootMargin: '0px'
     });
 
-    formObserver.observe(formSection);
+    formSections.forEach(function (section) {
+      formObserver.observe(section);
+    });
 
     // Also observe hero to hide while hero is visible
     if (heroSection) {
@@ -141,203 +176,203 @@
   }
 
   /* ------------------------------------------------------------
-     5. MULTI-STEP FORM
+     5. MULTI-STEP FORM (supports multiple form instances)
      ------------------------------------------------------------ */
   function initMultiStepForm() {
-    var form = document.getElementById('bewerbung-form');
-    var track = document.getElementById('form-track');
-    if (!form || !track) return;
+    document.querySelectorAll('.form').forEach(function (form) {
+      var track = form.querySelector('.form-steps__track');
+      if (!track) return;
 
-    var steps = form.querySelectorAll('.form-steps__step');
-    var dots = form.querySelectorAll('.form-steps__dot');
-    var lines = form.querySelectorAll('.form-steps__line');
-    var backBtn = document.getElementById('form-back');
-    var currentStep = 0;
-    var stepMap = {};
-    var stepHistory = ['0'];
+      var steps = form.querySelectorAll('.form-steps__step');
+      var dots = form.querySelectorAll('.form-steps__dot');
+      var lines = form.querySelectorAll('.form-steps__line');
+      var backBtn = form.querySelector('.form-steps__back');
+      var currentStep = 0;
+      var stepMap = {};
+      var stepHistory = ['0'];
 
-    steps.forEach(function (step, i) {
-      stepMap[step.getAttribute('data-step')] = i;
-    });
-
-    function updateTrackHeight() {
-      var activeStep = steps[currentStep];
-      if (activeStep) {
-        track.style.height = activeStep.scrollHeight + 'px';
-      }
-    }
-
-    function updateBackButton(key) {
-      if (backBtn) {
-        if (key === '0') {
-          backBtn.classList.remove('form-steps__back--visible');
-        } else {
-          backBtn.classList.add('form-steps__back--visible');
-        }
-      }
-    }
-
-    function goToStep(key) {
-      var index = stepMap[key];
-      if (index === undefined) return;
-      currentStep = index;
-      track.style.transform = 'translateX(-' + (index * 100) + '%)';
-      updateTrackHeight();
-      updateBackButton(key);
-
-      var nav = form.querySelector('.form-steps__nav');
-      if (key === 'reject') {
-        if (nav) nav.style.display = 'none';
-      } else {
-        if (nav) nav.style.display = '';
-        var stepNum = parseInt(key, 10);
-        dots.forEach(function (dot) {
-          var dotStep = parseInt(dot.getAttribute('data-step'), 10);
-          if (dotStep <= stepNum) {
-            dot.classList.add('form-steps__dot--active');
-          } else {
-            dot.classList.remove('form-steps__dot--active');
-          }
-        });
-        lines.forEach(function (line) {
-          var lineIdx = parseInt(line.getAttribute('data-line'), 10);
-          if (lineIdx < stepNum) {
-            line.classList.add('form-steps__line--active');
-          } else {
-            line.classList.remove('form-steps__line--active');
-          }
-        });
-      }
-
-      form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    // Set initial height after render
-    requestAnimationFrame(function () {
-      updateTrackHeight();
-    });
-
-    // Back button
-    if (backBtn) {
-      backBtn.addEventListener('click', function () {
-        if (stepHistory.length > 1) {
-          stepHistory.pop();
-          var prevKey = stepHistory[stepHistory.length - 1];
-
-          // Clear selection styling on the step we're leaving
-          steps[currentStep].querySelectorAll('.form-step__choice--selected').forEach(function (el) {
-            el.classList.remove('form-step__choice--selected');
-          });
-
-          goToStep(prevKey);
-        }
+      steps.forEach(function (step, i) {
+        stepMap[step.getAttribute('data-step')] = i;
       });
-    }
 
-    form.addEventListener('click', function (e) {
-      var choice = e.target.closest('.form-step__choice');
-      if (!choice) return;
-
-      var nextStep = choice.getAttribute('data-next');
-      var value = choice.getAttribute('data-value');
-      var step = choice.closest('.form-steps__step');
-      var stepKey = step.getAttribute('data-step');
-
-      choice.classList.add('form-step__choice--selected');
-
-      if (stepKey === '0') {
-        var qField = document.getElementById('hidden-qualifikation');
-        if (qField) qField.value = value;
-      } else if (stepKey === '1') {
-        var sField = document.getElementById('hidden-starttermin');
-        if (sField) sField.value = value;
+      function updateTrackHeight() {
+        var activeStep = steps[currentStep];
+        if (activeStep) {
+          track.style.height = activeStep.scrollHeight + 'px';
+        }
       }
 
-      setTimeout(function () {
-        stepHistory.push(nextStep);
-        goToStep(nextStep);
-      }, 250);
+      function updateBackButton(key) {
+        if (backBtn) {
+          if (key === '0') {
+            backBtn.classList.remove('form-steps__back--visible');
+          } else {
+            backBtn.classList.add('form-steps__back--visible');
+          }
+        }
+      }
+
+      function goToStep(key) {
+        var index = stepMap[key];
+        if (index === undefined) return;
+        currentStep = index;
+        track.style.transform = 'translateX(-' + (index * 100) + '%)';
+        updateTrackHeight();
+        updateBackButton(key);
+
+        var nav = form.querySelector('.form-steps__nav');
+        if (key === 'reject') {
+          if (nav) nav.style.display = 'none';
+        } else {
+          if (nav) nav.style.display = '';
+          var stepNum = parseInt(key, 10);
+          dots.forEach(function (dot) {
+            var dotStep = parseInt(dot.getAttribute('data-step'), 10);
+            if (dotStep <= stepNum) {
+              dot.classList.add('form-steps__dot--active');
+            } else {
+              dot.classList.remove('form-steps__dot--active');
+            }
+          });
+          lines.forEach(function (line) {
+            var lineIdx = parseInt(line.getAttribute('data-line'), 10);
+            if (lineIdx < stepNum) {
+              line.classList.add('form-steps__line--active');
+            } else {
+              line.classList.remove('form-steps__line--active');
+            }
+          });
+        }
+
+        form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // Set initial height after render
+      requestAnimationFrame(function () {
+        updateTrackHeight();
+      });
+
+      // Back button
+      if (backBtn) {
+        backBtn.addEventListener('click', function () {
+          if (stepHistory.length > 1) {
+            stepHistory.pop();
+            var prevKey = stepHistory[stepHistory.length - 1];
+
+            // Clear selection styling on the step we're leaving
+            steps[currentStep].querySelectorAll('.form-step__choice--selected').forEach(function (el) {
+              el.classList.remove('form-step__choice--selected');
+            });
+
+            goToStep(prevKey);
+          }
+        });
+      }
+
+      form.addEventListener('click', function (e) {
+        var choice = e.target.closest('.form-step__choice');
+        if (!choice) return;
+
+        var nextStep = choice.getAttribute('data-next');
+        var value = choice.getAttribute('data-value');
+        var step = choice.closest('.form-steps__step');
+        var stepKey = step.getAttribute('data-step');
+
+        choice.classList.add('form-step__choice--selected');
+
+        if (stepKey === '0') {
+          var qField = form.querySelector('[name="qualifikation"]');
+          if (qField) qField.value = value;
+        } else if (stepKey === '1') {
+          var sField = form.querySelector('[name="starttermin"]');
+          if (sField) sField.value = value;
+        }
+
+        setTimeout(function () {
+          stepHistory.push(nextStep);
+          goToStep(nextStep);
+        }, 250);
+      });
     });
   }
 
   /* ------------------------------------------------------------
-     5b. FORM VALIDATION (Step 3 only)
+     5b. FORM VALIDATION (Step 3 only, supports multiple forms)
      ------------------------------------------------------------ */
   function initFormValidation() {
-    var form = document.getElementById('bewerbung-form');
-    if (!form) return;
+    document.querySelectorAll('.form').forEach(function (form) {
+      form.addEventListener('submit', function (e) {
+        var alertBox = form.querySelector('.form__alert');
+        var isValid = true;
+        var firstInvalid = null;
 
-    form.addEventListener('submit', function (e) {
-      var alertBox = form.querySelector('.form__alert');
-      var isValid = true;
-      var firstInvalid = null;
+        form.querySelectorAll('.form-group--error').forEach(function (g) {
+          g.classList.remove('form-group--error');
+        });
 
-      form.querySelectorAll('.form-group--error').forEach(function (g) {
-        g.classList.remove('form-group--error');
-      });
+        var contactStep = form.querySelector('.form-steps__step[data-step="2"]');
+        if (!contactStep) return;
 
-      var contactStep = form.querySelector('.form-steps__step[data-step="2"]');
-      if (!contactStep) return;
+        contactStep.querySelectorAll('[required]').forEach(function (input) {
+          var group = input.closest('.form-group');
+          var valid = true;
 
-      contactStep.querySelectorAll('[required]').forEach(function (input) {
-        var group = input.closest('.form-group');
-        var valid = true;
-
-        if (input.type === 'checkbox') {
-          valid = input.checked;
-        } else if (input.type === 'email') {
-          valid = input.value.trim() !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-        } else {
-          valid = input.value.trim() !== '';
-        }
-
-        if (!valid) {
-          isValid = false;
-          if (group) {
-            group.classList.add('form-group--error');
-            input.classList.add('form-input--error');
+          if (input.type === 'checkbox') {
+            valid = input.checked;
+          } else if (input.type === 'email') {
+            valid = input.value.trim() !== '' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+          } else {
+            valid = input.value.trim() !== '';
           }
-          if (!firstInvalid) firstInvalid = input;
-        } else {
-          if (input.classList) input.classList.remove('form-input--error');
+
+          if (!valid) {
+            isValid = false;
+            if (group) {
+              group.classList.add('form-group--error');
+              input.classList.add('form-input--error');
+            }
+            if (!firstInvalid) firstInvalid = input;
+          } else {
+            if (input.classList) input.classList.remove('form-input--error');
+          }
+        });
+
+        var honeypot = form.querySelector('input[name="website"]');
+        if (honeypot && honeypot.value) {
+          e.preventDefault();
+          return;
+        }
+
+        if (!isValid) {
+          e.preventDefault();
+          if (alertBox) alertBox.hidden = false;
+          if (firstInvalid) firstInvalid.focus();
+          return;
+        }
+
+        var submitBtn = form.querySelector('.form__submit');
+        if (submitBtn) {
+          submitBtn.classList.add('form__submit--loading');
+          submitBtn.disabled = true;
+        }
+
+        if (alertBox) alertBox.hidden = true;
+      });
+
+      form.addEventListener('input', function (e) {
+        var group = e.target.closest('.form-group');
+        if (group && group.classList.contains('form-group--error')) {
+          group.classList.remove('form-group--error');
+          e.target.classList.remove('form-input--error');
         }
       });
 
-      var honeypot = form.querySelector('input[name="website"]');
-      if (honeypot && honeypot.value) {
-        e.preventDefault();
-        return;
-      }
-
-      if (!isValid) {
-        e.preventDefault();
-        if (alertBox) alertBox.hidden = false;
-        if (firstInvalid) firstInvalid.focus();
-        return;
-      }
-
-      var submitBtn = form.querySelector('.form__submit');
-      if (submitBtn) {
-        submitBtn.classList.add('form__submit--loading');
-        submitBtn.disabled = true;
-      }
-
-      if (alertBox) alertBox.hidden = true;
-    });
-
-    form.addEventListener('input', function (e) {
-      var group = e.target.closest('.form-group');
-      if (group && group.classList.contains('form-group--error')) {
-        group.classList.remove('form-group--error');
-        e.target.classList.remove('form-input--error');
-      }
-    });
-
-    form.addEventListener('change', function (e) {
-      if (e.target.type === 'checkbox') {
-        var group = e.target.closest('.form-group');
-        if (group) group.classList.remove('form-group--error');
-      }
+      form.addEventListener('change', function (e) {
+        if (e.target.type === 'checkbox') {
+          var group = e.target.closest('.form-group');
+          if (group) group.classList.remove('form-group--error');
+        }
+      });
     });
   }
 
@@ -389,13 +424,13 @@
       });
     });
 
-    // Track form submission separately (on valid submit)
-    var form = document.getElementById('bewerbung-form');
-    if (form) {
+    // Track form submission for all forms
+    document.querySelectorAll('.form').forEach(function (form) {
       form.addEventListener('submit', function () {
-        pushEvent('form_submit', 'bewerbung-paediatrie');
+        var label = form.getAttribute('data-track-label') || 'bewerbung';
+        pushEvent('form_submit', label);
       });
-    }
+    });
   }
 
   /* ------------------------------------------------------------
@@ -487,23 +522,25 @@
   }
 
   /* ------------------------------------------------------------
-     10. FILE UPLOAD DISPLAY
+     10. FILE UPLOAD DISPLAY (supports multiple forms)
      ------------------------------------------------------------ */
   function initFileUpload() {
-    var fileInput = document.getElementById('bewerbung-datei');
-    var fileName = document.getElementById('file-name');
-    var fileText = document.querySelector('.form-file__text');
-    if (!fileInput || !fileName) return;
+    document.querySelectorAll('.form-file input[type="file"]').forEach(function (fileInput) {
+      var label = fileInput.closest('.form-file');
+      var fileName = label ? label.querySelector('.form-file__name') : null;
+      var fileText = label ? label.querySelector('.form-file__text') : null;
+      if (!fileName) return;
 
-    fileInput.addEventListener('change', function () {
-      if (fileInput.files.length > 0) {
-        var names = Array.from(fileInput.files).map(function (f) { return f.name; });
-        fileName.textContent = names.join(', ');
-        if (fileText) fileText.style.display = 'none';
-      } else {
-        fileName.textContent = '';
-        if (fileText) fileText.style.display = '';
-      }
+      fileInput.addEventListener('change', function () {
+        if (fileInput.files.length > 0) {
+          var names = Array.from(fileInput.files).map(function (f) { return f.name; });
+          fileName.textContent = names.join(', ');
+          if (fileText) fileText.style.display = 'none';
+        } else {
+          fileName.textContent = '';
+          if (fileText) fileText.style.display = '';
+        }
+      });
     });
   }
 

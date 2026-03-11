@@ -872,6 +872,196 @@
   </section>
 
   <!-- ============================================================
+       FORMULAR (Duplikat) – Zweites Bewerbungsformular vor Footer
+       ============================================================ -->
+  <section class="form-section section" id="bewerbung-2" aria-labelledby="form-heading-2">
+    <div class="container container--narrow">
+      <div class="form-section__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Jetzt bewerben
+        </span>
+        <h2 id="form-heading-2">Jetzt als Kinderarzt<br>bewerben</h2>
+        <p class="form-section__intro">Deine Bewerbung als Facharzt Pädiatrie dauert nur 60 Sekunden – kein Lebenslauf nötig. Wir melden uns innerhalb von 72 Stunden.</p>
+      </div>
+
+      <div class="form-card reveal">
+        <form action="form-handler.php" method="POST" class="form" id="bewerbung-form-2" novalidate enctype="multipart/form-data" data-track="form-submit" data-track-label="bewerbung-paediatrie">
+
+          <input type="hidden" name="csrf_token" value="dev-token-placeholder" id="csrf-token-2">
+          <input type="hidden" name="qualifikation" id="hidden-qualifikation-2">
+          <input type="hidden" name="starttermin" id="hidden-starttermin-2">
+
+          <!-- Progress Bar -->
+          <div class="form-steps__header">
+            <button type="button" class="form-steps__back" id="form-back-2" aria-label="Zurück zum vorherigen Schritt">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <nav class="form-steps__nav" aria-label="Formular-Fortschritt">
+              <span class="form-steps__dot form-steps__dot--active" data-step="0">1</span>
+              <span class="form-steps__line" data-line="0"></span>
+              <span class="form-steps__dot" data-step="1">2</span>
+              <span class="form-steps__line" data-line="1"></span>
+              <span class="form-steps__dot" data-step="2">3</span>
+            </nav>
+          </div>
+
+          <div class="form-steps">
+            <div class="form-steps__track" id="form-track-2">
+
+              <!-- STEP 1: Qualifikation -->
+              <div class="form-steps__step" data-step="0">
+                <p class="form-step__question">Hast du dein Medizinstudium und den Facharzttitel Kinder- und Jugendmedizin erfolgreich abgeschlossen?</p>
+                <div class="form-step__choices">
+                  <button type="button" class="form-step__choice" data-value="ja" data-next="1">Ja, beides vorhanden</button>
+                  <button type="button" class="form-step__choice" data-value="nein" data-next="reject">Nein, noch nicht</button>
+                </div>
+              </div>
+
+              <!-- STEP 2: Starttermin -->
+              <div class="form-steps__step" data-step="1">
+                <p class="form-step__question">Wann könntest du bei uns starten?</p>
+                <div class="form-step__choices form-step__choices--cols-4">
+                  <button type="button" class="form-step__choice" data-value="ab sofort" data-next="2">Ab sofort</button>
+                  <button type="button" class="form-step__choice" data-value="in 4 wochen" data-next="2">In den nächsten 4&nbsp;Wochen</button>
+                  <button type="button" class="form-step__choice" data-value="spaeter" data-next="2">Später als 4&nbsp;Wochen</button>
+                  <button type="button" class="form-step__choice" data-value="3 monate" data-next="2">Erst in 3&nbsp;Monaten</button>
+                </div>
+              </div>
+
+              <!-- STEP 3: Kontaktdaten -->
+              <div class="form-steps__step" data-step="2">
+                <p class="form-step__question">Fast geschafft – nur noch deine Kontaktdaten!</p>
+
+                <!-- Alert for errors -->
+                <div class="form__alert form__alert--error" role="alert" hidden>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                  <span>Bitte überprüfe deine Eingaben.</span>
+                </div>
+
+                <!-- Name Row -->
+                <div class="form__row">
+                  <div class="form-group">
+                    <label for="vorname-2" class="form-label">Vorname *</label>
+                    <input type="text" id="vorname-2" name="vorname" class="form-input" placeholder="Max" required autocomplete="given-name">
+                    <span class="form-error">Bitte gib deinen Vornamen ein.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="nachname-2" class="form-label">Nachname *</label>
+                    <input type="text" id="nachname-2" name="nachname" class="form-input" placeholder="Mustermann" required autocomplete="family-name">
+                    <span class="form-error">Bitte gib deinen Nachnamen ein.</span>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email-2" class="form-label">E-Mail-Adresse *</label>
+                  <input type="email" id="email-2" name="email" class="form-input" placeholder="max@beispiel.de" required autocomplete="email">
+                  <span class="form-error">Bitte gib eine gültige E-Mail-Adresse ein.</span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                  <label for="telefon-2" class="form-label">Telefonnummer (optional)</label>
+                  <input type="tel" id="telefon-2" name="telefon" class="form-input" placeholder="+49 123 456 789" autocomplete="tel">
+                </div>
+
+                <!-- Standort -->
+                <div class="form-group">
+                  <label for="standort-2" class="form-label">Bevorzugter Standort *</label>
+                  <select id="standort-2" name="standort" class="form-select" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="koeln">Köln</option>
+                    <option value="bonn">Bonn</option>
+                    <option value="beide">Beide Standorte</option>
+                  </select>
+                  <span class="form-error">Bitte wähle deinen bevorzugten Standort.</span>
+                </div>
+
+                <!-- Preferred Contact Time -->
+                <div class="form-group">
+                  <label for="kontaktzeit-2" class="form-label">Bevorzugte Kontaktzeit (optional)</label>
+                  <select id="kontaktzeit-2" name="kontaktzeit" class="form-select">
+                    <option value="">Bitte wählen</option>
+                    <option value="vormittags">Vormittags (8–11 Uhr)</option>
+                    <option value="mittags">Mittags (11–13 Uhr)</option>
+                    <option value="nachmittags">Nachmittags (13–17 Uhr)</option>
+                  </select>
+                </div>
+
+                <!-- File Upload -->
+                <div class="form-group">
+                  <label class="form-label">Bewerbungsunterlagen (optional)</label>
+                  <label class="form-file" id="file-upload-label-2">
+                    <input type="file" name="bewerbung_datei" id="bewerbung-datei-2" accept=".pdf,.doc,.docx,.jpg,.png,.zip" multiple>
+                    <svg class="form-file__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <span>
+                      <span class="form-file__text">PDF, DOC, JPG oder ZIP – max. 5 MB</span>
+                      <span class="form-file__name" id="file-name-2"></span>
+                    </span>
+                  </label>
+                </div>
+
+                <!-- Turnstile Captcha -->
+                <div class="form-turnstile" id="turnstile-container-2">
+                  <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY_PLACEHOLDER" data-callback="onTurnstileSuccess"></div>
+                </div>
+
+                <!-- Privacy Checkbox -->
+                <div class="form-group">
+                  <label class="form-checkbox">
+                    <input type="checkbox" name="datenschutz" required>
+                    <span class="form-checkbox__text">
+                      Ich stimme der Verarbeitung meiner Daten gemäß der
+                      <a href="https://medizinundtherapie.de/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> zu. *
+                    </span>
+                  </label>
+                  <span class="form-error">Bitte stimme der Datenschutzerklärung zu.</span>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn--flip btn--full form__submit">
+                  <span class="btn__texts">
+                    <span class="btn__text form__submit-text">Bewerbung absenden</span>
+                    <span class="btn__text">Bewerbung absenden</span>
+                  </span>
+                  <span class="btn__arrows">
+                    <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                  </span>
+                </button>
+              </div>
+
+              <!-- REJECTION SCREEN -->
+              <div class="form-steps__step" data-step="reject">
+                <div class="form-step__reject">
+                  <div class="form-step__reject-icon" aria-hidden="true">💬</div>
+                  <p class="form-step__reject-title">Für diese Stelle setzen wir ein abgeschlossenes Medizinstudium und den Facharzttitel Kinder- und Jugendmedizin voraus.</p>
+                  <p class="form-step__reject-text">Du glaubst trotzdem, dass du zu uns passt? Dann ruf uns gerne direkt an – wir finden gemeinsam eine Lösung.</p>
+                  <a href="tel:+492283827777" class="form-step__reject-phone">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    0228 / 3827-777
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Honeypot (anti-spam) -->
+          <div style="position:absolute;left:-9999px" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
        [10] FAQ SECTION – Häufige Fragen
        ============================================================ -->
   <section class="faq section" id="faq" aria-labelledby="faq-heading">

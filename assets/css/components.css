@@ -950,45 +950,77 @@
 }
 
 /* ------------------------------------------------------------
-   [4b] STANDORTE SECTION – Google Maps + Adressen
+   [4b] STANDORTE SECTION – Google Maps + Adressen (Testimonial-Card-Style)
    ------------------------------------------------------------ */
 
 .standorte {
-  overflow: visible;
+  /* background set in page-specific styles */
 }
 
-.standorte .feature__image iframe {
+.standorte__header {
+  text-align: center;
+  margin-bottom: var(--space-10);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.standorte__header h2 {
+  margin-bottom: 0;
+}
+
+.standorte__card {
+  background: var(--color-white, #fff);
+  border-radius: var(--radius-xl, 16px);
+  box-shadow: 0 12px 30px 2px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(4, 108, 108, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.standorte__map {
+  min-height: 260px;
+}
+
+.standorte__map iframe {
   width: 100%;
   height: 100%;
-  min-height: 350px;
+  min-height: 260px;
   border: 0;
-  border-radius: var(--radius-xl, 16px);
-  aspect-ratio: 4 / 3;
   display: block;
 }
 
+.standorte__content {
+  padding: var(--space-8, 32px) var(--space-6, 24px);
+}
+
+.standorte__content > p {
+  font-size: var(--font-size-base, 1rem);
+  color: var(--color-text-body, #4a4a4a);
+  margin-bottom: var(--space-5, 20px);
+  line-height: 1.6;
+}
+
 .standorte__addresses {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4, 16px);
-  margin-top: var(--space-6, 24px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3, 12px);
 }
 
 .standorte__address {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-4, 16px);
-  padding: var(--space-5, 20px);
-  background: var(--color-white, #fff);
+  gap: var(--space-3, 12px);
+  padding: var(--space-4, 16px);
+  background: var(--color-bg-light, #F5FAFA);
   border-radius: var(--radius-lg, 12px);
-  border: 1px solid rgba(4, 108, 108, 0.1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .standorte__address-icon {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -998,16 +1030,40 @@
 }
 
 .standorte__address h3 {
-  font-size: var(--font-size-base, 1rem);
+  font-size: var(--font-size-sm, 0.875rem);
   font-weight: var(--font-weight-semibold, 600);
   color: var(--color-text-dark, #1a1a1a);
-  margin-bottom: var(--space-1, 4px);
+  margin-bottom: 2px;
 }
 
 .standorte__address p {
-  font-size: var(--font-size-sm, 0.875rem);
+  font-size: var(--font-size-xs, 0.8125rem);
   color: var(--color-text-body, #4a4a4a);
-  line-height: 1.5;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .standorte__card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .standorte__map {
+    min-height: unset;
+  }
+
+  .standorte__content {
+    padding: var(--space-8, 32px) var(--space-8, 32px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1101px) {
+  .standorte__content {
+    padding: var(--space-10, 40px);
+  }
 }
 
 /* ------------------------------------------------------------

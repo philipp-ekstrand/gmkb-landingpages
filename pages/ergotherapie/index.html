@@ -640,48 +640,51 @@
   </section>
 
   <!-- ============================================================
-       [9] STANDORTE SECTION – Google Maps + Adressen
+       [9] STANDORTE SECTION – Google Maps + Adressen (Card-Style)
        ============================================================ -->
   <section class="standorte section" id="standorte" aria-labelledby="standorte-heading">
-    <div class="container feature__container">
-      <div class="feature__image reveal">
-        <iframe
-          src="https://www.google.com/maps?q=GMKB+Oxfordstraße+12+53111+Bonn&z=10&output=embed"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="GMKB Standorte Köln und Bonn auf Google Maps">
-        </iframe>
-        <div class="feature__image-accent" aria-hidden="true"></div>
-      </div>
-      <div class="feature__content reveal">
+    <div class="container">
+      <div class="standorte__header reveal">
         <span class="benefits__tag">
           <span class="benefits__tag-dot"></span>
           Unsere Standorte
         </span>
-        <h2 id="standorte-heading">Medizinzentren in<br><span class="text-teal">Köln &amp; Bonn.</span></h2>
-        <p>Die GMKB betreibt Medizinzentren an mehreren Standorten im Raum Köln und Bonn – gut erreichbar mit öffentlichen Verkehrsmitteln und mit Parkplätzen vor Ort.</p>
-        <div class="standorte__addresses">
-          <div class="standorte__address">
-            <div class="standorte__address-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-              </svg>
+        <h2 id="standorte-heading">Über 12 Einrichtungen in<br><span class="text-teal">Köln &amp; Bonn.</span></h2>
+      </div>
+      <div class="standorte__card reveal">
+        <div class="standorte__map">
+          <iframe
+            src="https://www.google.com/maps?q=GMKB+Medizinzentren+KölnBonn&z=11&output=embed"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="GMKB Standorte – über 12 Einrichtungen im Raum Köln und Bonn">
+          </iframe>
+        </div>
+        <div class="standorte__content">
+          <p>5 Medizinische Versorgungszentren und 7 Therapie-Praxen – die GMKB ist mit über 140 Mitarbeitern einer der größten Arbeitgeber für Medizin &amp; Therapie in der Region.</p>
+          <div class="standorte__addresses">
+            <div class="standorte__address">
+              <div class="standorte__address-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Bonn</h3>
+                <p>Oxfordstr. 12–16<br>53111 Bonn</p>
+              </div>
             </div>
-            <div>
-              <h3>Standort Bonn</h3>
-              <p>Oxfordstr. 12–16<br>53111 Bonn</p>
-            </div>
-          </div>
-          <div class="standorte__address">
-            <div class="standorte__address-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div>
-              <h3>Standort Köln</h3>
-              <p>Herthastr. 4<br>50969 Köln</p>
+            <div class="standorte__address">
+              <div class="standorte__address-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <h3>Köln</h3>
+                <p>Herthastr. 4<br>50969 Köln</p>
+              </div>
             </div>
           </div>
         </div>

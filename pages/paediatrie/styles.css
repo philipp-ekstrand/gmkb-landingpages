@@ -11,7 +11,7 @@ body {
 }
 
 /* --- Section Backgrounds (4-Phasen-Welle: hell → gradient ↓ → kräftig → gradient ↑) --- */
-/* Reihenfolge: Hero → Benefits → Aufgaben → Feature → CTA → Testimonial → Video → Process → Form → FAQ */
+/* Reihenfolge: Hero → Benefits → Aufgaben → Feature → CTA → Testimonial → Video → Process → Standorte → Form → FAQ */
 .hero-v2                { background: #F5FAFA; }
 .benefits               { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
 .feature                { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
@@ -19,7 +19,8 @@ body {
 .testimonial            { background: #D4EAEA; }
 .video                  { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .process                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.form-section           { background: #D4EAEA; }
+.standorte              { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.form-section           { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
 .faq                    { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 
 /* --- Aufgaben & Profil Section --- */
@@ -87,13 +88,26 @@ body {
 
 /* --- (aufgaben + feature Hintergrund jetzt oben korrekt definiert) --- */
 
-/* --- Benefit Cards: gleiche Höhe --- */
-.benefits__grid {
-  align-items: stretch;
+/* --- Benefit Cards: Icon-Only (keine Bilder) --- */
+.benefit-card--icon-only {
+  aspect-ratio: auto;
+  justify-content: flex-start;
+  background: var(--color-white, #fff);
+  border: 1px solid rgba(4, 108, 108, 0.1);
 }
 
-.benefit-card {
-  height: 100%;
+.benefit-card--icon-only .benefit-card__body {
+  position: static;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  margin: 0;
+  padding: var(--space-6, 24px);
+}
+
+.benefit-card--icon-only:hover {
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.1));
 }
 
 /* --- Benefits CTA button --- */

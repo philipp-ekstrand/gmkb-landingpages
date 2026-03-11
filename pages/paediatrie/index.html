@@ -241,10 +241,7 @@
 
       <div class="benefits__grid reveal-stagger">
         <!-- Card 1: Sicherer Job -->
-        <article class="benefit-card reveal">
-          <div class="benefit-card__image">
-            <img src="../../assets/images/benefit-secure.jpg" alt="Sicherer Arbeitsplatz als Kinderarzt im GMKB Medizinzentrum Bonn" loading="lazy" width="1200" height="1600">
-          </div>
+        <article class="benefit-card benefit-card--icon-only reveal">
           <div class="benefit-card__body">
             <div class="benefit-card__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -257,10 +254,7 @@
         </article>
 
         <!-- Card 2: Tarifliches Gehalt -->
-        <article class="benefit-card reveal">
-          <div class="benefit-card__image">
-            <img src="../../assets/images/benefit-salary.jpg" alt="Faire Vergütung und Gehaltsstruktur" loading="lazy" width="1200" height="1600">
-          </div>
+        <article class="benefit-card benefit-card--icon-only reveal">
           <div class="benefit-card__body">
             <div class="benefit-card__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -273,10 +267,7 @@
         </article>
 
         <!-- Card 3: Familie & Beruf -->
-        <article class="benefit-card reveal">
-          <div class="benefit-card__image">
-            <img src="../../assets/images/benefit-family.jpg" alt="Vereinbarkeit von Familie und Beruf" loading="lazy" width="1200" height="1600">
-          </div>
+        <article class="benefit-card benefit-card--icon-only reveal">
           <div class="benefit-card__body">
             <div class="benefit-card__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -289,10 +280,7 @@
         </article>
 
         <!-- Card 4: 30 Tage Urlaub -->
-        <article class="benefit-card reveal">
-          <div class="benefit-card__image">
-            <img src="../../assets/images/benefit-vacation.jpg" alt="Strand und Erholung im Urlaub" loading="lazy" width="1200" height="1600">
-          </div>
+        <article class="benefit-card benefit-card--icon-only reveal">
           <div class="benefit-card__body">
             <div class="benefit-card__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -305,10 +293,7 @@
         </article>
 
         <!-- Card 5: Fort- & Weiterbildung -->
-        <article class="benefit-card reveal">
-          <div class="benefit-card__image">
-            <img src="../../assets/images/benefit-education.jpg" alt="Weiterbildung Pädiatrie und Fortbildung für Kinderärzte bei der GMKB" loading="lazy" width="1200" height="1600">
-          </div>
+        <article class="benefit-card benefit-card--icon-only reveal">
           <div class="benefit-card__body">
             <div class="benefit-card__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -321,10 +306,7 @@
         </article>
 
         <!-- Card 6: Corporate Benefits -->
-        <article class="benefit-card reveal">
-          <div class="benefit-card__image">
-            <img src="../../assets/images/benefit-perks.jpg" alt="Mitarbeitervorteile und Vergünstigungen" loading="lazy" width="1200" height="1600">
-          </div>
+        <article class="benefit-card benefit-card--icon-only reveal">
           <div class="benefit-card__body">
             <div class="benefit-card__icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -649,7 +631,57 @@
   </section>
 
   <!-- ============================================================
-       [9] FORMULAR SECTION – "In 60 Sekunden bewerben"
+       [9] STANDORTE SECTION – Google Maps + Adressen
+       ============================================================ -->
+  <section class="standorte section" id="standorte" aria-labelledby="standorte-heading">
+    <div class="container feature__container">
+      <div class="feature__image reveal">
+        <iframe
+          src="https://www.google.com/maps?q=GMKB+Oxfordstraße+12+53111+Bonn&z=10&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="GMKB Standorte Köln und Bonn auf Google Maps">
+        </iframe>
+        <div class="feature__image-accent" aria-hidden="true"></div>
+      </div>
+      <div class="feature__content reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Unsere Standorte
+        </span>
+        <h2 id="standorte-heading">Medizinzentren in<br><span class="text-teal">Köln &amp; Bonn.</span></h2>
+        <p>Die GMKB betreibt Medizinzentren an mehreren Standorten im Raum Köln und Bonn – gut erreichbar mit öffentlichen Verkehrsmitteln und mit Parkplätzen vor Ort.</p>
+        <div class="standorte__addresses">
+          <div class="standorte__address">
+            <div class="standorte__address-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Standort Bonn</h3>
+              <p>Oxfordstr. 12–16<br>53111 Bonn</p>
+            </div>
+          </div>
+          <div class="standorte__address">
+            <div class="standorte__address-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Standort Köln</h3>
+              <p>Herthastr. 4<br>50969 Köln</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [10] FORMULAR SECTION – "In 60 Sekunden bewerben"
        ============================================================ -->
   <section class="form-section section" id="bewerbung" aria-labelledby="form-heading">
     <div class="container container--narrow">

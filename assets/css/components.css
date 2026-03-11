@@ -950,6 +950,67 @@
 }
 
 /* ------------------------------------------------------------
+   [4b] STANDORTE SECTION – Google Maps + Adressen
+   ------------------------------------------------------------ */
+
+.standorte {
+  overflow: visible;
+}
+
+.standorte .feature__image iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border: 0;
+  border-radius: var(--radius-xl, 16px);
+  aspect-ratio: 4 / 3;
+  display: block;
+}
+
+.standorte__addresses {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 16px);
+  margin-top: var(--space-6, 24px);
+}
+
+.standorte__address {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4, 16px);
+  padding: var(--space-5, 20px);
+  background: var(--color-white, #fff);
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid rgba(4, 108, 108, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.standorte__address-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-teal, #046C6C), var(--color-teal-dark, #0D7377));
+  border-radius: var(--radius-md, 8px);
+  color: #fff;
+}
+
+.standorte__address h3 {
+  font-size: var(--font-size-base, 1rem);
+  font-weight: var(--font-weight-semibold, 600);
+  color: var(--color-text-dark, #1a1a1a);
+  margin-bottom: var(--space-1, 4px);
+}
+
+.standorte__address p {
+  font-size: var(--font-size-sm, 0.875rem);
+  color: var(--color-text-body, #4a4a4a);
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------
    [5] CTA-BANNER – Dramatisch, Apple-inspiriert
    ------------------------------------------------------------ */
 

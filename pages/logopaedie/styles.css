@@ -11,7 +11,7 @@ body {
 }
 
 /* --- Section Backgrounds (4-Phasen-Welle: hell → gradient ↓ → kräftig → gradient ↑) --- */
-/* Reihenfolge: Hero → Benefits → Aufgaben → Feature → CTA → Testimonial → Video → Process → Form → FAQ */
+/* Reihenfolge: Hero → Benefits → Aufgaben → Feature → CTA → Testimonial → Video → Process → Standorte → Form → FAQ */
 .hero-v2                { background: #F5FAFA; }
 .benefits               { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
 .aufgaben-profil        { background: #D4EAEA; }
@@ -20,7 +20,8 @@ body {
 .testimonial            { background: #D4EAEA; }
 .video                  { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 .process                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
-.form-section           { background: #D4EAEA; }
+.standorte              { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.form-section           { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
 .faq                    { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
 
 /* --- Hero Image Position --- */

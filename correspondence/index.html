@@ -233,7 +233,7 @@
     <button class="mail-list-button" role="tab" data-mail="an-dsb-textbausteine-2026-05-05" aria-selected="false">
       <span class="ml-subject">An Thomas Große-Gehling: Vorschlag zur Erweiterung der Datenschutzerklärung</span>
       <span class="ml-meta">An: Thomas Große-Gehling · 05.05.2026</span>
-      <span class="ml-preview">Wir setzen aktuell die Karriere-Landingpages auf einer eigenen Subdomain auf. Anbei der Vorschlag der Agentur für die Erweiterung unserer Datenschutzerklärung um Tracking, Maps, Vimeo, Bewerbungsformular ...</span>
+      <span class="ml-preview">Wir setzen aktuell die Karriere-Landingpages auf einer eigenen Subdomain auf. Anbei unser Vorschlag für die Erweiterung der Datenschutzerklärung um Tracking, Maps, Vimeo, Bewerbungsformular ...</span>
     </button>
 
   </aside>
@@ -256,11 +256,11 @@
 
         <p>Hallo zusammen,</p>
 
-        <p>kurz zum Stand: Die Agentur (greyt) hat das Karriere-WordPress auf der Subdomain <code>karriere.medizinundtherapie.de</code> aufgesetzt, das Bewerbungsformular ist technisch fertig, die Seiten liegen aktuell hinter einer Basic-Auth-Schranke und sind noch nicht öffentlich. Bevor wir live gehen können, gibt es einen Punkt, den wir bei euch klären müssen: Das WordPress sendet Bewerbungen über unsere SMTP-Konfiguration raus, die Mails erreichen aber niemanden im Posteingang.</p>
+        <p>kurz zum Stand: Wir haben das Karriere-WordPress auf der Subdomain <code>karriere.medizinundtherapie.de</code> aufgesetzt, das Bewerbungsformular ist technisch fertig, die Seiten liegen aktuell hinter einer Basic-Auth-Schranke und sind noch nicht öffentlich. Bevor wir live gehen können, gibt es einen Punkt, den wir bei euch klären müssen: Das WordPress sendet Bewerbungen über euer SMTP raus, die Mails erreichen aber niemanden im Posteingang.</p>
 
-        <h2>Setup, das wir aktuell verwenden</h2>
+        <h2>Setup, das aktuell verwendet wird</h2>
 
-        <p>Auf der Subdomain ist <strong>WP Mail SMTP</strong> als Versand-Brücke zwischen WordPress und unserem Office 365 konfiguriert mit folgenden Werten, die ihr seinerzeit eingerichtet hattet:</p>
+        <p>Auf der Subdomain ist <strong>WP Mail SMTP</strong> als Versand-Brücke zwischen WordPress und eurem Office 365 konfiguriert mit folgenden Werten, die ihr seinerzeit eingerichtet hattet:</p>
 
         <ul>
           <li>SMTP-Server: <code>smtp.office365.com:587</code></li>
@@ -271,21 +271,21 @@
 
         <h2>Symptom</h2>
 
-        <p>Die Agentur hat mehrere Test-Bewerbungen gegen das Live-Formular abgesetzt und zusätzlich das eingebaute Test-Mail-Tool von WP Mail SMTP genutzt. WP Mail SMTP meldet keinen Versand-Fehler. Die Mails kommen aber weder im Posteingang noch im Spam-Ordner an. Das ist das typische Bild für einen "Silent Drop" auf Microsoft-Seite: Office 365 nimmt die Mail per SMTP an (Antwort 250 OK), wirft sie aber kurz danach wegen Authentifizierungs- oder Reputationsproblemen still weg, ohne Bounce zurückzuschicken.</p>
+        <p>Wir haben mehrere Test-Bewerbungen gegen das Live-Formular abgesetzt und zusätzlich das eingebaute Test-Mail-Tool von WP Mail SMTP genutzt. WP Mail SMTP meldet keinen Versand-Fehler. Die Mails kommen aber weder im Posteingang noch im Spam-Ordner an. Das ist das typische Bild für einen "Silent Drop" auf Microsoft-Seite: Office 365 nimmt die Mail per SMTP an (Antwort 250 OK), wirft sie aber kurz danach wegen Authentifizierungs- oder Reputationsproblemen still weg, ohne Bounce zurückzuschicken.</p>
 
         <h2>Was wir bitten zu prüfen, in dieser Reihenfolge</h2>
 
         <ol>
           <li>Bestätigung im Microsoft-365-Admin-Center, dass für <code>wordpress-gmkb@medizinundtherapie.de</code> unter <em>Benutzer → Mail-Apps verwalten</em> die Einstellung <strong>Authenticated SMTP aktiviert</strong> ist. Microsoft schaltet Basic Auth für SMTP seit 2022 schrittweise ab; falls der Account davon betroffen ist, müsste er explizit freigeschaltet werden oder über OAuth2 angebunden werden.</li>
 
-          <li>Klärung, welche From-Adresse der WordPress-Account verwenden darf. Aktuell besteht ein Mismatch: gesendet wird als <code>wordpress@medizinundtherapie.de</code>, authentifiziert wird als <code>wordpress-gmkb@medizinundtherapie.de</code>. Office 365 lehnt das in den Standard-Einstellungen ab. Sauberste Lösung: From auf <code>wordpress-gmkb@medizinundtherapie.de</code> umstellen (gleicher Account wie für Auth). Alternativ ein freigegebenes Postfach mit "Send As"-Berechtigung definieren. Sobald ihr eine Variante nennt, passt die Agentur die WP-Mail-SMTP-Einstellung an.</li>
+          <li>Klärung, welche From-Adresse der WordPress-Account verwenden darf. Aktuell besteht ein Mismatch: gesendet wird als <code>wordpress@medizinundtherapie.de</code>, authentifiziert wird als <code>wordpress-gmkb@medizinundtherapie.de</code>. Office 365 lehnt das in den Standard-Einstellungen ab. Sauberste Lösung: From auf <code>wordpress-gmkb@medizinundtherapie.de</code> umstellen (gleicher Account wie für Auth). Alternativ ein freigegebenes Postfach mit "Send As"-Berechtigung definieren. Sobald ihr eine Variante nennt, passen wir die WP-Mail-SMTP-Einstellung an.</li>
 
           <li>DMARC-Record für <code>medizinundtherapie.de</code> ergänzen. Der eingebaute Domain-Check zeigt: SPF korrekt, DMARC fehlt. Empfänger wie Gmail, Outlook und Microsoft 365 verwerfen Mails von Domains ohne DMARC zunehmend als Spam. Empfohlener DNS-TXT-Record auf <code>_dmarc.medizinundtherapie.de</code>: <code>v=DMARC1; p=none; rua=mailto:dmarc-report@medizinundtherapie.de</code>. Einmalige Aktion im DNS-Panel, hilft auch der Hauptseite.</li>
 
-          <li>Falls Punkt 1 und 2 nicht zeitnah gelöst werden können, gibt es zwei Ausweich-Optionen, die die Agentur auf unserer Seite einrichten würde: entweder Anbindung an einen externen transaktionalen Mail-Provider (Brevo oder Postmark, kostenlos bis 100 Mails pro Tag) oder Nutzung des lokalen Postfix auf dem Plesk-Server der Karriere-Subdomain, sodass WordPress direkt vom Karriere-Server sendet ohne externe SMTP-Verbindung. Beides braucht keinen Eingriff im Microsoft-365-Tenant.</li>
+          <li>Falls Punkt 1 und 2 nicht zeitnah gelöst werden können, gibt es zwei Ausweich-Optionen, die wir auf unserer Seite einrichten würden: entweder Anbindung an einen externen transaktionalen Mail-Provider (Brevo oder Postmark, kostenlos bis 100 Mails pro Tag) oder Nutzung des lokalen Postfix auf dem Plesk-Server der Karriere-Subdomain, sodass WordPress direkt vom Karriere-Server sendet ohne externe SMTP-Verbindung. Beides braucht keinen Eingriff im Microsoft-365-Tenant.</li>
         </ol>
 
-        <p>Solange das nicht gelöst ist, kann das Bewerbungsformular zwar abgesendet werden (Bewerbende sehen die Danke-Seite ganz normal), die Mail erreicht aber niemanden bei uns. Sobald Punkt 1 und 2 bei euch geprüft sind, kann die Agentur die Konfiguration anpassen und wir können das Formular live schalten. Ein paralleler Eintrag des DMARC-Records ist ohnehin gute Praxis und kann jederzeit im Hintergrund laufen.</p>
+        <p>Solange das nicht gelöst ist, kann das Bewerbungsformular zwar abgesendet werden (Bewerbende sehen die Danke-Seite ganz normal), die Mail erreicht aber niemanden bei uns. Sobald Punkt 1 und 2 bei euch geprüft sind, passen wir die Konfiguration an und können das Formular live schalten. Ein paralleler Eintrag des DMARC-Records ist ohnehin gute Praxis und kann jederzeit im Hintergrund laufen.</p>
 
         <p>Sagt gerne kurz Bescheid, sobald ihr drauf geschaut habt, oder ob noch Infos für die Prüfung fehlen.</p>
 
@@ -314,9 +314,9 @@
 
         <p>Hallo Herr Große-Gehling,</p>
 
-        <p>wir setzen aktuell die Recruiting-Landingpages der GMKB auf einer eigenen Subdomain (<code>karriere.medizinundtherapie.de</code>) auf, getrennt von der Hauptseite. Auf den Seiten werden ein Bewerbungsformular, eine eingebettete Standortkarte (Google Maps) und ein eingebettetes Vimeo-Video angeboten; nach explizitem Cookie-Consent zusätzlich Google Tag Manager und Google Ads Conversion Tracking. Damit wir live gehen können, müssen wir die <a href="https://www.medizinundtherapie.de/rechtliche-hinweise/datenschutz/">bestehende Datenschutzerklärung</a> entsprechend erweitern.</p>
+        <p>wir setzen aktuell die Recruiting-Landingpages für die GMKB auf einer eigenen Subdomain (<code>karriere.medizinundtherapie.de</code>) auf, getrennt von der Hauptseite. Auf den Seiten werden ein Bewerbungsformular, eine eingebettete Standortkarte (Google Maps) und ein eingebettetes Vimeo-Video angeboten; nach explizitem Cookie-Consent zusätzlich Google Tag Manager und Google Ads Conversion Tracking. Damit wir live gehen können, muss die <a href="https://www.medizinundtherapie.de/rechtliche-hinweise/datenschutz/">bestehende Datenschutzerklärung</a> entsprechend erweitert werden.</p>
 
-        <p>Anbei der Vorschlag der Agentur für die zusätzlichen Abschnitte. Die Bausteine sind so geschrieben, dass sie sowohl der DSGVO als auch dem DSG-EKD genügen. Bitte prüfe sie, gerne mit Anmerkungen oder Korrekturen, dann arbeiten wir die Änderungen direkt ein. Auf eurer Seite ist außerdem der DMARC-Record im DNS und der AVV mit Google im Google-Ads-Konto offen, dazu unten mehr.</p>
+        <p>Anbei unser Vorschlag für die zusätzlichen Abschnitte. Die Bausteine sind so geschrieben, dass sie sowohl der DSGVO als auch dem DSG-EKD genügen. Bitte prüfe sie, gerne mit Anmerkungen oder Korrekturen, dann arbeiten wir die Änderungen direkt ein. Auf eurer Seite sind außerdem der DMARC-Record im DNS und der AVV mit Google im Google-Ads-Konto offen, dazu unten mehr.</p>
 
         <h2>1. Google Tag Manager</h2>
 
@@ -377,7 +377,7 @@
 
         <h2>10. Auftragsverarbeitungsvertrag mit Google</h2>
 
-        <p>Vor dem Go-Live des Trackings müssen wir im Google-Ads-Konto die Google Ads Data Processing Terms aktiv annehmen. Das geht im Konto unter <em>Tools &amp; Einstellungen → Konto → Datenschutzeinstellungen</em> mit zwei Klicks. Die Agentur unterstützt uns dabei nach deiner Freigabe.</p>
+        <p>Vor dem Go-Live des Trackings muss die GMKB im Google-Ads-Konto die Google Ads Data Processing Terms aktiv annehmen. Das geht im Konto unter <em>Tools &amp; Einstellungen → Konto → Datenschutzeinstellungen</em> mit zwei Klicks. Wir unterstützen euch dabei gerne nach deiner Freigabe.</p>
 
         <p>Sag gerne Bescheid, ob die Bausteine so passen oder ob du Anpassungen vornimmst. Sobald du grünes Licht gibst, integrieren wir die Texte in die bestehende Datenschutzerklärung.</p>
 

@@ -1,0 +1,213 @@
+/* ============================================================
+   Danke-Seite – Styles
+   ============================================================
+   Minimale, fokussierte Danke-Seite nach Bewerbungseingang.
+   Nutzt Design Tokens aus base.css.
+   ============================================================ */
+
+/* Layout */
+.danke {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-bg);
+}
+
+.danke__container {
+  max-width: 560px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Icon */
+.danke__icon {
+  margin-bottom: var(--space-6);
+  animation: danke-pop 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes danke-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Heading */
+.danke__heading {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
+  line-height: 1.2;
+}
+
+/* Text */
+.danke__text {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: var(--space-8);
+}
+
+.danke__text strong {
+  color: var(--color-text);
+}
+
+/* Steps */
+.danke__steps {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-8);
+  text-align: left;
+}
+
+.danke__steps-heading {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.danke__steps-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: steps;
+}
+
+.danke__steps-list li {
+  counter-increment: steps;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.danke__steps-list li:last-child {
+  margin-bottom: 0;
+}
+
+.danke__steps-list li::before {
+  content: counter(steps);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.danke__steps-list li strong {
+  color: var(--color-text);
+}
+
+/* Actions */
+.danke__actions {
+  display: flex;
+  justify-content: center;
+}
+
+.danke__btn {
+  min-width: 200px;
+}
+
+/* Button outline variant (if not in base.css) */
+.btn--outline {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--text-base);
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn--outline:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn--outline:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Footer */
+.danke-footer {
+  padding: var(--space-4) var(--space-4);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.danke-footer__inner {
+  max-width: 560px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.danke-footer__nav {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+}
+
+.danke-footer__nav a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.danke-footer__nav a:hover {
+  color: var(--color-primary);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .danke__icon {
+    animation: none;
+  }
+}
+
+/* Tablet+ */
+@media (min-width: 768px) {
+  .danke {
+    padding: var(--space-10) var(--space-6);
+  }
+
+  .danke__steps {
+    padding: var(--space-8);
+  }
+
+  .danke-footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

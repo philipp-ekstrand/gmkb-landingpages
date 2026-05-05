@@ -1,0 +1,1242 @@
+<?php
+/**
+ * Template Name: Karriere – Facharzt Pädiatrie
+ *
+ * Custom Page Template fuer die Paediatrie-Landingpage auf karriere.medizinundtherapie.de.
+ * Rendert komplettes eigenes HTML-Dokument (kein get_header / get_footer).
+ *
+ * Anforderungen:
+ *   - PHP-Session fuer CSRF-Token
+ *   - wp_head() / wp_footer() fuer Asset-Loading durch functions.php
+ *   - Asset-Pfade ueber get_template_directory_uri()
+ */
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+if ( session_status() === PHP_SESSION_NONE ) {
+    session_start();
+}
+if ( empty( $_SESSION['csrf_token'] ) ) {
+    $_SESSION['csrf_token'] = bin2hex( random_bytes( 32 ) );
+}
+
+$gmkb_assets = esc_url( get_template_directory_uri() ) . '/assets';
+?>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <title>Facharzt Pädiatrie (m/w/d) – Kinderarzt Stelle Bonn | GMKB Karriere</title>
+  <meta name="description" content="Kinderarzt Job in Bonn gesucht? Facharzt Pädiatrie Stellenangebot: unbefristete Vollzeitstelle, tarifliches Gehalt, 30 Tage Urlaub, Weiterbildung & Kita-Platz. Jetzt in 60 Sekunden bewerben bei der GMKB.">
+  <!-- TODO: Nach Live-Schaltung wieder auf "index, follow" setzen -->
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://karriere.medizinundtherapie.de/facharzt-paediatrie/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Facharzt Pädiatrie (m/w/d) – Kinderarzt Stelle Bonn | GMKB Karriere">
+  <meta property="og:description" content="Kinderarzt Stellenangebot im Raum Bonn/Köln – unbefristet, tarifliches Gehalt, Weiterbildung Pädiatrie, Kita-Platz. Bewirb dich in 60 Sekunden.">
+  <meta property="og:url" content="https://karriere.medizinundtherapie.de/facharzt-paediatrie/">
+  <meta property="og:locale" content="de_DE">
+
+  <!-- Preload Fonts -->
+  <link rel="preload" href="<?php echo $gmkb_assets; ?>/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+
+  <!-- Preload Hero Image -->
+  <link rel="preload" as="image" type="image/webp" imagesrcset="<?php echo $gmkb_assets; ?>/images/hero-480w.webp 480w, <?php echo $gmkb_assets; ?>/images/hero-960w.webp 960w, <?php echo $gmkb_assets; ?>/images/hero-1440w.webp 1440w" imagesizes="(max-width: 900px) 100vw, 55vw">
+
+  <!-- Google Tag Manager (wird nach Cookie-Consent aktiviert) -->
+  <!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script> -->
+  <script>window.dataLayer = window.dataLayer || [];</script>
+
+  <!-- Google Consent Mode v2 – Default States (vor GTM laden) -->
+  <script>
+    window.dataLayer.push('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'denied',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+  </script>
+
+  <!-- Structured Data: JobPosting -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org/",
+    "@type": "JobPosting",
+    "title": "Facharzt Pädiatrie / Kinderarzt (m/w/d)",
+    "description": "Facharzt für Pädiatrie und Kinder- und Jugendmedizin gesucht – unbefristete Stelle in Vollzeit im Raum Bonn/Köln. Tarifliches Gehalt, 30 Tage Urlaub, Weiterbildung Pädiatrie, Kita-Platz-Vermittlung.",
+    "datePosted": "2026-03-01",
+    "validThrough": "2026-09-01",
+    "employmentType": "FULL_TIME",
+    "directApply": true,
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bonn",
+        "addressRegion": "NRW",
+        "postalCode": "53113",
+        "addressCountry": "DE"
+      }
+    },
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "EUR",
+      "value": {
+        "@type": "QuantitativeValue",
+        "unitText": "MONTH",
+        "minValue": 5500,
+        "maxValue": 8500
+      }
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "GMKB – Gemeinnützige Medizinzentren KölnBonn",
+      "sameAs": "https://medizinundtherapie.de",
+      "logo": "https://medizinundtherapie.de/wp-content/uploads/gmkb-logo.png"
+    },
+    "jobBenefits": "Unbefristete Anstellung, Tarifliches Gehalt, 30 Tage Urlaub, Kita-Platz-Vermittlung, Weiterbildung Pädiatrie, Deutschlandticket, Corporate Benefits, Work-Life-Balance",
+    "qualifications": "Facharzt für Kinder- und Jugendmedizin oder Facharzt Pädiatrie mit deutscher Approbation",
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "Germany"
+    }
+  }
+  </script>
+
+  <!-- Styles -->
+
+  <?php wp_head(); ?>
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript) – wird nach Cookie-Consent aktiviert -->
+  <!-- <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> -->
+
+  <main>
+
+  <!-- ============================================================
+       [1] HERO SECTION
+       ============================================================ -->
+  <section class="hero-v2" aria-label="Stellenangebot Facharzt Pädiatrie – Kinderarzt Job Bonn">
+    <header class="hero-v2__header">
+      <div class="container">
+        <a href="https://medizinundtherapie.de" class="hero-v2__logo" aria-label="Medizin & Therapie – Zur Startseite">
+          <picture>
+            <source type="image/webp" srcset="<?php echo $gmkb_assets; ?>/images/gmkb-logo.webp">
+            <img src="<?php echo $gmkb_assets; ?>/images/gmkb-logo.png" alt="Medizin & Therapie" class="hero-v2__logo-img" width="219" height="110">
+          </picture>
+        </a>
+      </div>
+    </header>
+
+    <div class="container">
+     <div class="hero-v2__card">
+      <div class="hero-v2__content">
+        <p class="hero-v2__eyebrow">Stellenangebot Kinderarzt – GMKB Medizinzentren Köln/Bonn</p>
+
+        <h1 class="hero-v2__title">
+          <span class="hero-v2__title-muted">Facharzt / Fachärztin</span>
+          <span class="hero-v2__title-accent">Pädiatrie gesucht</span>
+        </h1>
+
+        <p class="hero-v2__meta">
+          (m/w/d)
+          <svg class="hero-v2__meta-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          Vollzeit
+          <svg class="hero-v2__meta-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          Raum Bonn
+          <svg class="hero-v2__meta-check" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+          Ab sofort
+        </p>
+
+        <p class="hero-v2__hook">Du bist Kinderarzt und suchst eine Stelle in der Kinder- und Jugendmedizin im Raum Köln/Bonn, NRW? Dann bist du bei uns genau richtig.</p>
+
+        <div class="hero-v2__actions">
+          <a href="#bewerbung" class="btn btn--flip">
+            <span class="btn__texts">
+              <span class="btn__text">Bewirb Dich jetzt in 60 Sekunden</span>
+              <span class="btn__text">Bewirb Dich jetzt in 60 Sekunden</span>
+            </span>
+            <span class="btn__arrows">
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+          <span class="hero-v2__cta-hint">Kein Lebenslauf nötig · Antwort in 72 h</span>
+        </div>
+      </div>
+
+      <div class="hero-v2__visual">
+        <div class="hero-v2__slider" data-interval="5000">
+          <picture class="hero-v2__slide hero-v2__slide--active">
+            <source type="image/webp" srcset="<?php echo $gmkb_assets; ?>/images/feature-480w.webp 480w, <?php echo $gmkb_assets; ?>/images/feature-960w.webp 960w, <?php echo $gmkb_assets; ?>/images/feature-1440w.webp 1440w" sizes="(max-width: 900px) 100vw, 50vw">
+            <img src="<?php echo $gmkb_assets; ?>/images/feature-960w.jpg" srcset="<?php echo $gmkb_assets; ?>/images/feature-480w.jpg 480w, <?php echo $gmkb_assets; ?>/images/feature-960w.jpg 960w, <?php echo $gmkb_assets; ?>/images/feature-1440w.jpg 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Facharzt Pädiatrie der GMKB gibt einem Kind High-Five im Medizinzentrum Bonn" width="960" height="1440" class="hero-v2__img">
+          </picture>
+          <picture class="hero-v2__slide">
+            <source type="image/webp" srcset="<?php echo $gmkb_assets; ?>/images/hero-480w.webp 480w, <?php echo $gmkb_assets; ?>/images/hero-960w.webp 960w, <?php echo $gmkb_assets; ?>/images/hero-1440w.webp 1440w" sizes="(max-width: 900px) 100vw, 50vw">
+            <img src="<?php echo $gmkb_assets; ?>/images/hero-960w.jpg" srcset="<?php echo $gmkb_assets; ?>/images/hero-480w.jpg 480w, <?php echo $gmkb_assets; ?>/images/hero-960w.jpg 960w, <?php echo $gmkb_assets; ?>/images/hero-1440w.jpg 1440w" sizes="(max-width: 900px) 100vw, 50vw" alt="Kinderarzt bei der Untersuchung eines Kindes – Pädiatrie Stelle GMKB Bonn" width="960" height="2603" class="hero-v2__img">
+          </picture>
+          <div class="hero-v2__progress">
+            <span class="hero-v2__progress-bar hero-v2__progress-bar--active"></span>
+            <span class="hero-v2__progress-bar"></span>
+          </div>
+        </div>
+      </div>
+     </div>
+
+      <!-- Trust-Bar inside hero, below card -->
+      <div class="hero-v2__trust">
+        <ul class="trust-bar__list">
+          <li class="trust-bar__item reveal">
+            <div class="trust-bar__icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="trust-bar__text">
+              <strong>Unbefristet</strong>
+              <span>angestellt</span>
+            </div>
+          </li>
+          <li class="trust-bar__item reveal">
+            <div class="trust-bar__icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <div class="trust-bar__text">
+              <strong>30 Tage</strong>
+              <span>Urlaub</span>
+            </div>
+          </li>
+          <li class="trust-bar__item reveal">
+            <div class="trust-bar__icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <div class="trust-bar__text">
+              <strong>Tarifliches</strong>
+              <span>Gehalt</span>
+            </div>
+          </li>
+          <li class="trust-bar__item reveal">
+            <div class="trust-bar__icon-wrap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <div class="trust-bar__text">
+              <strong>Kita-Platz</strong>
+              <span>vermittlung</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [3] BENEFITS SECTION – Stripe-inspirierte Cards
+       ============================================================ -->
+  <section class="benefits section" id="benefits" aria-labelledby="benefits-heading">
+    <div class="container">
+      <div class="benefits__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Unsere Benefits
+        </span>
+        <h2 id="benefits-heading">Deine Vorteile als Kinderarzt in Köln/Bonn bei der GMKB</h2>
+        <p class="benefits__intro">Wir bieten dir als Facharzt für Kinder- und Jugendmedizin nicht nur einen Job, sondern ein Umfeld, in dem du dich fachlich und persönlich entfalten kannst.</p>
+      </div>
+
+      <div class="benefits__grid reveal-stagger">
+        <!-- Card 1: Sicherer Job -->
+        <article class="benefit-card benefit-card--icon-only reveal">
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Sicherer Job</h3>
+            <p class="benefit-card__text">Unbefristete Kinderarzt Stelle bei einem seit über 20 Jahren etablierten gemeinnützigen Träger im Raum Bonn.</p>
+          </div>
+        </article>
+
+        <!-- Card 2: Tarifliches Gehalt -->
+        <article class="benefit-card benefit-card--icon-only reveal">
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Tarifliches Gehalt</h3>
+            <p class="benefit-card__text">Mit regelmäßigen Anpassungen, Mobilitätszuschuss sowie variabler Vergütung und Zusatzleistungen.</p>
+          </div>
+        </article>
+
+        <!-- Card 3: Familie & Beruf -->
+        <article class="benefit-card benefit-card--icon-only reveal">
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Familie &amp; Beruf</h3>
+            <p class="benefit-card__text">Kita-Plätze in Bonn und Rhein-Sieg-Kreis, flexible Arbeitszeitmodelle und echte Work-Life-Balance für eine bessere Vereinbarkeit.</p>
+          </div>
+        </article>
+
+        <!-- Card 4: 30 Tage Urlaub -->
+        <article class="benefit-card benefit-card--icon-only reveal">
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">30 Tage Urlaub</h3>
+            <p class="benefit-card__text">Plus Heiligabend und Silvester frei. Mehr Erholung bei einer 5-Tage-Woche.</p>
+          </div>
+        </article>
+
+        <!-- Card 5: Fort- & Weiterbildung -->
+        <article class="benefit-card benefit-card--icon-only reveal">
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Fort- &amp; Weiterbildung</h3>
+            <p class="benefit-card__text">Individuelle Weiterbildung Pädiatrie und Fortbildung Kinder- und Jugendmedizin – intern, extern und fachübergreifend.</p>
+          </div>
+        </article>
+
+        <!-- Card 6: Corporate Benefits -->
+        <article class="benefit-card benefit-card--icon-only reveal">
+          <div class="benefit-card__body">
+            <div class="benefit-card__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>
+              </svg>
+            </div>
+            <h3 class="benefit-card__title">Corporate Benefits</h3>
+            <p class="benefit-card__text">Exklusive Mitarbeiterrabatte und monatlicher steuerfreier Zuschuss für dein Deutschlandticket.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="benefits__cta reveal">
+        <a href="#bewerbung" class="btn btn--primary" data-track="cta-click" data-track-label="benefits-cta">
+          Jetzt bewerben
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [4] AUFGABEN & PROFIL SECTION
+       ============================================================ -->
+  <section class="aufgaben section" id="aufgaben" aria-labelledby="aufgaben-heading">
+    <div class="container">
+      <div class="aufgaben__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Deine Stelle im Überblick
+        </span>
+        <h2 id="aufgaben-heading">Aufgaben &amp; Profil</h2>
+      </div>
+
+      <div class="aufgaben__grid">
+        <div class="aufgaben__col reveal">
+          <h3 class="aufgaben__title">Deine Aufgaben</h3>
+          <ul class="aufgaben__list">
+            <li>Ambulante kinder- und jugendmedizinische Versorgung im Raum Bonn/Köln</li>
+            <li>Vorsorgeuntersuchungen (U-Untersuchungen) und Entwicklungsdiagnostik</li>
+            <li>Behandlung akuter und chronischer Erkrankungen im Kindes- und Jugendalter</li>
+            <li>Interdisziplinäre Zusammenarbeit mit Ergotherapeuten, Logopäden und Pädagogen</li>
+          </ul>
+        </div>
+        <div class="aufgaben__col reveal">
+          <h3 class="aufgaben__title">Dein Profil</h3>
+          <ul class="aufgaben__list">
+            <li>Facharztanerkennung für Kinder- und Jugendmedizin (Pädiatrie)</li>
+            <li>Freude an der Arbeit mit Kindern und Jugendlichen</li>
+            <li>Teamgeist und Interesse an interdisziplinärer Zusammenarbeit</li>
+            <li>Deutsche Approbation und gute Deutschkenntnisse</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [6] TESTIMONIAL SECTION – Stimmen aus dem Team
+       ============================================================ -->
+  <section class="testimonial section" aria-labelledby="testimonial-heading">
+    <div class="container">
+      <div class="testimonial__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Stimmen aus dem Team
+        </span>
+        <h2 id="testimonial-heading">So erleben Kinderärzte<br>die Arbeit bei der GMKB</h2>
+      </div>
+
+      <div class="testimonial__card reveal">
+        <div class="testimonial__quote-col">
+          <figure class="testimonial__quote">
+            <div class="testimonial__quote-mark" aria-hidden="true">"</div>
+            <blockquote>
+              <p>"Diese interdisziplinäre Zusammenarbeit auf Augenhöhe ist für mich ein zentraler Teil guter Medizin. Bei der GMKB kann ich Pädiatrie so leben, wie ich es mir immer vorgestellt habe."</p>
+            </blockquote>
+            <figcaption>
+              <strong class="testimonial__name">Dr. med. Alexander Gröner</strong>
+              <span class="testimonial__role">Kinder- und Jugendarzt</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="testimonial__image-col">
+          <img src="<?php echo $gmkb_assets; ?>/images/testimonial-groener.jpg" alt="Dr. med. Alexander Gröner, Facharzt Kinder- und Jugendmedizin bei der GMKB Bonn" loading="lazy" width="600" height="400">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [8] ABLAUF SECTION – "So einfach geht's", 3 Schritte
+       ============================================================ -->
+  <section class="process section" id="ablauf" aria-labelledby="process-heading">
+    <div class="container">
+      <div class="process__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Bewerbungsprozess
+        </span>
+        <h2 id="process-heading">Kinderarzt Bewerbung –<br>so einfach geht's</h2>
+        <p class="process__intro">Drei Schritte zu deiner neuen Facharzt Pädiatrie Stelle im Raum Köln/Bonn bei der GMKB.</p>
+      </div>
+
+      <div class="process__steps">
+        <!-- Step 1 -->
+        <article class="process__step reveal">
+          <div class="process__step-number" aria-hidden="true">01</div>
+          <div class="process__step-content">
+            <div class="process__step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+            </div>
+            <h3>1. Formular ausfüllen</h3>
+            <p>Keine 60 Sekunden, kein Lebenslauf nötig. Einfach Name, Kontakt und los.</p>
+          </div>
+        </article>
+
+        <!-- Connector 1 -->
+        <div class="process__connector" aria-hidden="true">
+          <span class="process__dot"></span>
+          <span class="process__dot"></span>
+          <span class="process__dot"></span>
+        </div>
+
+        <!-- Step 2 -->
+        <article class="process__step reveal">
+          <div class="process__step-number" aria-hidden="true">02</div>
+          <div class="process__step-content">
+            <div class="process__step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </div>
+            <h3>2. Wir melden uns</h3>
+            <p>Innerhalb von 72 Stunden hörst du von uns – versprochen.</p>
+          </div>
+        </article>
+
+        <!-- Connector 2 -->
+        <div class="process__connector process__connector--second" aria-hidden="true">
+          <span class="process__dot"></span>
+          <span class="process__dot"></span>
+          <span class="process__dot"></span>
+        </div>
+
+        <!-- Step 3 -->
+        <article class="process__step reveal">
+          <div class="process__step-number" aria-hidden="true">03</div>
+          <div class="process__step-content">
+            <div class="process__step-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>3. Kennenlernen</h3>
+            <p>Bei einem Match laden wir dich zum persönlichen Gespräch ein – ganz entspannt.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [10] FORMULAR SECTION – "In 60 Sekunden bewerben"
+       ============================================================ -->
+  <section class="form-section section" id="bewerbung" aria-labelledby="form-heading">
+    <div class="container container--narrow">
+      <div class="form-section__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Jetzt bewerben
+        </span>
+        <h2 id="form-heading">Jetzt als Kinderarzt<br>bewerben</h2>
+        <p class="form-section__intro">Deine Bewerbung als Facharzt Pädiatrie dauert nur 60 Sekunden – kein Lebenslauf nötig. Wir melden uns innerhalb von 72 Stunden.</p>
+      </div>
+
+      <div class="form-card reveal">
+        <form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" class="form" id="bewerbung-form" novalidate enctype="multipart/form-data" data-track="form-submit" data-track-label="bewerbung-paediatrie">
+
+          <input type="hidden" name="action" value="gmkb_bewerbung_paediatrie">
+          <input type="hidden" name="csrf_token" value="<?php echo esc_attr( $_SESSION['csrf_token'] ); ?>" id="csrf-token">
+          <input type="hidden" name="qualifikation" id="hidden-qualifikation">
+          <input type="hidden" name="starttermin" id="hidden-starttermin">
+
+          <!-- Progress Bar -->
+          <div class="form-steps__header">
+            <button type="button" class="form-steps__back" id="form-back" aria-label="Zurück zum vorherigen Schritt">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <nav class="form-steps__nav" aria-label="Formular-Fortschritt">
+              <span class="form-steps__dot form-steps__dot--active" data-step="0">1</span>
+              <span class="form-steps__line" data-line="0"></span>
+              <span class="form-steps__dot" data-step="1">2</span>
+              <span class="form-steps__line" data-line="1"></span>
+              <span class="form-steps__dot" data-step="2">3</span>
+            </nav>
+          </div>
+
+          <div class="form-steps">
+            <div class="form-steps__track" id="form-track">
+
+              <!-- STEP 1: Qualifikation -->
+              <div class="form-steps__step" data-step="0">
+                <p class="form-step__question">Hast du dein Medizinstudium und den Facharzttitel Kinder- und Jugendmedizin erfolgreich abgeschlossen?</p>
+                <div class="form-step__choices">
+                  <button type="button" class="form-step__choice" data-value="ja" data-next="1">Ja, beides vorhanden</button>
+                  <button type="button" class="form-step__choice" data-value="nein" data-next="reject">Nein, noch nicht</button>
+                </div>
+              </div>
+
+              <!-- STEP 2: Starttermin -->
+              <div class="form-steps__step" data-step="1">
+                <p class="form-step__question">Wann könntest du bei uns starten?</p>
+                <div class="form-step__choices form-step__choices--cols-4">
+                  <button type="button" class="form-step__choice" data-value="ab sofort" data-next="2">Ab sofort</button>
+                  <button type="button" class="form-step__choice" data-value="in 4 wochen" data-next="2">In den nächsten 4&nbsp;Wochen</button>
+                  <button type="button" class="form-step__choice" data-value="spaeter" data-next="2">Später als 4&nbsp;Wochen</button>
+                  <button type="button" class="form-step__choice" data-value="3 monate" data-next="2">Erst in 3&nbsp;Monaten</button>
+                </div>
+              </div>
+
+              <!-- STEP 3: Kontaktdaten -->
+              <div class="form-steps__step" data-step="2">
+                <p class="form-step__question">Fast geschafft – nur noch deine Kontaktdaten!</p>
+
+                <!-- Alert for errors -->
+                <div class="form__alert form__alert--error" role="alert" hidden>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                  <span>Bitte überprüfe deine Eingaben.</span>
+                </div>
+
+                <!-- Name Row -->
+                <div class="form__row">
+                  <div class="form-group">
+                    <label for="vorname" class="form-label">Vorname *</label>
+                    <input type="text" id="vorname" name="vorname" class="form-input" placeholder="Max" required autocomplete="given-name">
+                    <span class="form-error">Bitte gib deinen Vornamen ein.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="nachname" class="form-label">Nachname *</label>
+                    <input type="text" id="nachname" name="nachname" class="form-input" placeholder="Mustermann" required autocomplete="family-name">
+                    <span class="form-error">Bitte gib deinen Nachnamen ein.</span>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email" class="form-label">E-Mail-Adresse *</label>
+                  <input type="email" id="email" name="email" class="form-input" placeholder="max@beispiel.de" required autocomplete="email">
+                  <span class="form-error">Bitte gib eine gültige E-Mail-Adresse ein.</span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                  <label for="telefon" class="form-label">Telefonnummer (optional)</label>
+                  <input type="tel" id="telefon" name="telefon" class="form-input" placeholder="+49 123 456 789" autocomplete="tel">
+                </div>
+
+                <!-- Standort -->
+                <div class="form-group">
+                  <label for="standort" class="form-label">Bevorzugter Standort *</label>
+                  <select id="standort" name="standort" class="form-select" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="koeln">Köln</option>
+                    <option value="bonn">Bonn</option>
+                    <option value="beide">Beide Standorte</option>
+                  </select>
+                  <span class="form-error">Bitte wähle deinen bevorzugten Standort.</span>
+                </div>
+
+                <!-- Preferred Contact Time -->
+                <div class="form-group">
+                  <label for="kontaktzeit" class="form-label">Bevorzugte Kontaktzeit (optional)</label>
+                  <select id="kontaktzeit" name="kontaktzeit" class="form-select">
+                    <option value="">Bitte wählen</option>
+                    <option value="vormittags">Vormittags (8–11 Uhr)</option>
+                    <option value="mittags">Mittags (11–13 Uhr)</option>
+                    <option value="nachmittags">Nachmittags (13–17 Uhr)</option>
+                  </select>
+                </div>
+
+                <!-- File Upload -->
+                <div class="form-group">
+                  <label class="form-label">Bewerbungsunterlagen (optional)</label>
+                  <label class="form-file" id="file-upload-label">
+                    <input type="file" name="bewerbung_datei" id="bewerbung-datei" accept=".pdf,.doc,.docx,.jpg,.png,.zip" multiple>
+                    <svg class="form-file__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <span>
+                      <span class="form-file__text">PDF, DOC, JPG oder ZIP – max. 5 MB</span>
+                      <span class="form-file__name" id="file-name"></span>
+                    </span>
+                  </label>
+                </div>
+
+                <!-- Turnstile Captcha -->
+                <div class="form-turnstile" id="turnstile-container">
+                  <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY_PLACEHOLDER" data-callback="onTurnstileSuccess"></div>
+                </div>
+
+                <!-- Privacy Checkbox -->
+                <div class="form-group">
+                  <label class="form-checkbox">
+                    <input type="checkbox" name="datenschutz" required>
+                    <span class="form-checkbox__text">
+                      Ich stimme der Verarbeitung meiner Daten gemäß der
+                      <a href="https://medizinundtherapie.de/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> zu. *
+                    </span>
+                  </label>
+                  <span class="form-error">Bitte stimme der Datenschutzerklärung zu.</span>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn--flip btn--full form__submit">
+                  <span class="btn__texts">
+                    <span class="btn__text form__submit-text">Bewerbung absenden</span>
+                    <span class="btn__text">Bewerbung absenden</span>
+                  </span>
+                  <span class="btn__arrows">
+                    <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                  </span>
+                </button>
+              </div>
+
+              <!-- REJECTION SCREEN -->
+              <div class="form-steps__step" data-step="reject">
+                <div class="form-step__reject">
+                  <div class="form-step__reject-icon" aria-hidden="true">💬</div>
+                  <p class="form-step__reject-title">Für diese Stelle setzen wir ein abgeschlossenes Medizinstudium und den Facharzttitel Kinder- und Jugendmedizin voraus.</p>
+                  <p class="form-step__reject-text">Du glaubst trotzdem, dass du zu uns passt? Dann ruf uns gerne direkt an – wir finden gemeinsam eine Lösung.</p>
+                  <a href="tel:+492283827777" class="form-step__reject-phone">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    0228 / 3827-777
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Honeypot (anti-spam) -->
+          <div style="position:absolute;left:-9999px" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [5] FEATURE SECTION – Interdisziplinaer (Bild + Text, asymmetrisch)
+       ============================================================ -->
+  <section class="feature section" aria-labelledby="feature-heading">
+    <div class="container feature__container">
+      <div class="feature__image reveal">
+        <picture>
+          <source
+            type="image/webp"
+            srcset="<?php echo $gmkb_assets; ?>/images/feature-480w.webp 480w, <?php echo $gmkb_assets; ?>/images/feature-960w.webp 960w, <?php echo $gmkb_assets; ?>/images/feature-1440w.webp 1440w"
+            sizes="(max-width: 900px) 100vw, 50vw"
+          >
+          <img
+            src="<?php echo $gmkb_assets; ?>/images/feature-960w.jpg"
+            srcset="<?php echo $gmkb_assets; ?>/images/feature-480w.jpg 480w, <?php echo $gmkb_assets; ?>/images/feature-960w.jpg 960w, <?php echo $gmkb_assets; ?>/images/feature-1440w.jpg 1440w"
+            sizes="(max-width: 900px) 100vw, 50vw"
+            alt="Pädiater im interdisziplinären Team des GMKB Medizinzentrums Köln/Bonn"
+            width="960"
+            height="1662"
+            loading="lazy"
+          >
+        </picture>
+        <!-- Decorative frame -->
+        <div class="feature__image-accent" aria-hidden="true"></div>
+        <!-- Floating advantage cards -->
+        <div class="feature__cards">
+          <div class="feature__card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Gemeinnütziger Träger seit 2003</span>
+          </div>
+          <div class="feature__card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Über 140 Mitarbeitende</span>
+          </div>
+          <div class="feature__card">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>12 Standorte in Köln &amp; Bonn</span>
+          </div>
+        </div>
+      </div>
+      <div class="feature__content reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Dein Arbeitgeber
+        </span>
+        <h2 id="feature-heading">Die GMKB – Medizin &amp; Therapie<br><span class="text-teal">unter einem Dach.</span></h2>
+        <p>Die GMKB ist ein gemeinnütziger Träger mit über 20 Jahren Erfahrung in der Kinder- und Jugendmedizin. An 12 Standorten in Köln und Bonn arbeiten Kinderärzte, Therapeuten und Pädagogen interdisziplinär zusammen – für eine ganzheitliche Versorgung, die Kindern wirklich hilft.</p>
+        <div class="feature__cta">
+          <a href="#bewerbung" class="btn btn--flip" data-track="cta-click" data-track-label="feature-cta">
+            <span class="btn__texts">
+              <span class="btn__text">Jetzt bewerben</span>
+              <span class="btn__text">Jetzt bewerben</span>
+            </span>
+            <span class="btn__arrows">
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [7] VIDEO SECTION – "Lerne dein Team kennen"
+       ============================================================ -->
+  <section class="video section" id="video" aria-labelledby="video-heading">
+    <div class="container">
+      <div class="video__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Unser Team
+        </span>
+        <h2 id="video-heading">Lerne dein Team<br>kennen</h2>
+        <p class="video__intro">Unsere Kinderärzte und Therapeuten erzählen, warum die GMKB Medizinzentren in Bonn ein besonderer Arbeitsplatz sind.</p>
+      </div>
+
+      <div class="video__player reveal" role="group" aria-label="Team-Video">
+        <div class="video__frame">
+          <picture>
+            <source
+              type="image/webp"
+              srcset="<?php echo $gmkb_assets; ?>/images/video-thumb-480w.webp 480w, <?php echo $gmkb_assets; ?>/images/video-thumb-960w.webp 960w, <?php echo $gmkb_assets; ?>/images/video-thumb-1440w.webp 1440w"
+              sizes="(max-width: 768px) 100vw, 80vw"
+            >
+            <img
+              src="<?php echo $gmkb_assets; ?>/images/video-thumb-960w.jpg"
+              srcset="<?php echo $gmkb_assets; ?>/images/video-thumb-480w.jpg 480w, <?php echo $gmkb_assets; ?>/images/video-thumb-960w.jpg 960w, <?php echo $gmkb_assets; ?>/images/video-thumb-1440w.jpg 1440w"
+              sizes="(max-width: 768px) 100vw, 80vw"
+              alt="Kinderärzte und Therapeuten im GMKB Team – Kinder- und Jugendmedizin Bonn"
+              width="960"
+              height="2350"
+              loading="lazy"
+              class="video__poster"
+            >
+          </picture>
+          <div class="video__gradient-overlay" aria-hidden="true"></div>
+          <div class="video__consent">
+            <p class="video__consent-text">Mit Klick auf „Video laden" wird eine Verbindung zu Vimeo aufgebaut. Dabei werden Daten an Vimeo übermittelt. Mehr dazu in unserer <a href="/datenschutz/" target="_blank">Datenschutzerklärung</a>.</p>
+            <button class="video__consent-btn" data-vimeo-id="1172314710" data-track="video-consent" data-track-label="team-video">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+              Video laden
+            </button>
+          </div>
+          <button class="video__play-btn" aria-label="Team-Video abspielen" data-track="video-play" data-track-label="team-video" style="display:none;">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5.14v14l11-7-11-7z"/>
+            </svg>
+          </button>
+          <div class="video__caption" aria-hidden="true">
+            <span class="video__caption-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </span>
+            Video ansehen
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [5] CTA-ZWISCHENRUFER – Contained Card
+       ============================================================ -->
+  <div class="section cta-banner-wrap">
+    <div class="container">
+      <section class="cta-banner" aria-label="Jetzt bewerben">
+        <div class="cta-banner__bg" aria-hidden="true">
+          <div class="cta-banner__glow"></div>
+        </div>
+        <div class="cta-banner__inner">
+          <div class="cta-banner__container">
+            <span class="benefits__tag benefits__tag--dark">
+              <span class="benefits__tag-dot"></span>
+              Bereit für den nächsten Schritt?
+            </span>
+            <p class="cta-banner__text">
+              Klingt gut?<br>Dann lass uns reden.
+            </p>
+            <p class="cta-banner__subtext">Deine Bewerbung dauert nur 60 Sekunden – kein Lebenslauf nötig.</p>
+            <a href="#bewerbung" class="btn btn--flip btn--white" data-track="cta-click" data-track-label="banner-cta">
+              <span class="btn__texts">
+                <span class="btn__text">Jetzt bewerben</span>
+                <span class="btn__text">Jetzt bewerben</span>
+              </span>
+              <span class="btn__arrows">
+                <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              </span>
+            </a>
+          </div>
+          <!-- TODO: Transparentes Arzt-PNG hier einfügen -->
+          <figure class="cta-banner__figure" aria-hidden="true">
+            <img src="<?php echo $gmkb_assets; ?>/images/cta-doctor.png" alt="" width="280" height="400" loading="lazy">
+          </figure>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       [9] STANDORTE SECTION – Google Maps + Adressen (Card-Style)
+       ============================================================ -->
+  <section class="standorte section" id="standorte" aria-labelledby="standorte-heading">
+    <div class="container">
+      <div class="standorte__card reveal">
+        <div class="standorte__map">
+          <div id="standorte-map" aria-label="GMKB Standorte – über 12 Einrichtungen im Raum Köln und Bonn"></div>
+        </div>
+        <div class="standorte__content">
+          <span class="benefits__tag">
+            <span class="benefits__tag-dot"></span>
+            Unsere Standorte
+          </span>
+          <h2 id="standorte-heading">Über 12 Einrichtungen in<br><span class="text-teal">Köln &amp; Bonn.</span></h2>
+          <p>5 Medizinische Versorgungszentren und 7 Therapie-Praxen – die GMKB ist mit über 140 Mitarbeitern einer der größten Arbeitgeber für Medizin &amp; Therapie in der Region.</p>
+          <div class="standorte__addresses">
+            <div class="standorte__group">
+              <h3>Medizinzentren</h3>
+              <ul class="standorte__list">
+                <li><strong>MEZ Godesburg</strong> Am Michaelshof 4b, 53177 Bonn</li>
+                <li><strong>MEZ Bonn</strong> Graurheindorfer Str. 149a, 53117 Bonn</li>
+                <li><strong>MEZ Köln</strong> Herthastr. 4, 50969 Köln</li>
+                <li><strong>KJP Bonner Markt</strong> Markt 9, 53111 Bonn</li>
+                <li><strong>KJP Hürth</strong> Vogelsanger Weg 6, 50354 Hürth</li>
+              </ul>
+            </div>
+            <div class="standorte__group">
+              <h3>Therapie-Praxen</h3>
+              <ul class="standorte__list">
+                <li><strong>TEO</strong> Oxfordstr. 12–16, 53111 Bonn</li>
+                <li><strong>ITZ Godesburg</strong> Am Michaelshof 4b, 53177 Bonn</li>
+                <li><strong>ITZ Auerberg</strong> Pariser Str. 40, 53117 Bonn</li>
+                <li><strong>ITZ Gustav-Heinemann-Haus</strong> Waldenburger Ring 44, 53119 Bonn</li>
+                <li><strong>ITZ Kindernierenzentrum</strong> Im Mühlenbach 2b, 53127 Bonn</li>
+                <li><strong>ITZ Kloster Bornheim</strong> Klosterstr. 2, 53332 Bornheim</li>
+                <li><strong>GMBiff</strong> Joachimstr. 10–12, 53113 Bonn</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FORMULAR (Duplikat) – Zweites Bewerbungsformular vor Footer
+       ============================================================ -->
+  <section class="form-section section" id="bewerbung-2" aria-labelledby="form-heading-2">
+    <div class="container container--narrow">
+      <div class="form-section__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Jetzt bewerben
+        </span>
+        <h2 id="form-heading-2">Jetzt als Kinderarzt<br>bewerben</h2>
+        <p class="form-section__intro">Deine Bewerbung als Facharzt Pädiatrie dauert nur 60 Sekunden – kein Lebenslauf nötig. Wir melden uns innerhalb von 72 Stunden.</p>
+      </div>
+
+      <div class="form-card reveal">
+        <form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" class="form" id="bewerbung-form-2" novalidate enctype="multipart/form-data" data-track="form-submit" data-track-label="bewerbung-paediatrie">
+
+          <input type="hidden" name="action" value="gmkb_bewerbung_paediatrie">
+          <input type="hidden" name="csrf_token" value="<?php echo esc_attr( $_SESSION['csrf_token'] ); ?>" id="csrf-token-2">
+          <input type="hidden" name="qualifikation" id="hidden-qualifikation-2">
+          <input type="hidden" name="starttermin" id="hidden-starttermin-2">
+
+          <!-- Progress Bar -->
+          <div class="form-steps__header">
+            <button type="button" class="form-steps__back" id="form-back-2" aria-label="Zurück zum vorherigen Schritt">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <nav class="form-steps__nav" aria-label="Formular-Fortschritt">
+              <span class="form-steps__dot form-steps__dot--active" data-step="0">1</span>
+              <span class="form-steps__line" data-line="0"></span>
+              <span class="form-steps__dot" data-step="1">2</span>
+              <span class="form-steps__line" data-line="1"></span>
+              <span class="form-steps__dot" data-step="2">3</span>
+            </nav>
+          </div>
+
+          <div class="form-steps">
+            <div class="form-steps__track" id="form-track-2">
+
+              <!-- STEP 1: Qualifikation -->
+              <div class="form-steps__step" data-step="0">
+                <p class="form-step__question">Hast du dein Medizinstudium und den Facharzttitel Kinder- und Jugendmedizin erfolgreich abgeschlossen?</p>
+                <div class="form-step__choices">
+                  <button type="button" class="form-step__choice" data-value="ja" data-next="1">Ja, beides vorhanden</button>
+                  <button type="button" class="form-step__choice" data-value="nein" data-next="reject">Nein, noch nicht</button>
+                </div>
+              </div>
+
+              <!-- STEP 2: Starttermin -->
+              <div class="form-steps__step" data-step="1">
+                <p class="form-step__question">Wann könntest du bei uns starten?</p>
+                <div class="form-step__choices form-step__choices--cols-4">
+                  <button type="button" class="form-step__choice" data-value="ab sofort" data-next="2">Ab sofort</button>
+                  <button type="button" class="form-step__choice" data-value="in 4 wochen" data-next="2">In den nächsten 4&nbsp;Wochen</button>
+                  <button type="button" class="form-step__choice" data-value="spaeter" data-next="2">Später als 4&nbsp;Wochen</button>
+                  <button type="button" class="form-step__choice" data-value="3 monate" data-next="2">Erst in 3&nbsp;Monaten</button>
+                </div>
+              </div>
+
+              <!-- STEP 3: Kontaktdaten -->
+              <div class="form-steps__step" data-step="2">
+                <p class="form-step__question">Fast geschafft – nur noch deine Kontaktdaten!</p>
+
+                <!-- Alert for errors -->
+                <div class="form__alert form__alert--error" role="alert" hidden>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                  <span>Bitte überprüfe deine Eingaben.</span>
+                </div>
+
+                <!-- Name Row -->
+                <div class="form__row">
+                  <div class="form-group">
+                    <label for="vorname-2" class="form-label">Vorname *</label>
+                    <input type="text" id="vorname-2" name="vorname" class="form-input" placeholder="Max" required autocomplete="given-name">
+                    <span class="form-error">Bitte gib deinen Vornamen ein.</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="nachname-2" class="form-label">Nachname *</label>
+                    <input type="text" id="nachname-2" name="nachname" class="form-input" placeholder="Mustermann" required autocomplete="family-name">
+                    <span class="form-error">Bitte gib deinen Nachnamen ein.</span>
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <label for="email-2" class="form-label">E-Mail-Adresse *</label>
+                  <input type="email" id="email-2" name="email" class="form-input" placeholder="max@beispiel.de" required autocomplete="email">
+                  <span class="form-error">Bitte gib eine gültige E-Mail-Adresse ein.</span>
+                </div>
+
+                <!-- Phone -->
+                <div class="form-group">
+                  <label for="telefon-2" class="form-label">Telefonnummer (optional)</label>
+                  <input type="tel" id="telefon-2" name="telefon" class="form-input" placeholder="+49 123 456 789" autocomplete="tel">
+                </div>
+
+                <!-- Standort -->
+                <div class="form-group">
+                  <label for="standort-2" class="form-label">Bevorzugter Standort *</label>
+                  <select id="standort-2" name="standort" class="form-select" required>
+                    <option value="">Bitte wählen</option>
+                    <option value="koeln">Köln</option>
+                    <option value="bonn">Bonn</option>
+                    <option value="beide">Beide Standorte</option>
+                  </select>
+                  <span class="form-error">Bitte wähle deinen bevorzugten Standort.</span>
+                </div>
+
+                <!-- Preferred Contact Time -->
+                <div class="form-group">
+                  <label for="kontaktzeit-2" class="form-label">Bevorzugte Kontaktzeit (optional)</label>
+                  <select id="kontaktzeit-2" name="kontaktzeit" class="form-select">
+                    <option value="">Bitte wählen</option>
+                    <option value="vormittags">Vormittags (8–11 Uhr)</option>
+                    <option value="mittags">Mittags (11–13 Uhr)</option>
+                    <option value="nachmittags">Nachmittags (13–17 Uhr)</option>
+                  </select>
+                </div>
+
+                <!-- File Upload -->
+                <div class="form-group">
+                  <label class="form-label">Bewerbungsunterlagen (optional)</label>
+                  <label class="form-file" id="file-upload-label-2">
+                    <input type="file" name="bewerbung_datei" id="bewerbung-datei-2" accept=".pdf,.doc,.docx,.jpg,.png,.zip" multiple>
+                    <svg class="form-file__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <span>
+                      <span class="form-file__text">PDF, DOC, JPG oder ZIP – max. 5 MB</span>
+                      <span class="form-file__name" id="file-name-2"></span>
+                    </span>
+                  </label>
+                </div>
+
+                <!-- Turnstile Captcha -->
+                <div class="form-turnstile" id="turnstile-container-2">
+                  <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY_PLACEHOLDER" data-callback="onTurnstileSuccess"></div>
+                </div>
+
+                <!-- Privacy Checkbox -->
+                <div class="form-group">
+                  <label class="form-checkbox">
+                    <input type="checkbox" name="datenschutz" required>
+                    <span class="form-checkbox__text">
+                      Ich stimme der Verarbeitung meiner Daten gemäß der
+                      <a href="https://medizinundtherapie.de/datenschutz/" target="_blank" rel="noopener">Datenschutzerklärung</a> zu. *
+                    </span>
+                  </label>
+                  <span class="form-error">Bitte stimme der Datenschutzerklärung zu.</span>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" class="btn btn--flip btn--full form__submit">
+                  <span class="btn__texts">
+                    <span class="btn__text form__submit-text">Bewerbung absenden</span>
+                    <span class="btn__text">Bewerbung absenden</span>
+                  </span>
+                  <span class="btn__arrows">
+                    <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                    <svg class="btn__arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+                  </span>
+                </button>
+              </div>
+
+              <!-- REJECTION SCREEN -->
+              <div class="form-steps__step" data-step="reject">
+                <div class="form-step__reject">
+                  <div class="form-step__reject-icon" aria-hidden="true">💬</div>
+                  <p class="form-step__reject-title">Für diese Stelle setzen wir ein abgeschlossenes Medizinstudium und den Facharzttitel Kinder- und Jugendmedizin voraus.</p>
+                  <p class="form-step__reject-text">Du glaubst trotzdem, dass du zu uns passt? Dann ruf uns gerne direkt an – wir finden gemeinsam eine Lösung.</p>
+                  <a href="tel:+492283827777" class="form-step__reject-phone">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    0228 / 3827-777
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Honeypot (anti-spam) -->
+          <div style="position:absolute;left:-9999px" aria-hidden="true">
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       [10] FAQ SECTION – Häufige Fragen
+       ============================================================ -->
+  <section class="faq section" id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="faq__header reveal">
+        <span class="benefits__tag">
+          <span class="benefits__tag-dot"></span>
+          Häufige Fragen
+        </span>
+        <h2 id="faq-heading">Häufige Fragen zur<br>Kinderarzt Stelle bei der GMKB</h2>
+        <p class="faq__intro">Alles Wichtige rund um deine Bewerbung als Facharzt für Pädiatrie und Kinder- und Jugendmedizin im Raum Bonn.</p>
+      </div>
+
+      <div class="faq__grid">
+        <div class="faq__col">
+          <div class="faq__item reveal">
+            <button class="faq__question" aria-expanded="false">
+              <span>Brauche ich einen Lebenslauf?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Nein! Unser Bewerbungsformular ist bewusst einfach gehalten. Name, E-Mail und optional Telefonnummer reichen aus. Du kannst aber natürlich gerne Unterlagen hochladen, wenn du möchtest.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__question" aria-expanded="false">
+              <span>Wie schnell bekomme ich eine Rückmeldung?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Wir melden uns innerhalb von 72 Stunden bei dir, in der Regel sogar schneller. Du erhältst eine persönliche Rückmeldung, keine automatisierte Standardmail.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__question" aria-expanded="false">
+              <span>Ist die Stelle unbefristet?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Ja, unsere Facharzt Pädiatrie Stelle ist unbefristet in Vollzeit. Als gemeinnütziger und diakonischer Träger mit über 20 Jahren Erfahrung in der Kinder- und Jugendmedizin bieten wir langfristige Perspektiven im Raum Köln/Bonn.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__question" aria-expanded="false">
+              <span>Kann ich auch in Teilzeit arbeiten?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Grundsätzlich ist die Stelle als Vollzeitstelle ausgeschrieben. Wir sind aber offen für flexible Arbeitszeitmodelle. Sprich uns einfach darauf an.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq__col">
+          <div class="faq__item reveal">
+            <button class="faq__question" aria-expanded="false">
+              <span>Wie ist das Gehalt strukturiert?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Wir vergüten nach Tarif mit regelmäßigen Anpassungen. Dazu kommen variable Vergütungsbestandteile, ein Mobilitätszuschuss (z.B. Deutschlandticket) und weitere Corporate Benefits.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__question" aria-expanded="false">
+              <span>Gibt es Weiterbildungsmöglichkeiten?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Absolut! Die GMKB bietet Kinderärzten individuelle Weiterbildung Pädiatrie und Fortbildungen Kinder- und Jugendmedizin durch interne und externe Programme, auch fachübergreifend in Ergotherapie und Logopädie.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__question" aria-expanded="false">
+              <span>Wo genau ist der Arbeitsort?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Unsere Kinderarzt Stelle ist im Raum Bonn angesiedelt. Die GMKB Medizinzentren befinden sich in Bonn, im Rhein-Sieg-Kreis und im Großraum Köln, gut erreichbar mit öffentlichen Verkehrsmitteln und mit Parkplätzen vor Ort.</p>
+            </div>
+          </div>
+          <div class="faq__item reveal">
+            <button class="faq__question" aria-expanded="false">
+              <span>Hilft die GMKB bei der Kita-Suche?</span>
+              <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+            </button>
+            <div class="faq__answer">
+              <p>Ja! Wir vermitteln aktiv Kita-Plätze in Bonn und im Rhein-Sieg-Kreis. Vereinbarkeit von Familie und Beruf ist uns als Arbeitgeber besonders wichtig.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER – Minimal, elegant
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container site-footer__container">
+      <div class="site-footer__top">
+        <!-- Logo -->
+        <a href="https://medizinundtherapie.de" class="site-footer__logo" aria-label="Medizin & Therapie – Zur Startseite">
+          <picture>
+            <source type="image/webp" srcset="<?php echo $gmkb_assets; ?>/images/gmkb-logo.webp">
+            <img
+              src="<?php echo $gmkb_assets; ?>/images/gmkb-logo.png"
+              alt="GMKB Medizin & Therapie – Kinderarzt Karriere im Großraum Köln/Bonn"
+              class="site-footer__logo-img"
+              width="160"
+              height="80"
+            >
+          </picture>
+        </a>
+
+        <!-- Legal Links -->
+        <nav class="site-footer__nav" aria-label="Rechtliche Links">
+          <a href="https://medizinundtherapie.de/impressum/">Impressum</a>
+          <span class="site-footer__divider" aria-hidden="true">·</span>
+          <a href="https://medizinundtherapie.de/datenschutz/">Datenschutz</a>
+          <span class="site-footer__divider" aria-hidden="true">·</span>
+          <button type="button" class="site-footer__cookie-btn" data-track="cookie-settings" data-track-label="footer">Cookies verwalten</button>
+        </nav>
+      </div>
+
+      <div class="site-footer__bottom">
+        <p>&copy; 2026 GMKB – Gemeinnützige Medizinzentren KölnBonn</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       [STICKY] MOBILE CTA – Fixed am unteren Rand
+       ============================================================ -->
+  <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
+    <div class="sticky-cta__inner">
+      <a href="#bewerbung" class="btn btn--flip btn--full sticky-cta__btn" data-track="cta-click" data-track-label="sticky-mobile">
+        <span class="btn__texts">
+          <span class="btn__text">Bewirb dich jetzt in 60 Sekunden</span>
+          <span class="btn__text">Bewirb dich jetzt in 60 Sekunden</span>
+        </span>
+        <span class="btn__arrows">
+          <svg class="btn__arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          <svg class="btn__arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+      <p class="sticky-cta__hint">Kein Lebenslauf nötig · Antwort in 72 Stunden</p>
+    </div>
+  </div>
+
+  <!-- Scripts (defer) -->
+
+  <?php wp_footer(); ?>
+</body>
+</html>
+
+

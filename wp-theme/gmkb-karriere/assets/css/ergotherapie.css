@@ -1,0 +1,204 @@
+/* ============================================================
+   Ergotherapie Landingpage – Page-Specific Styles
+   ============================================================
+   Only backgrounds, image crops, and page-specific overrides.
+   All component styles live in /assets/css/components.css.
+   ============================================================ */
+
+/* --- Page Background --- */
+body {
+  background-color: #F5FAFA;
+}
+
+/* --- Section Backgrounds (Welle: hell ↔ kräftig, nahtlose Übergänge) --- */
+/* Reihenfolge: Hero → Benefits → Aufgaben → Testimonial → Process → Form → Feature → Video → CTA → Standorte → Form2 → FAQ */
+.hero-v2                { background: #F5FAFA; }
+.benefits               { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+.aufgaben-profil        { background: #D4EAEA; }
+.testimonial            { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.process                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+.form-section           { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.feature                { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+.video                  { background: linear-gradient(180deg, #D4EAEA 0%, #F5FAFA 100%); }
+.cta-banner-wrap        { background: #F5FAFA; }
+.standorte              { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+.faq                    { background: linear-gradient(180deg, #F5FAFA 0%, #D4EAEA 100%); }
+
+/* --- Hero Image Position --- */
+.hero-v2__img {
+  object-position: center 15%;
+}
+
+/* --- Feature Image: Ergotherapeut + Kind komplett sichtbar --- */
+.feature__image img {
+  object-position: center 45%;
+}
+
+/* --- Video Poster: gleiches Bild --- */
+.video__poster {
+  object-position: center 45%;
+}
+
+/* --- Aufgaben & Profil Section (identisch mit Pädiatrie) --- */
+.aufgaben__header {
+  max-width: 720px;
+  margin-bottom: var(--space-8, 32px);
+}
+
+.aufgaben__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8, 32px);
+}
+
+@media (min-width: 768px) {
+  .aufgaben__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10, 40px);
+  }
+}
+
+.aufgaben__col {
+  background: var(--color-white, #fff);
+  border-radius: var(--radius-lg, 16px);
+  padding: var(--space-8, 32px);
+  border: 1px solid rgba(4, 108, 108, 0.1);
+}
+
+.aufgaben__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-teal, #046C6C);
+  margin-bottom: var(--space-4, 16px);
+}
+
+.aufgaben__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 16px);
+}
+
+.aufgaben__list li {
+  position: relative;
+  padding-left: 36px;
+  line-height: 1.6;
+  color: var(--color-text, #2D3A3A);
+}
+
+.aufgaben__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='12' cy='12' r='12' fill='%23046C6C' opacity='0.12'/%3E%3Cpath d='M7.5 12.5l3 3 6-6' stroke='%23046C6C' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 24px 24px;
+  background-repeat: no-repeat;
+}
+
+/* --- Benefits Grid: gleiche Höhe --- */
+.benefits__grid {
+  align-items: stretch;
+}
+
+.benefit-card {
+  height: 100%;
+}
+
+/* --- Benefit Cards: Icon-Only (keine Bilder) --- */
+.benefit-card--icon-only {
+  aspect-ratio: auto;
+  justify-content: flex-start;
+  background: var(--color-white, #fff);
+  border: 1px solid rgba(4, 108, 108, 0.1);
+}
+
+.benefit-card--icon-only .benefit-card__body {
+  position: static;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  margin: 0;
+  padding: var(--space-6, 24px);
+}
+
+.benefit-card--icon-only:hover {
+  box-shadow: var(--shadow-md, 0 4px 12px rgba(0,0,0,0.1));
+}
+
+/* --- Benefits CTA button --- */
+.benefits__cta {
+  text-align: center;
+  margin-top: var(--space-8, 32px);
+}
+
+/* --- Wider Text Sections --- */
+.benefits__header,
+.testimonial__header,
+.faq__header,
+.aufgaben__header {
+  max-width: 720px;
+}
+
+.benefits__intro,
+.faq__intro {
+  max-width: 640px;
+}
+
+.process__intro {
+  max-width: 600px;
+}
+
+.cta-banner__subtext {
+  max-width: 560px;
+}
+
+/* --- Testimonial (single, no slider) --- */
+.testimonial__card {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+/* Felix: Gesicht oben zeigen */
+.testimonial__image-col img {
+  object-position: center 15%;
+}
+
+@media (min-width: 768px) {
+  .testimonial__card {
+    grid-template-columns: 1fr 1fr;
+    min-height: 420px;
+  }
+
+  .testimonial__quote-col {
+    padding: 60px var(--space-12, 48px);
+    display: flex;
+    align-items: center;
+  }
+
+  .testimonial__image-col {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial__image-col img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 1101px) {
+  .testimonial__card {
+    min-height: 480px;
+  }
+}

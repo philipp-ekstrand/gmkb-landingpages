@@ -132,11 +132,18 @@
 
     <p>Hallo Willem,</p>
 
-    <p>danke für die Zugänge und Zwischenstände. Kurze Sortierung dazu, was wir parallel anpacken, was wir noch von euch brauchen, und ein konkreter Vorschlag für die Datenschutzerklärungs-Ergänzung, den der Datenschutzbeauftragte direkt prüfen kann.</p>
+    <p>kurzes Update: Wir haben das WordPress-Backend für alle drei Karriere-Seiten (Pädiatrie, Logopädie, Ergotherapie) inzwischen aufgesetzt. Die Seiten sind technisch live, aktuell hinter einer Basic-Auth-Schranke abgesichert (kein Indexieren durch Suchmaschinen, kein Zugriff von außen). Bevor wir richtig live gehen können, brauchen wir noch ein paar Klärungen von euch und einen Punkt, der durch eure IT laufen muss. Außerdem unten der konkrete Datenschutzerklärungs-Vorschlag.</p>
+
+    <p><strong>Test-Zugang für euch (Basic Auth):</strong></p>
+    <ul>
+      <li>URL: <a href="https://karriere.medizinundtherapie.de/facharzt-paediatrie/">karriere.medizinundtherapie.de/facharzt-paediatrie/</a> (analog <code>/logopaede-logopaedin/</code> und <code>/ergotherapeut-ergotherapeutin/</code>)</li>
+      <li>Benutzer: <code>gmkb-review</code></li>
+      <li>Passwort: <code>dfgyXced7edKh2Zxgii9</code></li>
+    </ul>
 
     <h2>1. Vorgehen passt: Backend-Setup und Datenschutz parallel</h2>
 
-    <p>Ja, das parallele Vorgehen ist sinnvoll. Wir setzen das WordPress-Backend für die Pädiatrie-Seite auf und ihr stoßt parallel die Datenschutz-Abstimmung mit Thomas Große-Gehling und ggf. dem externen Berater (DSG-EKD) an. Das spart Zeit, weil das Tracking ohnehin erst nach Freigabe der erweiterten Datenschutzerklärung scharf geschaltet wird.</p>
+    <p>Ja, das parallele Vorgehen ist sinnvoll. Wir haben das WordPress-Backend für die Pädiatrie-Seite (plus Logopädie und Ergotherapie als Vorbereitung) bereits aufgesetzt, ihr stoßt parallel die Datenschutz-Abstimmung mit Thomas Große-Gehling und ggf. dem externen Berater (DSG-EKD) an. Das Tracking wird ohnehin erst nach Freigabe der erweiterten Datenschutzerklärung scharf geschaltet.</p>
 
     <h2>2. Bestätigungen aus eurer Mail</h2>
 
@@ -163,13 +170,45 @@
     <h2>4. Was wir noch von euch brauchen</h2>
 
     <ul>
-      <li><strong>SSH-Zugang</strong>, sobald die IT ihn bereitstellt. Beschleunigt das Deployment, ist aber kein Blocker für den Start.</li>
+      <li><strong>SSH-Zugang</strong>, sobald die IT ihn bereitstellt. Beschleunigt das Deployment und macht künftige Updates komfortabler. Aktuell läuft alles über FTP, kein Blocker.</li>
       <li><strong>Google Tag Manager</strong>: Habt ihr für die Karriere-Domain einen Container, oder sollen wir einen frischen GTM-Container für <code>karriere.medizinundtherapie.de</code> anlegen und euch übergeben? Falls ihr schon einen habt: Container-ID (Format <code>GTM-XXXXXXX</code>).</li>
       <li><strong>Google Ads Konto</strong>: Wer hat Zugriff, wer legt die Conversion-Aktion an, und wer schließt den Auftragsverarbeitungsvertrag (Google Ads Data Processing Terms) im Konto ab? Standardmäßig macht das die GMKB als Verantwortlicher direkt im Konto, dauert zwei Klicks.</li>
-      <li><strong>Cookie-Consent-Lösung</strong>: Ist auf der frischen WordPress-Installation schon ein Plugin vorhanden (Borlabs Cookie, Real Cookie Banner, Complianz)? Falls nein: wir empfehlen <strong>Real Cookie Banner</strong> (Server in Deutschland, Consent-Mode-v2-fähig, sehr saubere Einbindung). Lizenzkosten klären wir vorab.</li>
-      <li><strong>Permalink-Vorschlag</strong>: <code>/facharzt-paediatrie/</code>, also vollständig <code>https://karriere.medizinundtherapie.de/facharzt-paediatrie/</code>. Damit ist die Berufsbezeichnung im Slug und wir bleiben konsistent für später folgende <code>/facharzt-logopaedie/</code> und <code>/facharzt-ergotherapie/</code>. Passt das aus eurer Sicht?</li>
-      <li><strong>Wartungsmodus</strong>: Wir würden für die zwei Karriere-URLs (<code>/facharzt-paediatrie/</code> und <code>/danke-bewerbung/</code>) eine Ausnahme einrichten oder den Wartungsmodus zum Go-Live deaktivieren. OK?</li>
+      <li><strong>Permalink-Slugs (Vorschlag, läuft schon so):</strong> <code>/facharzt-paediatrie/</code>, <code>/logopaede-logopaedin/</code>, <code>/ergotherapeut-ergotherapeutin/</code>. Falls die Slugs anders heißen sollen, einfach kurz Bescheid geben, wir richten Redirects ein.</li>
+      <li><strong>Wartungsmodus</strong> ist auf der Subdomain inzwischen deaktiviert, dafür haben wir eine <strong>Basic-Auth-Schranke</strong> gesetzt (Zugangsdaten oben in der Mail). Suchmaschinen sind durch Basic Auth + zusätzliches <code>noindex,nofollow</code>-Meta auf den Karriere-Pages doppelt gesperrt. Sobald wir live gehen wollen, fliegt beides weg, und die Karriere-Seiten gehen öffentlich.</li>
     </ul>
+
+    <p><strong>Cookie-Consent-Lösung:</strong> Wir haben <strong>vanilla-cookieconsent</strong> (Open-Source, MIT-Lizenz, keine Lizenzkosten, Server-unabhängig, Consent-Mode-v2-fähig) bereits eingebunden. Banner ist auf allen drei Karriere-Seiten sichtbar mit Notwendig/Analyse/Marketing-Kategorien und Verlinkung zu Datenschutz/Impressum auf der Hauptseite. Damit brauchen wir kein zusätzliches Plugin (Borlabs/Real Cookie Banner) mit Lizenzkosten.</p>
+
+    <h2>4a. Wichtig: Bewerbungs-Mails kommen aktuell nicht an (für die IT)</h2>
+
+    <p>Beim Aufsetzen ist ein blockierender Punkt aufgetaucht, der nicht von uns aus lösbar ist und an die GMKB-IT gehen muss.</p>
+
+    <p>Auf der Karriere-Subdomain ist <strong>WP Mail SMTP</strong> bereits konfiguriert mit folgenden Werten:</p>
+    <ul>
+      <li>SMTP-Server: <code>smtp.office365.com:587</code></li>
+      <li>Auth-Benutzer: <code>wordpress-gmkb@medizinundtherapie.de</code></li>
+      <li>From-Adresse: <code>wordpress@medizinundtherapie.de</code></li>
+      <li>From-Name: <em>Medizin und Therapie Webseite</em></li>
+    </ul>
+
+    <p><strong>Symptom:</strong> Wir haben mehrfach Test-Bewerbungen gegen das Live-Formular abgesendet (Pädiatrie, Logopädie, Ergotherapie) und zusätzlich das eingebaute Test-Mail-Tool von WP Mail SMTP genutzt. WP Mail SMTP meldet keinen Versand-Fehler. Die Mails kommen aber weder im Posteingang noch im Spam-Ordner an. Das ist das typische Bild für einen "Silent Drop" auf Microsoft-Seite: Office 365 nimmt die Mail per SMTP an (Antwort 250 OK), wirft sie aber kurz danach wegen Authentifizierungs- oder Reputations-Problemen still weg, ohne Bounce-Mail zurückzuschicken.</p>
+
+    <p><strong>Wahrscheinliche Ursachen:</strong></p>
+    <ol>
+      <li><strong>From-Adresse stimmt nicht mit dem Auth-User überein</strong> (versendet wird als <code>wordpress@…</code>, authentifiziert wird als <code>wordpress-gmkb@…</code>). Office 365 lehnt das in den Standard-Einstellungen ab.</li>
+      <li><strong>SMTP-AUTH per Basic Auth ist für den Tenant deaktiviert.</strong> Microsoft schaltet Basic Auth für SMTP seit 2022 schrittweise für alle Tenants ab. Wenn das hier passiert ist, müsste der WP-Account explizit freigeschaltet sein oder über OAuth2 angebunden werden (PRO-Feature des Plugins, kostenpflichtig).</li>
+      <li><strong>Fehlender DMARC-Record für medizinundtherapie.de.</strong> Der eingebaute Domain-Check sagt: SPF korrekt, DMARC fehlt. Empfänger wie Gmail, Outlook und Microsoft 365 verwerfen Mails von Domains ohne DMARC zunehmend als Spam.</li>
+    </ol>
+
+    <p><strong>Was wir konkret von der IT brauchen, in Reihenfolge:</strong></p>
+    <ol>
+      <li>Bestätigung, dass für <code>wordpress-gmkb@medizinundtherapie.de</code> im Microsoft-365-Admin-Center unter <em>Benutzer → Mail-Apps verwalten</em> die Einstellung <strong>Authenticated SMTP aktiviert</strong> ist.</li>
+      <li>Klärung, welche From-Adresse der WordPress-Account verwenden darf. Sauberste Lösung: From auf <code>wordpress-gmkb@medizinundtherapie.de</code> umstellen (gleicher User wie Auth) oder ein freigegebenes Postfach mit "Send As"-Berechtigung definieren. Wir passen das in WP Mail SMTP an.</li>
+      <li><strong>DMARC-Record</strong> für <code>medizinundtherapie.de</code> einrichten. DNS-TXT-Record auf <code>_dmarc.medizinundtherapie.de</code> mit Inhalt <code>v=DMARC1; p=none; rua=mailto:dmarc-report@medizinundtherapie.de</code>. Das ist eine einmalige Aktion im DNS-Panel und nutzt der Hauptseite mit.</li>
+      <li>Falls Office-365-SMTP weiter Probleme macht oder OAuth2 nicht zeitnah aufgesetzt werden kann: Wir können auf eine transaktionale Mail-Lösung umstellen, die für solche Formulare zuverlässig ist und kostenlos bis 100 Mails pro Tag bleibt (z. B. <strong>Brevo</strong> oder <strong>Postmark</strong>). Dann sendet WordPress die Bewerbungen über den externen Provider statt über euer Postfach. Wenn ihr das nicht wollt: zweite Option ist der lokale Postfix des Plesk-Servers (der Karriere-Server hat das vermutlich, dann braucht es kein externes SMTP).</li>
+    </ol>
+
+    <p>Bis das gelöst ist, kann das Bewerbungsformular zwar abgesendet werden (Bewerbende sehen die Danke-Seite ganz normal), die Mail erreicht aber niemanden bei euch. Bevor wir live gehen, muss der Punkt geklärt sein. Empfehlung: Punkte 1 und 2 fix von der IT prüfen lassen (sind 5 Minuten Arbeit), parallel DMARC-Record ergänzen. Falls das in der nächsten Woche nicht klappt, schalten wir auf Punkt 4 (externer Mail-Provider) um. Dazu braucht es nur ein Konto-Setup auf eurer Seite, der Code-Eingriff bei uns ist minimal.</p>
 
     <h2>5. Vorschlag zur Erweiterung der Datenschutzerklärung</h2>
 
@@ -284,13 +323,31 @@
 
     <p>Vor dem Go-Live des Trackings muss die GMKB im Google Ads Konto die <strong>Google Ads Data Processing Terms</strong> aktiv annehmen. Das geht im Konto unter <code>Tools &amp; Einstellungen &rarr; Einstellungen &rarr; Konto &rarr; Datenschutzeinstellungen</code> mit zwei Klicks. Wenn ihr wollt, übernehmen wir das nach Freigabe gemeinsam mit euch.</p>
 
-    <h2>8. Zeitplan</h2>
+    <h2>8. Status &amp; nächste Schritte</h2>
 
+    <p><strong>Was steht:</strong></p>
     <ul>
-      <li><strong>Diese Woche</strong>: WordPress-Backend einrichten (Mini-Child-Theme, Page Templates, Pädiatrie-Seite hochladen), Formular-Test mit Mail an Frau Buchmüller.</li>
-      <li><strong>Nächste Woche</strong>: Visueller Abnahme-Test der Pädiatrie-Seite im WordPress, Performance-Check, Korrekturschleife mit euch.</li>
-      <li><strong>Sobald Datenschutz-Freigabe + AVV mit Google da ist</strong>: GTM-Container scharf schalten, Conversion Tracking aktivieren, Cookie-Banner final konfigurieren.</li>
-      <li><strong>Anschließend</strong>: Logopädie- und Ergotherapie-Seiten nach demselben Muster, sobald ihr grünes Licht gebt.</li>
+      <li>WordPress-Backend mit eigenem Theme <code>gmkb-karriere</code>, Pädiatrie + Logopädie + Ergotherapie als Custom Page Templates</li>
+      <li>Bewerbungsformular technisch funktional (CSRF-Token, Honeypot, Rate-Limit, Datei-Upload bis 5 MB pro Datei, 20 MB gesamt)</li>
+      <li>Cookie-Consent (vanilla-cookieconsent, Open-Source, Consent-Mode-v2)</li>
+      <li>Basic-Auth-Schranke + <code>noindex,nofollow</code> für die Test-Phase</li>
+      <li>Danke-Seite mit Conversion-Event für späteres GTM/Google-Ads-Tracking</li>
+    </ul>
+
+    <p><strong>Was wir auf eurer Seite brauchen:</strong></p>
+    <ul>
+      <li><strong>Mail-Versand fixen</strong> (siehe Punkt 4a): das ist der einzige echte Blocker für Live-Schaltung</li>
+      <li>Datenschutzerklärungs-Erweiterung durch Datenschutzbeauftragten freigeben (Textbausteine in Punkt 5)</li>
+      <li>Google-Ads-AVV durch GMKB im Konto annehmen, GTM-Container-ID an uns</li>
+      <li>Inhaltlicher Review der Karriere-Seiten via Test-Zugang ganz oben</li>
+    </ul>
+
+    <p><strong>Was wir machen, sobald eure Punkte da sind:</strong></p>
+    <ul>
+      <li>GTM-Container scharf schalten, Conversion Tracking aktivieren</li>
+      <li>Google-Maps-Karte auf 2-Klick-Lösung umbauen (kommt bei Live-Schaltung)</li>
+      <li>Basic Auth weg, <code>noindex,nofollow</code> zurück auf <code>index, follow</code>, Pädiatrie-Seite öffentlich</li>
+      <li>Logopädie und Ergotherapie nach demselben Muster zur Live-Schaltung freigeben (sobald ihr grünes Licht gebt)</li>
     </ul>
 
     <p>Sag gerne Bescheid, wenn am Vorgehen oder den Textbausteinen etwas anders soll, dann passen wir das vor der Weitergabe an Thomas Große-Gehling sofort an.</p>

@@ -14,6 +14,12 @@ Thumbs.db
 input/**/briefing.txt
 input/**/briefing.md
 
+# Theme-interne Secret-Dateien (Basic Auth Hash etc.) - nur auf Server, nicht in git
+wp-theme/**/basic-auth-secret.php
+
+# Server-Backups (z.B. .htaccess vor Modifikation)
+server-backups/
+
 # Playwright
 .playwright-mcp/
 

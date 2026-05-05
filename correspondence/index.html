@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Mails: GMKB Karriere</title>
+<style>
+  :root {
+    --bg: #f5f5f5;
+    --surface: #fff;
+    --border: #e5e5e5;
+    --text: #1a1a1a;
+    --meta: #6b6b6b;
+    --primary: #0058a1;
+    --hover: #f0f4fa;
+    --active: #e6efff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+    min-height: 100vh;
+  }
+
+  .page-header {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 24px 12px;
+  }
+  .page-header h1 {
+    font-size: 22px;
+    margin: 0 0 4px 0;
+  }
+  .page-header p {
+    margin: 0;
+    color: var(--meta);
+    font-size: 13px;
+  }
+
+  .inbox {
+    max-width: 1280px;
+    margin: 16px auto 0;
+    padding: 0 24px 32px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 16px;
+    min-height: calc(100vh - 120px);
+  }
+  @media (max-width: 720px) {
+    .inbox { grid-template-columns: 1fr; }
+  }
+
+  .mail-list {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    height: fit-content;
+    position: sticky;
+    top: 16px;
+  }
+  .mail-list h2 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--meta);
+    padding: 14px 16px;
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+    background: #fafafa;
+  }
+  .mail-list-button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 14px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    transition: background 0.12s;
+  }
+  .mail-list-button:last-child { border-bottom: none; }
+  .mail-list-button:hover { background: var(--hover); }
+  .mail-list-button.active {
+    background: var(--active);
+    border-left: 3px solid var(--primary);
+    padding-left: 13px;
+  }
+  .mail-list-button .ml-subject {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 3px;
+    line-height: 1.35;
+  }
+  .mail-list-button .ml-meta {
+    display: block;
+    font-size: 12px;
+    color: var(--meta);
+    margin-bottom: 4px;
+  }
+  .mail-list-button .ml-preview {
+    display: block;
+    font-size: 12px;
+    color: var(--meta);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+
+  .mail-pane {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .mail-pane > .mail-content { display: none; }
+  .mail-pane > .mail-content.active { display: block; }
+
+  .mail-header {
+    border-bottom: 1px solid var(--border);
+    padding: 18px 28px;
+    background: #fafafa;
+    font-size: 13px;
+    color: #555;
+    position: relative;
+  }
+  .mail-header .row { margin: 4px 0; }
+  .mail-header .label {
+    display: inline-block;
+    width: 70px;
+    color: #888;
+  }
+  .mail-header .subject {
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 600;
+    margin-top: 8px;
+    padding-right: 240px;
+  }
+  .copy-actions {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    display: flex;
+    gap: 6px;
+  }
+  .copy-btn {
+    background: white;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s, border-color 0.15s;
+    white-space: nowrap;
+  }
+  .copy-btn:hover { background: var(--hover); border-color: var(--primary); color: var(--primary); }
+  .copy-btn.copied { background: #d1fae5; border-color: #047857; color: #047857; }
+  @media (max-width: 720px) {
+    .mail-header .subject { padding-right: 0; padding-bottom: 44px; }
+    .copy-actions { top: auto; bottom: 12px; right: 18px; }
+  }
+  .mail-body {
+    padding: 28px 32px 36px;
+    font-size: 15px;
+    color: var(--text);
+  }
+  .mail-body p { margin: 0 0 14px; }
+  .mail-body h2 {
+    font-size: 15px;
+    font-weight: 700;
+    margin: 22px 0 8px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+  }
+  .mail-body h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin: 16px 0 6px;
+  }
+  .mail-body ul, .mail-body ol {
+    margin: 0 0 14px;
+    padding-left: 22px;
+  }
+  .mail-body li { margin: 5px 0; }
+  .mail-body a { color: var(--primary); }
+  .mail-body code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    background: #f0f0f0;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-size: 13px;
+  }
+  .mail-body .signature {
+    margin-top: 24px;
+    color: #555;
+    font-size: 14px;
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <h1>Project Mails: GMKB Karriere</h1>
+  <p>Drafts für Willem zum Weiterleiten an GMKB-IT bzw. Datenschutzbeauftragten. Per Klick auf eine Mail rechts den Body anzeigen lassen, dann mit "Copy as text" oder "Copy as HTML" in den Mail-Client einfügen.</p>
+</header>
+
+<div class="inbox">
+
+  <aside class="mail-list" role="tablist" aria-label="GMKB Karriere Mails">
+    <h2>Inbox</h2>
+
+    <button class="mail-list-button active" role="tab" data-mail="an-it-smtp-2026-05-05" aria-selected="true">
+      <span class="ml-subject">An GMKB-IT: SMTP-Authentifizierung & DMARC für Karriere-Subdomain</span>
+      <span class="ml-meta">An: GMKB IT · 05.05.2026</span>
+      <span class="ml-preview">Auf der Karriere-Subdomain ist das Bewerbungsformular technisch fertig, das WP versucht über euer SMTP zu versenden, aber die Mails kommen nicht an. Bitte folgendes prüfen ...</span>
+    </button>
+
+    <button class="mail-list-button" role="tab" data-mail="an-dsb-textbausteine-2026-05-05" aria-selected="false">
+      <span class="ml-subject">An Thomas Große-Gehling: Vorschlag zur Erweiterung der Datenschutzerklärung</span>
+      <span class="ml-meta">An: Thomas Große-Gehling · 05.05.2026</span>
+      <span class="ml-preview">Wir setzen aktuell die Karriere-Landingpages auf einer eigenen Subdomain auf. Anbei der Vorschlag der Agentur für die Erweiterung unserer Datenschutzerklärung um Tracking, Maps, Vimeo, Bewerbungsformular ...</span>
+    </button>
+
+  </aside>
+
+  <main class="mail-pane">
+
+    <article class="mail-content active" data-mail-id="an-it-smtp-2026-05-05" role="tabpanel">
+      <div class="mail-header">
+        <div class="copy-actions">
+          <button class="copy-btn" data-copy-target="an-it-smtp-2026-05-05" data-copy-format="text">Copy as text</button>
+          <button class="copy-btn" data-copy-target="an-it-smtp-2026-05-05" data-copy-format="html">Copy as HTML</button>
+        </div>
+        <div class="row"><span class="label">An:</span> GMKB IT</div>
+        <div class="row"><span class="label">Von:</span> Willem Krüger</div>
+        <div class="row"><span class="label">CC:</span> philipp.ekstrand@greyt.de</div>
+        <div class="subject">Karriere-Subdomain Bewerbungsformular: SMTP-Authentifizierung und DMARC bitte prüfen</div>
+      </div>
+
+      <div class="mail-body">
+
+        <p>Hallo zusammen,</p>
+
+        <p>kurz zum Stand: Die Agentur (greyt) hat das Karriere-WordPress auf der Subdomain <code>karriere.medizinundtherapie.de</code> aufgesetzt, das Bewerbungsformular ist technisch fertig, die Seiten liegen aktuell hinter einer Basic-Auth-Schranke und sind noch nicht öffentlich. Bevor wir live gehen können, gibt es einen Punkt, den wir bei euch klären müssen: Das WordPress sendet Bewerbungen über unsere SMTP-Konfiguration raus, die Mails erreichen aber niemanden im Posteingang.</p>
+
+        <h2>Setup, das wir aktuell verwenden</h2>
+
+        <p>Auf der Subdomain ist <strong>WP Mail SMTP</strong> als Versand-Brücke zwischen WordPress und unserem Office 365 konfiguriert mit folgenden Werten, die ihr seinerzeit eingerichtet hattet:</p>
+
+        <ul>
+          <li>SMTP-Server: <code>smtp.office365.com:587</code></li>
+          <li>Auth-Benutzer: <code>wordpress-gmkb@medizinundtherapie.de</code></li>
+          <li>From-Adresse: <code>wordpress@medizinundtherapie.de</code></li>
+          <li>From-Name: "Medizin und Therapie Webseite"</li>
+        </ul>
+
+        <h2>Symptom</h2>
+
+        <p>Die Agentur hat mehrere Test-Bewerbungen gegen das Live-Formular abgesetzt und zusätzlich das eingebaute Test-Mail-Tool von WP Mail SMTP genutzt. WP Mail SMTP meldet keinen Versand-Fehler. Die Mails kommen aber weder im Posteingang noch im Spam-Ordner an. Das ist das typische Bild für einen "Silent Drop" auf Microsoft-Seite: Office 365 nimmt die Mail per SMTP an (Antwort 250 OK), wirft sie aber kurz danach wegen Authentifizierungs- oder Reputationsproblemen still weg, ohne Bounce zurückzuschicken.</p>
+
+        <h2>Was wir bitten zu prüfen, in dieser Reihenfolge</h2>
+
+        <ol>
+          <li>Bestätigung im Microsoft-365-Admin-Center, dass für <code>wordpress-gmkb@medizinundtherapie.de</code> unter <em>Benutzer → Mail-Apps verwalten</em> die Einstellung <strong>Authenticated SMTP aktiviert</strong> ist. Microsoft schaltet Basic Auth für SMTP seit 2022 schrittweise ab; falls der Account davon betroffen ist, müsste er explizit freigeschaltet werden oder über OAuth2 angebunden werden.</li>
+
+          <li>Klärung, welche From-Adresse der WordPress-Account verwenden darf. Aktuell besteht ein Mismatch: gesendet wird als <code>wordpress@medizinundtherapie.de</code>, authentifiziert wird als <code>wordpress-gmkb@medizinundtherapie.de</code>. Office 365 lehnt das in den Standard-Einstellungen ab. Sauberste Lösung: From auf <code>wordpress-gmkb@medizinundtherapie.de</code> umstellen (gleicher Account wie für Auth). Alternativ ein freigegebenes Postfach mit "Send As"-Berechtigung definieren. Sobald ihr eine Variante nennt, passt die Agentur die WP-Mail-SMTP-Einstellung an.</li>
+
+          <li>DMARC-Record für <code>medizinundtherapie.de</code> ergänzen. Der eingebaute Domain-Check zeigt: SPF korrekt, DMARC fehlt. Empfänger wie Gmail, Outlook und Microsoft 365 verwerfen Mails von Domains ohne DMARC zunehmend als Spam. Empfohlener DNS-TXT-Record auf <code>_dmarc.medizinundtherapie.de</code>: <code>v=DMARC1; p=none; rua=mailto:dmarc-report@medizinundtherapie.de</code>. Einmalige Aktion im DNS-Panel, hilft auch der Hauptseite.</li>
+
+          <li>Falls Punkt 1 und 2 nicht zeitnah gelöst werden können, gibt es zwei Ausweich-Optionen, die die Agentur auf unserer Seite einrichten würde: entweder Anbindung an einen externen transaktionalen Mail-Provider (Brevo oder Postmark, kostenlos bis 100 Mails pro Tag) oder Nutzung des lokalen Postfix auf dem Plesk-Server der Karriere-Subdomain, sodass WordPress direkt vom Karriere-Server sendet ohne externe SMTP-Verbindung. Beides braucht keinen Eingriff im Microsoft-365-Tenant.</li>
+        </ol>
+
+        <p>Solange das nicht gelöst ist, kann das Bewerbungsformular zwar abgesendet werden (Bewerbende sehen die Danke-Seite ganz normal), die Mail erreicht aber niemanden bei uns. Sobald Punkt 1 und 2 bei euch geprüft sind, kann die Agentur die Konfiguration anpassen und wir können das Formular live schalten. Ein paralleler Eintrag des DMARC-Records ist ohnehin gute Praxis und kann jederzeit im Hintergrund laufen.</p>
+
+        <p>Sagt gerne kurz Bescheid, sobald ihr drauf geschaut habt, oder ob noch Infos für die Prüfung fehlen.</p>
+
+        <p class="signature">
+          Beste Grüße,<br>
+          Willem
+        </p>
+
+      </div>
+    </article>
+
+
+    <article class="mail-content" data-mail-id="an-dsb-textbausteine-2026-05-05" role="tabpanel">
+      <div class="mail-header">
+        <div class="copy-actions">
+          <button class="copy-btn" data-copy-target="an-dsb-textbausteine-2026-05-05" data-copy-format="text">Copy as text</button>
+          <button class="copy-btn" data-copy-target="an-dsb-textbausteine-2026-05-05" data-copy-format="html">Copy as HTML</button>
+        </div>
+        <div class="row"><span class="label">An:</span> Thomas Große-Gehling</div>
+        <div class="row"><span class="label">Von:</span> Willem Krüger</div>
+        <div class="row"><span class="label">CC:</span> philipp.ekstrand@greyt.de</div>
+        <div class="subject">GMKB Karriere-Landingpages: Vorschlag zur Erweiterung der Datenschutzerklärung</div>
+      </div>
+
+      <div class="mail-body">
+
+        <p>Hallo Herr Große-Gehling,</p>
+
+        <p>wir setzen aktuell die Recruiting-Landingpages der GMKB auf einer eigenen Subdomain (<code>karriere.medizinundtherapie.de</code>) auf, getrennt von der Hauptseite. Auf den Seiten werden ein Bewerbungsformular, eine eingebettete Standortkarte (Google Maps) und ein eingebettetes Vimeo-Video angeboten; nach explizitem Cookie-Consent zusätzlich Google Tag Manager und Google Ads Conversion Tracking. Damit wir live gehen können, müssen wir die <a href="https://www.medizinundtherapie.de/rechtliche-hinweise/datenschutz/">bestehende Datenschutzerklärung</a> entsprechend erweitern.</p>
+
+        <p>Anbei der Vorschlag der Agentur für die zusätzlichen Abschnitte. Die Bausteine sind so geschrieben, dass sie sowohl der DSGVO als auch dem DSG-EKD genügen. Bitte prüfe sie, gerne mit Anmerkungen oder Korrekturen, dann arbeiten wir die Änderungen direkt ein. Auf eurer Seite ist außerdem der DMARC-Record im DNS und der AVV mit Google im Google-Ads-Konto offen, dazu unten mehr.</p>
+
+        <h2>1. Google Tag Manager</h2>
+
+        <p>Auf den Karriere-Landingpages unter <code>karriere.medizinundtherapie.de</code> setzen wir den Google Tag Manager ein, einen Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland (Mutterkonzern: Google LLC, USA). Der Tag Manager dient ausschließlich der Verwaltung weiterer Tags wie Google Ads Conversion Tracking und setzt selbst keine eigenen Marketing- oder Analyse-Cookies. Er kann jedoch personenbezogene Daten an Google übermitteln, insbesondere die IP-Adresse beim Aufruf des Containers.</p>
+
+        <p>Zweck: Zentrale Verwaltung von Tracking-Tags ohne direkten Codeeingriff. Rechtsgrundlage: Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, für kirchliche Stellen zusätzlich § 6 DSG-EKD. Der Tag Manager wird erst geladen, sobald die nutzende Person über das Cookie-Consent-Tool zugestimmt hat. Datenübermittlung in die USA, Google ist unter dem EU-US Data Privacy Framework zertifiziert. Die Einwilligung kann jederzeit über das Cookie-Consent-Tool widerrufen werden.</p>
+
+        <h2>2. Google Ads Conversion Tracking</h2>
+
+        <p>Wir verwenden Google Ads Conversion Tracking, ebenfalls ein Dienst der Google Ireland Limited. Conversion Tracking misst, ob Besucher:innen, die über eine Google-Ads-Anzeige auf die Landingpage gelangt sind, eine Bewerbung absenden, sodass sich der Erfolg der Werbekampagne auswerten lässt.</p>
+
+        <p>Verarbeitete Daten: Conversion-ID, Klick-ID (Google Click Identifier, GCLID), gekürzte IP-Adresse, User-Agent, Zeitstempel des Conversion-Ereignisses sowie die Information, welche Anzeige zur Conversion geführt hat. Es werden keine direkt identifizierenden Daten wie Name, E-Mail oder Telefon an Google übermittelt. Beim Klick auf eine Anzeige setzt Google das Cookie <code>_gcl_aw</code> mit einer Lebensdauer von 90 Tagen. Die Bewerbungs-Conversion auf der Danke-Seite wird ausschließlich beim Vorhandensein dieses Cookies erfasst.</p>
+
+        <p>Zweck: Messung und Optimierung der Google-Ads-Kampagne zur Personalgewinnung. Rechtsgrundlage: Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG sowie § 6 DSG-EKD. Datenübermittlung in die USA (EU-US Data Privacy Framework). Mit Google bestehen die Google Ads Data Processing Terms. Widerruf jederzeit über das Cookie-Consent-Tool oder durch Deaktivieren personalisierter Werbung im Google-Konto unter <a href="https://adssettings.google.com">https://adssettings.google.com</a>.</p>
+
+        <h2>3. Google Consent Mode v2</h2>
+
+        <p>Wir nutzen den Google Consent Mode v2. Dieser sorgt dafür, dass das Verhalten der Google-Dienste (Tag Manager, Ads) sich automatisch an die Auswahl im Cookie-Consent-Tool anpasst. Bei Ablehnung werden keine Marketing- oder Analyse-Cookies gesetzt; es werden nur anonymisierte, cookie-lose Signale (sogenannte Consent-Pings) ohne personenbezogenen Bezug an Google übermittelt. Bei Zustimmung wird das vollständige Tracking aktiv, einschließlich Setzen der oben beschriebenen Cookies. Rechtsgrundlage der cookie-losen Pings: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Reichweitenmessung in aggregierter Form). Sie enthalten keine personenbezogenen Daten.</p>
+
+        <h2>4. Google Maps</h2>
+
+        <p>Auf den Karriere-Landingpages binden wir eine interaktive Karte des Dienstes Google Maps der Google Ireland Limited ein, um die Standorte der GMKB darzustellen. Die Karte wird nicht direkt geladen; stattdessen erscheint zunächst ein Platzhalter mit Datenschutz-Hinweis. Erst nach aktivem Klick auf "Karte laden" wird die Verbindung zu Google aufgebaut. Bis zu diesem Klick werden keine Daten an Google übertragen.</p>
+
+        <p>Verarbeitete Daten nach Klick: IP-Adresse, Geräte- und Browser-Informationen, gegebenenfalls Standortdaten, sofern die nutzende Person diese im Browser freigegeben hat. Zweck: Anzeige der GMKB-Standorte zur besseren Orientierung der Bewerbenden. Rechtsgrundlage: Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO durch den aktiven Klick auf den Karten-Platzhalter. Datenübermittlung in die USA (EU-US Data Privacy Framework).</p>
+
+        <h2>5. Vimeo</h2>
+
+        <p>Auf den Karriere-Landingpages binden wir ein Video des Anbieters Vimeo, Inc., 555 West 18th Street, New York, NY 10011, USA, ein, in dem das GMKB-Team vorgestellt wird. Das Video wird nicht direkt geladen; es erscheint zunächst ein Vorschaubild mit Datenschutz-Hinweis. Erst nach aktivem Klick auf "Video laden" wird der Vimeo-Player nachgeladen. Wir nutzen den Privacy-Enhanced-Mode (<code>player.vimeo.com</code> mit <code>dnt=1</code>), sodass Vimeo keine Tracking-Cookies zur Profilbildung setzt.</p>
+
+        <p>Verarbeitete Daten nach Klick: IP-Adresse, Geräte- und Browser-Informationen, technische Cookies des Players für die Wiedergabesteuerung. Zweck: Bereitstellung audiovisueller Inhalte zur Vorstellung des Arbeitgebers. Rechtsgrundlage: Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO durch den aktiven Klick auf den Video-Platzhalter. Datenübermittlung in die USA. Vimeo ist unter dem EU-US Data Privacy Framework zertifiziert.</p>
+
+        <h2>6. Bewerbungsformular</h2>
+
+        <p>Auf den Karriere-Landingpages bieten wir ein Bewerbungsformular an, über das sich Interessierte direkt für eine Stelle bei der GMKB bewerben können.</p>
+
+        <p>Verarbeitete Daten: Vor- und Nachname, E-Mail-Adresse, Telefonnummer (optional), gewünschtes Berufsfeld, frühestmöglicher Arbeitsbeginn, Standort-Präferenz, Freitext-Nachricht (optional), Lebenslauf als Datei-Upload (optional). Technisch zusätzlich: IP-Adresse zum Zeitpunkt des Absendens, Zeitstempel und User-Agent für die Missbrauchsabwehr.</p>
+
+        <p>Empfänger: Die Bewerbungsdaten werden ausschließlich per E-Mail an die für Personalgewinnung zuständige Stelle der GMKB übermittelt (interner Adressat: <code>kbuchmueller@gmezkb.de</code>) und dort verarbeitet. Keine Übermittlung an externe Dritte. Zweck: Durchführung des Bewerbungsverfahrens. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Beschäftigungsverhältnisses), § 26 Abs. 1 BDSG sowie § 6 Abs. 1 lit. b DSG-EKD. Speicherdauer: Bewerbungsunterlagen werden bis zu sechs Monate nach Abschluss des Bewerbungsverfahrens aufbewahrt, um eventuelle Ansprüche aus dem Allgemeinen Gleichbehandlungsgesetz (AGG) abwehren zu können. Eine darüber hinausgehende Aufnahme in einen Bewerber-Pool erfolgt nur mit gesonderter Einwilligung. Keine Datenübermittlung in Drittländer. Die Angabe der Pflichtfelder ist erforderlich, um die Bewerbung bearbeiten zu können.</p>
+
+        <h2>7. Cookie-Consent-Tool</h2>
+
+        <p>Zur Einholung und Verwaltung von Einwilligungen für nicht zwingend erforderliche Cookies und Drittdienste setzen wir das Open-Source-Tool <a href="https://cookieconsent.orestbida.com/">vanilla-cookieconsent</a> (MIT-Lizenz) ein. Das Tool dokumentiert Zeitstempel, Art und Umfang der Einwilligung sowie deren Widerruf. Rechtsgrundlage: Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit § 25 Abs. 2 TDDDG (gesetzliche Pflicht zur Dokumentation der Einwilligung). Verarbeitete Daten: Einwilligungs-Status, Einwilligungs-Zeitpunkt, gekürzte IP-Adresse, eindeutige Einwilligungs-ID, User-Agent. Speicherdauer: bis zum Widerruf der Einwilligung, längstens jedoch zwölf Monate.</p>
+
+        <h2>8. Hinweis auf das DSG-EKD</h2>
+
+        <p>Die Gemeinnützige Medizinzentren Köln/Bonn (GMKB) ist Teil eines kirchlichen Trägers. Für die Verarbeitung personenbezogener Daten gilt deshalb neben der DSGVO und dem BDSG zusätzlich das Kirchengesetz über den Datenschutz der Evangelischen Kirche in Deutschland (DSG-EKD). Sofern Verarbeitungen sowohl dem DSG-EKD als auch der DSGVO unterfallen, halten wir das jeweils strengere Schutzniveau ein. Aufsichtsbehörde für kirchliche Stellen: Beauftragte/r für den Datenschutz der Evangelischen Kirche in Deutschland, Kurfürstendamm 151, 10709 Berlin.</p>
+
+        <h2>9. Verzeichnis der Verarbeitungstätigkeiten (VVT)</h2>
+
+        <p>Folgende neue Verarbeitungstätigkeiten sollten ins VVT aufgenommen werden, sobald die Karriere-Subdomain live geht:</p>
+
+        <ul>
+          <li>Bewerbungsverfahren über Web-Formular auf der Karriere-Subdomain (Verantwortlicher GMKB, Zwecke und Datenkategorien wie unter Punkt 6 beschrieben).</li>
+          <li>Reichweitenmessung und Werbe-Erfolgskontrolle mit Google Ads (Datenkategorien, Übermittlung in Drittländer, Rechtsgrundlage Einwilligung wie unter Punkt 2 beschrieben).</li>
+          <li>Einbindung externer Inhalte (Google Maps, Vimeo) per 2-Klick-Lösung, jeweils mit Einwilligungserfordernis.</li>
+          <li>Server-Logs der Karriere-Subdomain (gekürzte IP-Adresse, Zeitstempel, abgerufene URL, User-Agent, Referer; Speicherdauer maximal 14 Tage; Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO).</li>
+        </ul>
+
+        <h2>10. Auftragsverarbeitungsvertrag mit Google</h2>
+
+        <p>Vor dem Go-Live des Trackings müssen wir im Google-Ads-Konto die Google Ads Data Processing Terms aktiv annehmen. Das geht im Konto unter <em>Tools &amp; Einstellungen → Konto → Datenschutzeinstellungen</em> mit zwei Klicks. Die Agentur unterstützt uns dabei nach deiner Freigabe.</p>
+
+        <p>Sag gerne Bescheid, ob die Bausteine so passen oder ob du Anpassungen vornimmst. Sobald du grünes Licht gibst, integrieren wir die Texte in die bestehende Datenschutzerklärung.</p>
+
+        <p class="signature">
+          Beste Grüße,<br>
+          Willem
+        </p>
+
+      </div>
+    </article>
+
+    <!-- Weitere Mails als zusätzliche <article class="mail-content" data-mail-id="..."> ergänzen, dazu einen passenden <button class="mail-list-button"> in der Sidebar. -->
+
+  </main>
+
+</div>
+
+<script>
+  (function () {
+    const buttons = document.querySelectorAll('.mail-list-button');
+    const articles = document.querySelectorAll('.mail-content');
+
+    function activate(id) {
+      const btn = Array.from(buttons).find(b => b.dataset.mail === id);
+      const art = Array.from(articles).find(a => a.dataset.mailId === id);
+      if (!btn || !art) return false;
+      buttons.forEach(b => {
+        const active = b === btn;
+        b.classList.toggle('active', active);
+        b.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      articles.forEach(a => a.classList.toggle('active', a === art));
+      return true;
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.mail;
+        if (activate(id)) {
+          history.replaceState(null, '', '#' + id);
+          if (window.innerWidth <= 720) {
+            document.querySelector('.mail-pane').scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+
+    window.addEventListener('hashchange', () => {
+      const id = location.hash.replace(/^#/, '');
+      if (id) activate(id);
+    });
+
+    const initial = location.hash.replace(/^#/, '');
+    if (initial) activate(initial);
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.dataset.copyTarget;
+        const format = btn.dataset.copyFormat;
+        const article = document.querySelector(`.mail-content[data-mail-id="${targetId}"]`);
+        const body = article && article.querySelector('.mail-body');
+        if (!body) return;
+
+        let copied = false;
+        try {
+          if (format === 'html' && navigator.clipboard && window.ClipboardItem) {
+            const html = body.innerHTML;
+            const text = body.innerText;
+            await navigator.clipboard.write([
+              new ClipboardItem({
+                'text/html': new Blob([html], { type: 'text/html' }),
+                'text/plain': new Blob([text], { type: 'text/plain' }),
+              }),
+            ]);
+            copied = true;
+          } else {
+            await navigator.clipboard.writeText(body.innerText);
+            copied = true;
+          }
+        } catch (err) {
+          try {
+            const range = document.createRange();
+            range.selectNodeContents(body);
+            const sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+            document.execCommand('copy');
+            sel.removeAllRanges();
+            copied = true;
+          } catch (_) {
+            console.error('Copy failed', err);
+          }
+        }
+
+        if (copied) {
+          const orig = btn.textContent;
+          btn.textContent = '✓ Kopiert';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = orig;
+            btn.classList.remove('copied');
+          }, 1800);
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

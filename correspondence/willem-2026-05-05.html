@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antwort an Willem: WordPress-Setup &amp; Datenschutz-Vorschlag</title>
+<title>Mail an Willem: GMKB Karriere-Landingpages</title>
 <style>
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -59,9 +59,9 @@
   }
   .mail-body p { margin: 0 0 14px 0; }
   .mail-body h2 {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    margin: 28px 0 10px 0;
+    margin: 22px 0 8px 0;
     color: #1a1a1a;
     border-bottom: 1px solid #e0e0e0;
     padding-bottom: 4px;
@@ -69,10 +69,10 @@
   .mail-body h3 {
     font-size: 14px;
     font-weight: 700;
-    margin: 18px 0 6px 0;
+    margin: 16px 0 6px 0;
     color: #1a1a1a;
   }
-  .mail-body ul {
+  .mail-body ul, .mail-body ol {
     margin: 0 0 14px 0;
     padding-left: 22px;
   }
@@ -93,31 +93,12 @@
     color: #555;
     font-size: 14px;
   }
-  .dse-block {
-    background: #fafafa;
-    border-left: 3px solid #0058a1;
-    padding: 14px 18px;
-    margin: 12px 0 18px 0;
-    border-radius: 0 4px 4px 0;
-    font-size: 14px;
-    line-height: 1.55;
-  }
-  .dse-block p:last-child { margin-bottom: 0; }
-  .dse-block .meta {
-    display: block;
-    font-size: 12px;
-    color: #888;
-    margin-bottom: 6px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
 </style>
 </head>
 <body>
 
 <div class="meta-box">
-  <strong>Hinweis Philipp:</strong> Entwurf der Antwort an Willem. Vor dem Versand Begrüßung/Tonalität anpassen, ggf. einleitenden Smalltalk ergänzen. DSE-Textbausteine ab Abschnitt &bdquo;Vorschlag zur Erweiterung der Datenschutzerklärung&ldquo; können 1:1 an den Datenschutzbeauftragten weitergegeben werden.
+  <strong>Hinweis Philipp:</strong> Entwurf zum direkten Kopieren in einen Mail-Client. Tonalität, Begrüßung und Smalltalk vor dem Versand kurz drüber, sonst alles fertig. Der Datenschutz-Teil (Punkt 5) ist so geschrieben, dass er ohne weitere Bearbeitung an Thomas Große-Gehling weitergegeben werden kann.
 </div>
 
 <div class="mail-frame">
@@ -125,232 +106,149 @@
     <div class="row"><span class="label">An:</span> Willem Krüger</div>
     <div class="row"><span class="label">Von:</span> Philipp Ekstrand &lt;philipp.ekstrand@greyt.de&gt;</div>
     <div class="row"><span class="label">CC:</span> (keine)</div>
-    <div class="subject">GMKB Karriere-Landingpages: WordPress-Setup, offene Punkte, Vorschlag Datenschutzerklärung</div>
+    <div class="subject">GMKB Karriere: Backend steht, ein offener Punkt für eure IT, dazu der Datenschutz-Vorschlag</div>
   </div>
 
   <div class="mail-body">
 
     <p>Hallo Willem,</p>
 
-    <p>kurzes Update: Wir haben das WordPress-Backend für alle drei Karriere-Seiten (Pädiatrie, Logopädie, Ergotherapie) inzwischen aufgesetzt. Die Seiten sind technisch live, aktuell hinter einer Basic-Auth-Schranke abgesichert (kein Indexieren durch Suchmaschinen, kein Zugriff von außen). Bevor wir richtig live gehen können, brauchen wir noch ein paar Klärungen von euch und einen Punkt, der durch eure IT laufen muss. Außerdem unten der konkrete Datenschutzerklärungs-Vorschlag.</p>
+    <p>kurzer Stand zum Karriere-Setup. Das WordPress-Backend für die Pädiatrie-Seite steht, Logopädie und Ergotherapie haben wir gleich mit aufgesetzt, damit wir die später nicht nochmal neu bauen müssen. Aktuell liegt alles hinter einer Basic-Auth-Schranke, also nicht öffentlich, nicht in Suchmaschinen. Bevor wir scharf gehen, brauchen wir noch ein paar Klärungen von euch und eine Sache, die durch die IT laufen muss. Unten der Datenschutz-Vorschlag, den ihr direkt an Thomas Große-Gehling weiterreichen könnt.</p>
 
-    <p><strong>Test-Zugang für euch (Basic Auth):</strong></p>
+    <p>Test-Zugang für euch:</p>
     <ul>
-      <li>URL: <a href="https://karriere.medizinundtherapie.de/facharzt-paediatrie/">karriere.medizinundtherapie.de/facharzt-paediatrie/</a> (analog <code>/logopaede-logopaedin/</code> und <code>/ergotherapeut-ergotherapeutin/</code>)</li>
+      <li>URL: <a href="https://karriere.medizinundtherapie.de/">karriere.medizinundtherapie.de</a> (öffnet die Pädiatrie-Seite, alternativ <code>/logopaede-logopaedin/</code> und <code>/ergotherapeut-ergotherapeutin/</code>)</li>
       <li>Benutzer: <code>gmkb-review</code></li>
       <li>Passwort: <code>dfgyXced7edKh2Zxgii9</code></li>
     </ul>
 
-    <h2>1. Vorgehen passt: Backend-Setup und Datenschutz parallel</h2>
+    <h2>1. Vorgehen passt</h2>
 
-    <p>Ja, das parallele Vorgehen ist sinnvoll. Wir haben das WordPress-Backend für die Pädiatrie-Seite (plus Logopädie und Ergotherapie als Vorbereitung) bereits aufgesetzt, ihr stoßt parallel die Datenschutz-Abstimmung mit Thomas Große-Gehling und ggf. dem externen Berater (DSG-EKD) an. Das Tracking wird ohnehin erst nach Freigabe der erweiterten Datenschutzerklärung scharf geschaltet.</p>
+    <p>Backend-Setup und Datenschutz parallel zu treiben passt. Tracking schalten wir ohnehin erst nach Freigabe der erweiterten Datenschutzerklärung scharf, also blockieren sich die zwei Stränge nicht.</p>
 
-    <h2>2. Bestätigungen aus eurer Mail</h2>
+    <h2>2. Bestätigt aus eurer letzten Mail</h2>
 
-    <ul>
-      <li><strong>Nur die Pädiatrie-Seite (Facharzt) geht zuerst live.</strong> Logopädie und Ergotherapie folgen erst nach eurer Freigabe.</li>
-      <li><strong>Bewerbungen</strong> gehen an <code>kbuchmueller@gmezkb.de</code>. Reply-To setzen wir auf die Mailadresse der Bewerber:innen, damit Frau Buchmüller direkt antworten kann.</li>
-      <li><strong>Login + FTP</strong> sind angekommen, SSH erwarten wir noch (kein Blocker, FTP reicht für den ersten Aufschlag).</li>
-    </ul>
+    <p>Pädiatrie geht zuerst live, Logopädie und Ergotherapie folgen nach eurer Freigabe. Bewerbungen gehen an <code>kbuchmueller@gmezkb.de</code>, Reply-To setzen wir automatisch auf die Adresse der Bewerber:innen, damit Frau Buchmüller direkt antworten kann. Login und FTP sind angekommen, SSH erwarten wir noch, ist aber kein Blocker.</p>
 
-    <h2>3. Architektur kurz: was wir bauen</h2>
+    <h2>3. Architektur kurz</h2>
 
-    <p>Damit ihr ein Bild habt, was technisch passiert, und damit eure IT mitlesen kann:</p>
-
-    <ul>
-      <li><strong>Mini-Child-Theme</strong> auf eurer WordPress-Instanz, das nur die Pädiatrie-Landingpage und die Danke-Seite als Custom Page Templates bereitstellt. Keine Seitenbearbeitung über einen Page-Builder, kein Elementor, kein Bricks.</li>
-      <li><strong>Statisches HTML, eigenes CSS, eigenes Vanilla-JavaScript</strong>, alles versionsverwaltet bei uns im Repository und per FTP auf den Server. Kein Framework, keine externe Frontend-Bibliothek.</li>
-      <li><strong>Self-hosted Schriften</strong> (Inter), keine Google-Fonts-Anfragen.</li>
-      <li><strong>Conditional Loading</strong> der CSS- und JS-Dateien über genau ein Code-Snippet (WPCode oder Code Snippets), damit die Karriere-Assets nur auf den Karriere-URLs laden und null Einfluss auf den Rest der Seite haben.</li>
-      <li><strong>Bewerbungsformular</strong>: serverseitig validiert (CSRF-Token, Honeypot, Rate-Limit), Mail-Versand über die SMTP-Konfiguration, die eure IT bereits eingerichtet hat. Keine Daten verlassen den Server in Richtung Drittanbieter, kein externer Form-Provider.</li>
-      <li><strong>Karten und Video</strong>: Google Maps und Vimeo laufen jeweils als 2-Klick-Lösung. Beide Dienste werden erst nach aktiver Zustimmung des Nutzers geladen.</li>
-      <li><strong>Tracking</strong>: Google Tag Manager und Google Ads Conversion Tracking sind technisch vorbereitet, werden aber erst nach Freigabe der erweiterten Datenschutzerklärung und nach Einwilligung über das Cookie-Consent-Tool aktiv (Google Consent Mode v2).</li>
-    </ul>
+    <p>Damit eure IT mitlesen kann: Wir haben ein eigenes WordPress-Theme namens <code>gmkb-karriere</code> aufgesetzt, das nur die Karriere-Landingpages ausliefert. Kein Page-Builder, kein Elementor, kein Bricks. Statisches HTML, eigenes CSS, eigenes Vanilla-JavaScript, Schriften self-hosted (Inter), keine Google-Fonts-Anfragen. Conditional Loading der Assets nur auf den Karriere-URLs, sodass kein Einfluss auf den Rest der Domain entsteht. Bewerbungsformular serverseitig validiert mit CSRF-Token, Honeypot, Rate-Limit und Datei-Upload bis 5 MB pro Datei. Karten und Video laufen als 2-Klick-Lösung, also kein externer Request bevor der Nutzer aktiv klickt. Tracking ist technisch vorbereitet, aber inaktiv, bis die Datenschutzerklärung erweitert ist.</p>
 
     <h2>4. Was wir noch von euch brauchen</h2>
 
-    <ul>
-      <li><strong>SSH-Zugang</strong>, sobald die IT ihn bereitstellt. Beschleunigt das Deployment und macht künftige Updates komfortabler. Aktuell läuft alles über FTP, kein Blocker.</li>
-      <li><strong>Google Tag Manager</strong>: Habt ihr für die Karriere-Domain einen Container, oder sollen wir einen frischen GTM-Container für <code>karriere.medizinundtherapie.de</code> anlegen und euch übergeben? Falls ihr schon einen habt: Container-ID (Format <code>GTM-XXXXXXX</code>).</li>
-      <li><strong>Google Ads Konto</strong>: Wer hat Zugriff, wer legt die Conversion-Aktion an, und wer schließt den Auftragsverarbeitungsvertrag (Google Ads Data Processing Terms) im Konto ab? Standardmäßig macht das die GMKB als Verantwortlicher direkt im Konto, dauert zwei Klicks.</li>
-      <li><strong>Permalink-Slugs (Vorschlag, läuft schon so):</strong> <code>/facharzt-paediatrie/</code>, <code>/logopaede-logopaedin/</code>, <code>/ergotherapeut-ergotherapeutin/</code>. Falls die Slugs anders heißen sollen, einfach kurz Bescheid geben, wir richten Redirects ein.</li>
-      <li><strong>Wartungsmodus</strong> ist auf der Subdomain inzwischen deaktiviert, dafür haben wir eine <strong>Basic-Auth-Schranke</strong> gesetzt (Zugangsdaten oben in der Mail). Suchmaschinen sind durch Basic Auth + zusätzliches <code>noindex,nofollow</code>-Meta auf den Karriere-Pages doppelt gesperrt. Sobald wir live gehen wollen, fliegt beides weg, und die Karriere-Seiten gehen öffentlich.</li>
-    </ul>
+    <p>SSH-Zugang, sobald die IT ihn bereitstellt. Beschleunigt das Deployment, ist aber nicht zwingend.</p>
 
-    <p><strong>Cookie-Consent-Lösung:</strong> Wir haben <strong>vanilla-cookieconsent</strong> (Open-Source, MIT-Lizenz, keine Lizenzkosten, Server-unabhängig, Consent-Mode-v2-fähig) bereits eingebunden. Banner ist auf allen drei Karriere-Seiten sichtbar mit Notwendig/Analyse/Marketing-Kategorien und Verlinkung zu Datenschutz/Impressum auf der Hauptseite. Damit brauchen wir kein zusätzliches Plugin (Borlabs/Real Cookie Banner) mit Lizenzkosten.</p>
+    <p>Google Tag Manager: Habt ihr für die Karriere-Domain bereits einen Container, oder sollen wir einen anlegen und euch übergeben? Falls vorhanden: bitte die Container-ID im Format <code>GTM-XXXXXXX</code>.</p>
 
-    <h2>4a. Wichtig: Bewerbungs-Mails kommen aktuell nicht an (für die IT)</h2>
+    <p>Google Ads: Wer hat Zugriff aufs Konto, wer legt die Conversion-Aktion an, und wer schließt den Auftragsverarbeitungsvertrag (Google Ads Data Processing Terms) ab? Standardmäßig macht das die GMKB als Verantwortlicher direkt im Konto, dauert zwei Klicks unter <em>Tools &amp; Einstellungen → Konto → Datenschutzeinstellungen</em>.</p>
 
-    <p>Beim Aufsetzen ist ein blockierender Punkt aufgetaucht, der nicht von uns aus lösbar ist und an die GMKB-IT gehen muss.</p>
+    <p>Permalink-Slugs laufen aktuell unter <code>/facharzt-paediatrie/</code>, <code>/logopaede-logopaedin/</code> und <code>/ergotherapeut-ergotherapeutin/</code>, die Pädiatrie-Seite zusätzlich als Startseite. Falls die Slugs anders heißen sollen, einfach kurz Bescheid geben, wir richten Redirects ein.</p>
 
-    <p>Auf der Karriere-Subdomain ist <strong>WP Mail SMTP</strong> bereits konfiguriert mit folgenden Werten:</p>
-    <ul>
-      <li>SMTP-Server: <code>smtp.office365.com:587</code></li>
-      <li>Auth-Benutzer: <code>wordpress-gmkb@medizinundtherapie.de</code></li>
-      <li>From-Adresse: <code>wordpress@medizinundtherapie.de</code></li>
-      <li>From-Name: <em>Medizin und Therapie Webseite</em></li>
-    </ul>
+    <p>Der Wartungsmodus auf der Subdomain ist deaktiviert, dafür haben wir eine Basic-Auth-Schranke gesetzt (Zugangsdaten oben in dieser Mail). Zusätzlich steht auf den Karriere-Pages aktuell <code>noindex,nofollow</code>, sodass auch keine Suchmaschine zufällig was indexiert. Sobald wir live gehen, fliegt beides weg.</p>
 
-    <p><strong>Symptom:</strong> Wir haben mehrfach Test-Bewerbungen gegen das Live-Formular abgesendet (Pädiatrie, Logopädie, Ergotherapie) und zusätzlich das eingebaute Test-Mail-Tool von WP Mail SMTP genutzt. WP Mail SMTP meldet keinen Versand-Fehler. Die Mails kommen aber weder im Posteingang noch im Spam-Ordner an. Das ist das typische Bild für einen "Silent Drop" auf Microsoft-Seite: Office 365 nimmt die Mail per SMTP an (Antwort 250 OK), wirft sie aber kurz danach wegen Authentifizierungs- oder Reputations-Problemen still weg, ohne Bounce-Mail zurückzuschicken.</p>
+    <p>Cookie-Consent-Lösung haben wir mit <a href="https://cookieconsent.orestbida.com/">vanilla-cookieconsent</a> bereits eingebunden. Open-Source, keine Lizenzkosten, Server-unabhängig, Google-Consent-Mode-v2-fähig, in unseren anderen Kundenprojekten seit Jahren stabil im Einsatz. Damit brauchen wir kein zusätzliches Plugin wie Borlabs oder Real Cookie Banner.</p>
 
-    <p><strong>Wahrscheinliche Ursachen:</strong></p>
+    <h2>4a. Wichtig für die IT: Bewerbungs-Mails kommen aktuell nicht an</h2>
+
+    <p>Beim Aufsetzen ist ein Punkt aufgetaucht, der von eurer Seite gelöst werden muss, weil wir keinen Zugriff auf den Microsoft-365-Tenant haben.</p>
+
+    <p>Auf der Subdomain ist <strong>WP Mail SMTP</strong> bereits konfiguriert: SMTP-Server <code>smtp.office365.com:587</code>, Auth-Benutzer <code>wordpress-gmkb@medizinundtherapie.de</code>, From-Adresse <code>wordpress@medizinundtherapie.de</code>, From-Name "Medizin und Therapie Webseite".</p>
+
+    <p>Symptom: Wir haben mehrfach Test-Bewerbungen über das Live-Formular abgesetzt (Pädiatrie, Logopädie, Ergotherapie) und zusätzlich das eingebaute Test-Mail-Tool von WP Mail SMTP genutzt. Das Plugin meldet keinen Fehler. Die Mails kommen aber weder im Posteingang noch im Spam-Ordner an. Das ist das typische Bild für einen "Silent Drop" auf Microsoft-Seite: Office 365 nimmt die Mail per SMTP an (Antwort 250 OK), wirft sie aber kurz danach wegen Authentifizierungs- oder Reputationsproblemen still weg, ohne Bounce zurückzuschicken.</p>
+
+    <p>Wahrscheinliche Ursachen, in absteigender Reihenfolge:</p>
+
     <ol>
-      <li><strong>From-Adresse stimmt nicht mit dem Auth-User überein</strong> (versendet wird als <code>wordpress@…</code>, authentifiziert wird als <code>wordpress-gmkb@…</code>). Office 365 lehnt das in den Standard-Einstellungen ab.</li>
-      <li><strong>SMTP-AUTH per Basic Auth ist für den Tenant deaktiviert.</strong> Microsoft schaltet Basic Auth für SMTP seit 2022 schrittweise für alle Tenants ab. Wenn das hier passiert ist, müsste der WP-Account explizit freigeschaltet sein oder über OAuth2 angebunden werden (PRO-Feature des Plugins, kostenpflichtig).</li>
-      <li><strong>Fehlender DMARC-Record für medizinundtherapie.de.</strong> Der eingebaute Domain-Check sagt: SPF korrekt, DMARC fehlt. Empfänger wie Gmail, Outlook und Microsoft 365 verwerfen Mails von Domains ohne DMARC zunehmend als Spam.</li>
+      <li><strong>Mismatch zwischen From-Adresse und Auth-User.</strong> WordPress versendet als <code>wordpress@medizinundtherapie.de</code>, authentifiziert sich aber als <code>wordpress-gmkb@medizinundtherapie.de</code>. Office 365 lehnt das in den Standard-Einstellungen ab.</li>
+      <li><strong>Authenticated SMTP für den Account nicht freigeschaltet.</strong> Microsoft schaltet Basic Auth für SMTP seit 2022 schrittweise für alle Tenants ab. Wenn das hier passiert ist, müsste der Account explizit freigeschaltet werden.</li>
+      <li><strong>Fehlender DMARC-Record für medizinundtherapie.de.</strong> Der eingebaute Domain-Check zeigt: SPF korrekt, DMARC fehlt. Empfänger wie Gmail, Outlook und Microsoft 365 verwerfen Mails von Domains ohne DMARC zunehmend als Spam.</li>
     </ol>
 
-    <p><strong>Was wir konkret von der IT brauchen, in Reihenfolge:</strong></p>
+    <p>Was wir konkret von der IT brauchen, in dieser Reihenfolge:</p>
+
     <ol>
-      <li>Bestätigung, dass für <code>wordpress-gmkb@medizinundtherapie.de</code> im Microsoft-365-Admin-Center unter <em>Benutzer → Mail-Apps verwalten</em> die Einstellung <strong>Authenticated SMTP aktiviert</strong> ist.</li>
-      <li>Klärung, welche From-Adresse der WordPress-Account verwenden darf. Sauberste Lösung: From auf <code>wordpress-gmkb@medizinundtherapie.de</code> umstellen (gleicher User wie Auth) oder ein freigegebenes Postfach mit "Send As"-Berechtigung definieren. Wir passen das in WP Mail SMTP an.</li>
-      <li><strong>DMARC-Record</strong> für <code>medizinundtherapie.de</code> einrichten. DNS-TXT-Record auf <code>_dmarc.medizinundtherapie.de</code> mit Inhalt <code>v=DMARC1; p=none; rua=mailto:dmarc-report@medizinundtherapie.de</code>. Das ist eine einmalige Aktion im DNS-Panel und nutzt der Hauptseite mit.</li>
-      <li>Falls Office-365-SMTP weiter Probleme macht oder OAuth2 nicht zeitnah aufgesetzt werden kann: Wir können auf eine transaktionale Mail-Lösung umstellen, die für solche Formulare zuverlässig ist und kostenlos bis 100 Mails pro Tag bleibt (z. B. <strong>Brevo</strong> oder <strong>Postmark</strong>). Dann sendet WordPress die Bewerbungen über den externen Provider statt über euer Postfach. Wenn ihr das nicht wollt: zweite Option ist der lokale Postfix des Plesk-Servers (der Karriere-Server hat das vermutlich, dann braucht es kein externes SMTP).</li>
+      <li>Bestätigung im Microsoft-365-Admin-Center, dass für <code>wordpress-gmkb@medizinundtherapie.de</code> unter <em>Benutzer → Mail-Apps verwalten</em> die Einstellung <strong>Authenticated SMTP aktiviert</strong> ist.</li>
+      <li>Klärung, welche From-Adresse der WordPress-Account verwenden darf. Sauberste Lösung: From auf <code>wordpress-gmkb@medizinundtherapie.de</code> umstellen, dann gleicher Account wie für Auth. Alternativ ein freigegebenes Postfach mit "Send As"-Berechtigung. Wir passen das in WP Mail SMTP an, sobald ihr Bescheid gebt.</li>
+      <li>DMARC-Record für <code>medizinundtherapie.de</code> einrichten. DNS-TXT-Record auf <code>_dmarc.medizinundtherapie.de</code> mit Inhalt <code>v=DMARC1; p=none; rua=mailto:dmarc-report@medizinundtherapie.de</code>. Einmalige Aktion im DNS-Panel, hilft auch der Hauptseite.</li>
+      <li>Falls Office-365-SMTP nicht stabil läuft oder OAuth2 nicht zeitnah aufgesetzt werden kann, schalten wir auf einen externen transaktionalen Mail-Provider um (Brevo oder Postmark, kostenlos bis 100 Mails pro Tag, in vergleichbaren Kundenprojekten zuverlässig). Alternativ kann ich den lokalen Postfix des Plesk-Servers anbinden, dann sendet WordPress direkt vom Karriere-Server ohne externe SMTP-Verbindung. Beides ist kein großer Aufwand auf unserer Seite, braucht nur eine kurze Entscheidung von euch.</li>
     </ol>
 
-    <p>Bis das gelöst ist, kann das Bewerbungsformular zwar abgesendet werden (Bewerbende sehen die Danke-Seite ganz normal), die Mail erreicht aber niemanden bei euch. Bevor wir live gehen, muss der Punkt geklärt sein. Empfehlung: Punkte 1 und 2 fix von der IT prüfen lassen (sind 5 Minuten Arbeit), parallel DMARC-Record ergänzen. Falls das in der nächsten Woche nicht klappt, schalten wir auf Punkt 4 (externer Mail-Provider) um. Dazu braucht es nur ein Konto-Setup auf eurer Seite, der Code-Eingriff bei uns ist minimal.</p>
+    <p>Solange das nicht gelöst ist, kann das Bewerbungsformular zwar abgesendet werden, die Mail erreicht aber niemanden bei euch. Empfehlung: Punkte 1 und 2 fix von der IT prüfen lassen, sind 5 Minuten Arbeit. Parallel den DMARC-Record ergänzen. Falls das nicht zeitnah klappt, schalten wir auf Punkt 4 um.</p>
 
     <h2>5. Vorschlag zur Erweiterung der Datenschutzerklärung</h2>
 
-    <p>Unten die fertigen Textbausteine, formuliert für die Aufnahme in <a href="https://www.medizinundtherapie.de/rechtliche-hinweise/datenschutz/">https://www.medizinundtherapie.de/rechtliche-hinweise/datenschutz/</a>. Sie sind so geschrieben, dass sie sowohl der DSGVO als auch dem DSG-EKD genügen (kirchlicher Träger). Bitte direkt an Thomas Große-Gehling und ggf. den externen Berater zur Prüfung weiterleiten. Anpassungen können wir nach deren Rückmeldung sofort einarbeiten.</p>
+    <p>Unten die Textbausteine zur Aufnahme in <a href="https://www.medizinundtherapie.de/rechtliche-hinweise/datenschutz/">eure bestehende Datenschutzerklärung</a>. Sie sind so geschrieben, dass sie sowohl der DSGVO als auch dem DSG-EKD genügen. Bitte direkt an Thomas Große-Gehling weiterleiten. Anpassungen können wir nach seiner Rückmeldung sofort einarbeiten.</p>
 
-    <h3>5.1 Einsatz von Google Tag Manager</h3>
+    <h3>5.1 Google Tag Manager</h3>
 
-    <div class="dse-block">
-      <span class="meta">Textbaustein</span>
-      <p>Auf den Karriere-Landingpages unter <code>karriere.medizinundtherapie.de</code> setzen wir den <strong>Google Tag Manager</strong> ein, einen Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland (Mutterkonzern: Google LLC, USA). Der Google Tag Manager dient ausschließlich der Verwaltung weiterer Tags (etwa Google Ads Conversion Tracking) und setzt selbst keine eigenen Marketing- oder Analyse-Cookies. Er kann jedoch personenbezogene Daten an Google übermitteln (insbesondere die IP-Adresse beim Aufruf des Containers).</p>
-      <p><strong>Zweck:</strong> Zentrale Verwaltung von Tracking-Tags ohne direkten Codeeingriff in den Quelltext.</p>
-      <p><strong>Rechtsgrundlage:</strong> Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. Der Tag Manager wird erst geladen, sobald die nutzende Person über das Cookie-Consent-Tool zugestimmt hat. Für kirchliche Stellen findet zusätzlich § 6 DSG-EKD Anwendung.</p>
-      <p><strong>Datenübermittlung in Drittländer:</strong> Eine Übermittlung in die USA findet statt. Google ist unter dem EU-US Data Privacy Framework zertifiziert (Angemessenheitsbeschluss der EU-Kommission vom 10.07.2023).</p>
-      <p><strong>Speicherdauer:</strong> Der Google Tag Manager selbst speichert keine Cookies. Verarbeitungsspuren in Server-Logs werden gemäß Googles Standard-Aufbewahrungsfristen verarbeitet.</p>
-      <p><strong>Widerruf:</strong> Die Einwilligung kann jederzeit über das Cookie-Consent-Tool widerrufen werden.</p>
-    </div>
+    <p>Auf den Karriere-Landingpages unter <code>karriere.medizinundtherapie.de</code> setzen wir den Google Tag Manager ein, einen Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland (Mutterkonzern: Google LLC, USA). Der Tag Manager dient ausschließlich der Verwaltung weiterer Tags wie Google Ads Conversion Tracking und setzt selbst keine eigenen Marketing- oder Analyse-Cookies. Er kann jedoch personenbezogene Daten an Google übermitteln, insbesondere die IP-Adresse beim Aufruf des Containers.</p>
+
+    <p>Zweck: Zentrale Verwaltung von Tracking-Tags ohne direkten Codeeingriff in den Quelltext. Rechtsgrundlage: Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG, für kirchliche Stellen zusätzlich § 6 DSG-EKD. Der Tag Manager wird erst geladen, sobald die nutzende Person über das Cookie-Consent-Tool zugestimmt hat. Datenübermittlung in die USA, Google ist unter dem EU-US Data Privacy Framework zertifiziert. Die Einwilligung kann jederzeit über das Cookie-Consent-Tool widerrufen werden.</p>
 
     <h3>5.2 Google Ads Conversion Tracking</h3>
 
-    <div class="dse-block">
-      <span class="meta">Textbaustein</span>
-      <p>Wir verwenden auf den Karriere-Landingpages <strong>Google Ads Conversion Tracking</strong>, einen Dienst der Google Ireland Limited (Anschrift siehe oben). Conversion Tracking misst, ob Besucher:innen, die über eine Google-Ads-Anzeige auf die Landingpage gelangt sind, eine Bewerbung absenden. So lässt sich der Erfolg der Werbekampagne auswerten.</p>
-      <p><strong>Verarbeitete Daten:</strong> Conversion-ID, Klick-ID (Google Click Identifier, GCLID), gekürzte IP-Adresse, User-Agent, Zeitstempel des Conversion-Ereignisses sowie die Information, welche Anzeige zur Conversion geführt hat. Es werden keine direkt identifizierenden Daten (Name, E-Mail, Telefon) an Google übermittelt.</p>
-      <p><strong>Cookies:</strong> Beim Klick auf eine Anzeige setzt Google das Cookie <code>_gcl_aw</code> mit einer Lebensdauer von 90 Tagen. Die Bewerbungs-Conversion auf der Danke-Seite wird ausschließlich beim Vorhandensein dieses Cookies erfasst.</p>
-      <p><strong>Zweck:</strong> Messung und Optimierung der Google-Ads-Kampagne zur Personalgewinnung.</p>
-      <p><strong>Rechtsgrundlage:</strong> Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG sowie § 6 DSG-EKD.</p>
-      <p><strong>Datenübermittlung in Drittländer:</strong> USA (EU-US Data Privacy Framework).</p>
-      <p><strong>Auftragsverarbeitung:</strong> Mit Google bestehen die Google Ads Data Processing Terms.</p>
-      <p><strong>Widerruf:</strong> Jederzeit über das Cookie-Consent-Tool oder durch Deaktivieren personalisierter Werbung im Google-Konto unter <a href="https://adssettings.google.com">https://adssettings.google.com</a>.</p>
-    </div>
+    <p>Wir verwenden Google Ads Conversion Tracking, ebenfalls ein Dienst der Google Ireland Limited. Conversion Tracking misst, ob Besucher:innen, die über eine Google-Ads-Anzeige auf die Landingpage gelangt sind, eine Bewerbung absenden, sodass sich der Erfolg der Werbekampagne auswerten lässt.</p>
+
+    <p>Verarbeitete Daten: Conversion-ID, Klick-ID (Google Click Identifier, GCLID), gekürzte IP-Adresse, User-Agent, Zeitstempel des Conversion-Ereignisses sowie die Information, welche Anzeige zur Conversion geführt hat. Es werden keine direkt identifizierenden Daten wie Name, E-Mail oder Telefon an Google übermittelt. Beim Klick auf eine Anzeige setzt Google das Cookie <code>_gcl_aw</code> mit einer Lebensdauer von 90 Tagen. Die Bewerbungs-Conversion auf der Danke-Seite wird ausschließlich beim Vorhandensein dieses Cookies erfasst.</p>
+
+    <p>Zweck: Messung und Optimierung der Google-Ads-Kampagne zur Personalgewinnung. Rechtsgrundlage: Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG sowie § 6 DSG-EKD. Datenübermittlung in die USA (EU-US Data Privacy Framework). Mit Google bestehen die Google Ads Data Processing Terms. Widerruf jederzeit über das Cookie-Consent-Tool oder durch Deaktivieren personalisierter Werbung im Google-Konto unter <a href="https://adssettings.google.com">https://adssettings.google.com</a>.</p>
 
     <h3>5.3 Google Consent Mode v2</h3>
 
-    <div class="dse-block">
-      <span class="meta">Textbaustein</span>
-      <p>Wir nutzen den <strong>Google Consent Mode v2</strong>. Dieser sorgt dafür, dass das Verhalten der Google-Dienste (Tag Manager, Ads) sich automatisch an die Auswahl im Cookie-Consent-Tool anpasst:</p>
-      <ul>
-        <li>Bei <strong>Ablehnung</strong> werden keine Marketing- oder Analyse-Cookies gesetzt. Es werden nur anonymisierte, cookie-lose Signale (sog. Consent-Pings) ohne personenbezogenen Bezug an Google übermittelt.</li>
-        <li>Bei <strong>Zustimmung</strong> wird das vollständige Tracking aktiv, einschließlich Setzen der oben beschriebenen Cookies.</li>
-      </ul>
-      <p><strong>Rechtsgrundlage</strong> der cookie-losen Pings: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Reichweitenmessung in aggregierter Form). Sie enthalten keine personenbezogenen Daten.</p>
-    </div>
+    <p>Wir nutzen den Google Consent Mode v2. Dieser sorgt dafür, dass das Verhalten der Google-Dienste (Tag Manager, Ads) sich automatisch an die Auswahl im Cookie-Consent-Tool anpasst. Bei Ablehnung werden keine Marketing- oder Analyse-Cookies gesetzt; es werden nur anonymisierte, cookie-lose Signale (sogenannte Consent-Pings) ohne personenbezogenen Bezug an Google übermittelt. Bei Zustimmung wird das vollständige Tracking aktiv, einschließlich Setzen der oben beschriebenen Cookies. Rechtsgrundlage der cookie-losen Pings: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Reichweitenmessung in aggregierter Form). Sie enthalten keine personenbezogenen Daten.</p>
 
-    <h3>5.4 Google Maps (eingebettete Karte mit Standorten)</h3>
+    <h3>5.4 Google Maps</h3>
 
-    <div class="dse-block">
-      <span class="meta">Textbaustein</span>
-      <p>Auf den Karriere-Landingpages binden wir eine interaktive Karte des Dienstes <strong>Google Maps</strong> der Google Ireland Limited (Anschrift siehe oben) ein, um die Standorte der GMKB darzustellen.</p>
-      <p><strong>2-Klick-Lösung:</strong> Die Karte wird nicht direkt geladen. Stattdessen erscheint zunächst ein Platzhalter mit einem Datenschutz-Hinweis. Erst nach aktivem Klick auf &bdquo;Karte laden&ldquo; wird die Verbindung zu Google aufgebaut. Bis zu diesem Klick werden keine Daten an Google übertragen.</p>
-      <p><strong>Verarbeitete Daten nach Klick:</strong> IP-Adresse, Geräte- und Browser-Informationen, gegebenenfalls Standortdaten (sofern die nutzende Person diese im Browser freigegeben hat).</p>
-      <p><strong>Zweck:</strong> Anzeige der GMKB-Standorte auf einer interaktiven Karte zur besseren Orientierung der Bewerbenden.</p>
-      <p><strong>Rechtsgrundlage:</strong> Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO durch den aktiven Klick auf den Karten-Platzhalter.</p>
-      <p><strong>Datenübermittlung in Drittländer:</strong> USA (EU-US Data Privacy Framework).</p>
-    </div>
+    <p>Auf den Karriere-Landingpages binden wir eine interaktive Karte des Dienstes Google Maps der Google Ireland Limited ein, um die Standorte der GMKB darzustellen. Die Karte wird nicht direkt geladen; stattdessen erscheint zunächst ein Platzhalter mit Datenschutz-Hinweis. Erst nach aktivem Klick auf "Karte laden" wird die Verbindung zu Google aufgebaut. Bis zu diesem Klick werden keine Daten an Google übertragen.</p>
 
-    <h3>5.5 Vimeo (eingebettetes Recruiting-Video)</h3>
+    <p>Verarbeitete Daten nach Klick: IP-Adresse, Geräte- und Browser-Informationen, gegebenenfalls Standortdaten, sofern die nutzende Person diese im Browser freigegeben hat. Zweck: Anzeige der GMKB-Standorte zur besseren Orientierung der Bewerbenden. Rechtsgrundlage: Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO durch den aktiven Klick auf den Karten-Platzhalter. Datenübermittlung in die USA (EU-US Data Privacy Framework).</p>
 
-    <div class="dse-block">
-      <span class="meta">Textbaustein</span>
-      <p>Auf den Karriere-Landingpages binden wir ein Video des Anbieters <strong>Vimeo, Inc.</strong>, 555 West 18th Street, New York, NY 10011, USA, ein, in dem das GMKB-Team vorgestellt wird.</p>
-      <p><strong>2-Klick-Lösung mit Privacy-Enhanced-Mode:</strong> Das Video wird nicht direkt geladen. Es erscheint zunächst ein Vorschaubild mit einem Datenschutz-Hinweis. Erst nach aktivem Klick auf &bdquo;Video laden&ldquo; wird der Vimeo-Player nachgeladen. Wir nutzen den Privacy-Enhanced-Mode (<code>player.vimeo.com</code> mit <code>dnt=1</code>), so dass Vimeo keine Tracking-Cookies zur Profilbildung setzt.</p>
-      <p><strong>Verarbeitete Daten nach Klick:</strong> IP-Adresse, Geräte- und Browser-Informationen, technische Cookies des Players für die Wiedergabesteuerung.</p>
-      <p><strong>Zweck:</strong> Bereitstellung audiovisueller Inhalte zur Vorstellung des Arbeitgebers.</p>
-      <p><strong>Rechtsgrundlage:</strong> Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO durch den aktiven Klick auf den Video-Platzhalter.</p>
-      <p><strong>Datenübermittlung in Drittländer:</strong> USA. Vimeo ist unter dem EU-US Data Privacy Framework zertifiziert.</p>
-    </div>
+    <h3>5.5 Vimeo</h3>
+
+    <p>Auf den Karriere-Landingpages binden wir ein Video des Anbieters Vimeo, Inc., 555 West 18th Street, New York, NY 10011, USA, ein, in dem das GMKB-Team vorgestellt wird. Das Video wird nicht direkt geladen; es erscheint zunächst ein Vorschaubild mit Datenschutz-Hinweis. Erst nach aktivem Klick auf "Video laden" wird der Vimeo-Player nachgeladen. Wir nutzen den Privacy-Enhanced-Mode (<code>player.vimeo.com</code> mit <code>dnt=1</code>), sodass Vimeo keine Tracking-Cookies zur Profilbildung setzt.</p>
+
+    <p>Verarbeitete Daten nach Klick: IP-Adresse, Geräte- und Browser-Informationen, technische Cookies des Players für die Wiedergabesteuerung. Zweck: Bereitstellung audiovisueller Inhalte zur Vorstellung des Arbeitgebers. Rechtsgrundlage: Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO durch den aktiven Klick auf den Video-Platzhalter. Datenübermittlung in die USA. Vimeo ist unter dem EU-US Data Privacy Framework zertifiziert.</p>
 
     <h3>5.6 Bewerbungsformular</h3>
 
-    <div class="dse-block">
-      <span class="meta">Textbaustein</span>
-      <p>Auf den Karriere-Landingpages bieten wir ein <strong>Bewerbungsformular</strong> an, über das sich Interessierte direkt für eine Stelle bei der GMKB bewerben können.</p>
-      <p><strong>Verarbeitete Daten:</strong> Vor- und Nachname, E-Mail-Adresse, Telefonnummer (optional), gewünschtes Berufsfeld, frühestmöglicher Arbeitsbeginn, Standort-Präferenz, Freitext-Nachricht (optional), Lebenslauf als Datei-Upload (optional). Technisch zusätzlich: IP-Adresse zum Zeitpunkt des Absendens, Zeitstempel und User-Agent für die Missbrauchsabwehr.</p>
-      <p><strong>Empfänger:</strong> Die Bewerbungsdaten werden ausschließlich per E-Mail an die für Personalgewinnung zuständige Stelle der GMKB übermittelt (interner Adressat: <code>kbuchmueller@gmezkb.de</code>) und dort verarbeitet. Keine Übermittlung an externe Dritte.</p>
-      <p><strong>Zweck:</strong> Durchführung des Bewerbungsverfahrens.</p>
-      <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Beschäftigungsverhältnisses), § 26 Abs. 1 BDSG sowie § 6 Abs. 1 lit. b DSG-EKD.</p>
-      <p><strong>Speicherdauer:</strong> Bewerbungsunterlagen werden bis zu sechs Monate nach Abschluss des Bewerbungsverfahrens aufbewahrt, um eventuelle Ansprüche aus dem Allgemeinen Gleichbehandlungsgesetz (AGG) abwehren zu können. Eine darüber hinausgehende Aufnahme in einen Bewerber-Pool erfolgt nur mit gesonderter Einwilligung.</p>
-      <p><strong>Datenübermittlung in Drittländer:</strong> Keine.</p>
-      <p><strong>Bereitstellung:</strong> Die Angabe der Pflichtfelder ist erforderlich, um die Bewerbung bearbeiten zu können. Ohne diese Angaben ist eine Kontaktaufnahme nicht möglich.</p>
-    </div>
+    <p>Auf den Karriere-Landingpages bieten wir ein Bewerbungsformular an, über das sich Interessierte direkt für eine Stelle bei der GMKB bewerben können.</p>
+
+    <p>Verarbeitete Daten: Vor- und Nachname, E-Mail-Adresse, Telefonnummer (optional), gewünschtes Berufsfeld, frühestmöglicher Arbeitsbeginn, Standort-Präferenz, Freitext-Nachricht (optional), Lebenslauf als Datei-Upload (optional). Technisch zusätzlich: IP-Adresse zum Zeitpunkt des Absendens, Zeitstempel und User-Agent für die Missbrauchsabwehr.</p>
+
+    <p>Empfänger: Die Bewerbungsdaten werden ausschließlich per E-Mail an die für Personalgewinnung zuständige Stelle der GMKB übermittelt (interner Adressat: <code>kbuchmueller@gmezkb.de</code>) und dort verarbeitet. Keine Übermittlung an externe Dritte. Zweck: Durchführung des Bewerbungsverfahrens. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Anbahnung eines Beschäftigungsverhältnisses), § 26 Abs. 1 BDSG sowie § 6 Abs. 1 lit. b DSG-EKD. Speicherdauer: Bewerbungsunterlagen werden bis zu sechs Monate nach Abschluss des Bewerbungsverfahrens aufbewahrt, um eventuelle Ansprüche aus dem Allgemeinen Gleichbehandlungsgesetz (AGG) abwehren zu können. Eine darüber hinausgehende Aufnahme in einen Bewerber-Pool erfolgt nur mit gesonderter Einwilligung. Keine Datenübermittlung in Drittländer. Die Angabe der Pflichtfelder ist erforderlich, um die Bewerbung bearbeiten zu können.</p>
 
     <h3>5.7 Cookie-Consent-Tool</h3>
 
-    <div class="dse-block">
-      <span class="meta">Textbaustein</span>
-      <p>Zur Einholung und Verwaltung von Einwilligungen für nicht zwingend erforderliche Cookies und Drittdienste (Google Tag Manager, Google Ads, Google Maps, Vimeo) setzen wir das Consent-Management-Tool <strong>[Real Cookie Banner / Borlabs Cookie / Complianz, bitte konkret eintragen]</strong> ein. Das Tool dokumentiert Zeitstempel, Art und Umfang der Einwilligung sowie deren Widerruf.</p>
-      <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit § 25 Abs. 2 TDDDG (gesetzliche Pflicht zur Dokumentation der Einwilligung).</p>
-      <p><strong>Verarbeitete Daten:</strong> Einwilligungs-Status, Einwilligungs-Zeitpunkt, gekürzte IP-Adresse, eindeutige Einwilligungs-ID, User-Agent.</p>
-      <p><strong>Speicherdauer:</strong> bis zum Widerruf der Einwilligung, längstens jedoch zwölf Monate.</p>
-    </div>
+    <p>Zur Einholung und Verwaltung von Einwilligungen für nicht zwingend erforderliche Cookies und Drittdienste setzen wir das Open-Source-Tool <a href="https://cookieconsent.orestbida.com/">vanilla-cookieconsent</a> (MIT-Lizenz) ein. Das Tool dokumentiert Zeitstempel, Art und Umfang der Einwilligung sowie deren Widerruf. Rechtsgrundlage: Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit § 25 Abs. 2 TDDDG (gesetzliche Pflicht zur Dokumentation der Einwilligung). Verarbeitete Daten: Einwilligungs-Status, Einwilligungs-Zeitpunkt, gekürzte IP-Adresse, eindeutige Einwilligungs-ID, User-Agent. Speicherdauer: bis zum Widerruf der Einwilligung, längstens jedoch zwölf Monate.</p>
 
     <h3>5.8 Hinweis auf das DSG-EKD</h3>
 
-    <div class="dse-block">
-      <span class="meta">Textbaustein</span>
-      <p>Die Gemeinnützige Medizinzentren Köln/Bonn (GMKB) ist Teil eines kirchlichen Trägers. Für die Verarbeitung personenbezogener Daten gilt deshalb neben der DSGVO und dem BDSG zusätzlich das <strong>Kirchengesetz über den Datenschutz der Evangelischen Kirche in Deutschland (DSG-EKD)</strong>. Sofern Verarbeitungen sowohl dem DSG-EKD als auch der DSGVO unterfallen, halten wir das jeweils strengere Schutzniveau ein.</p>
-      <p>Aufsichtsbehörde für kirchliche Stellen: <strong>Beauftragte/r für den Datenschutz der Evangelischen Kirche in Deutschland</strong>, Kurfürstendamm 151, 10709 Berlin.</p>
-    </div>
+    <p>Die Gemeinnützige Medizinzentren Köln/Bonn (GMKB) ist Teil eines kirchlichen Trägers. Für die Verarbeitung personenbezogener Daten gilt deshalb neben der DSGVO und dem BDSG zusätzlich das Kirchengesetz über den Datenschutz der Evangelischen Kirche in Deutschland (DSG-EKD). Sofern Verarbeitungen sowohl dem DSG-EKD als auch der DSGVO unterfallen, halten wir das jeweils strengere Schutzniveau ein. Aufsichtsbehörde für kirchliche Stellen: Beauftragte/r für den Datenschutz der Evangelischen Kirche in Deutschland, Kurfürstendamm 151, 10709 Berlin.</p>
 
-    <h2>6. Verzeichnis der Verarbeitungstätigkeiten (VVT)</h2>
+    <h2>6. VVT-Ergänzung</h2>
 
-    <p>Folgende neue Verarbeitungstätigkeiten sollten ins VVT aufgenommen werden, sobald die Karriere-Subdomain live geht:</p>
+    <p>Folgende neue Verarbeitungstätigkeiten sollten ins Verzeichnis der Verarbeitungstätigkeiten aufgenommen werden, sobald die Karriere-Subdomain live geht:</p>
 
     <ul>
-      <li><strong>Bewerbungsverfahren über Web-Formular</strong> (Karriere-Landingpages): Verantwortlicher GMKB, Zwecke, Datenkategorien, Empfänger, Speicherdauer wie unter 5.6 beschrieben.</li>
-      <li><strong>Reichweitenmessung und Werbe-Erfolgskontrolle mit Google Ads</strong>: Datenkategorien, Übermittlung in Drittländer, Rechtsgrundlage Einwilligung wie unter 5.2 beschrieben.</li>
-      <li><strong>Einbindung externer Inhalte (Google Maps, Vimeo)</strong> per 2-Klick-Lösung, jeweils mit Einwilligungserfordernis.</li>
-      <li><strong>Server-Logs der Karriere-Subdomain</strong>: IP-Adresse (gekürzt), Zeitstempel, abgerufene URL, User-Agent, Referer. Speicherdauer maximal 14 Tage. Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO (Sicherheit, Missbrauchsabwehr).</li>
+      <li>Bewerbungsverfahren über Web-Formular auf der Karriere-Subdomain (Verantwortlicher GMKB, Zwecke und Datenkategorien wie unter 5.6 beschrieben).</li>
+      <li>Reichweitenmessung und Werbe-Erfolgskontrolle mit Google Ads (Datenkategorien, Übermittlung in Drittländer, Rechtsgrundlage Einwilligung wie unter 5.2 beschrieben).</li>
+      <li>Einbindung externer Inhalte (Google Maps, Vimeo) per 2-Klick-Lösung, jeweils mit Einwilligungserfordernis.</li>
+      <li>Server-Logs der Karriere-Subdomain (gekürzte IP-Adresse, Zeitstempel, abgerufene URL, User-Agent, Referer; Speicherdauer maximal 14 Tage; Rechtsgrundlage Art. 6 Abs. 1 lit. f DSGVO).</li>
     </ul>
 
     <h2>7. Auftragsverarbeitungsvertrag mit Google</h2>
 
-    <p>Vor dem Go-Live des Trackings muss die GMKB im Google Ads Konto die <strong>Google Ads Data Processing Terms</strong> aktiv annehmen. Das geht im Konto unter <code>Tools &amp; Einstellungen &rarr; Einstellungen &rarr; Konto &rarr; Datenschutzeinstellungen</code> mit zwei Klicks. Wenn ihr wollt, übernehmen wir das nach Freigabe gemeinsam mit euch.</p>
+    <p>Vor dem Go-Live des Trackings muss die GMKB im Google-Ads-Konto die Google Ads Data Processing Terms aktiv annehmen. Das geht unter <em>Tools &amp; Einstellungen → Konto → Datenschutzeinstellungen</em> mit zwei Klicks. Wenn ihr wollt, übernehmen wir das nach Freigabe gemeinsam mit euch.</p>
 
-    <h2>8. Status &amp; nächste Schritte</h2>
+    <h2>8. Status und nächste Schritte</h2>
 
-    <p><strong>Was steht:</strong></p>
-    <ul>
-      <li>WordPress-Backend mit eigenem Theme <code>gmkb-karriere</code>, Pädiatrie + Logopädie + Ergotherapie als Custom Page Templates</li>
-      <li>Bewerbungsformular technisch funktional (CSRF-Token, Honeypot, Rate-Limit, Datei-Upload bis 5 MB pro Datei, 20 MB gesamt)</li>
-      <li>Cookie-Consent (vanilla-cookieconsent, Open-Source, Consent-Mode-v2)</li>
-      <li>Basic-Auth-Schranke + <code>noindex,nofollow</code> für die Test-Phase</li>
-      <li>Danke-Seite mit Conversion-Event für späteres GTM/Google-Ads-Tracking</li>
-    </ul>
+    <p>Was steht: WordPress mit eigenem Theme, drei Karriere-Pages plus Danke-Seite, Bewerbungsformular technisch fertig, Cookie-Consent eingebunden, Basic-Auth-Schranke und <code>noindex,nofollow</code> für die Test-Phase, Pädiatrie-Seite zusätzlich als Startseite gesetzt.</p>
 
-    <p><strong>Was wir auf eurer Seite brauchen:</strong></p>
-    <ul>
-      <li><strong>Mail-Versand fixen</strong> (siehe Punkt 4a): das ist der einzige echte Blocker für Live-Schaltung</li>
-      <li>Datenschutzerklärungs-Erweiterung durch Datenschutzbeauftragten freigeben (Textbausteine in Punkt 5)</li>
-      <li>Google-Ads-AVV durch GMKB im Konto annehmen, GTM-Container-ID an uns</li>
-      <li>Inhaltlicher Review der Karriere-Seiten via Test-Zugang ganz oben</li>
-    </ul>
+    <p>Was wir auf eurer Seite brauchen: Mail-Versand fixen (siehe Punkt 4a, einziger echter Blocker), Datenschutzerklärung erweitern (Textbausteine in Punkt 5), Google-Ads-AVV durch GMKB im Konto annehmen, GTM-Container-ID an uns, inhaltlicher Review der Karriere-Seiten via Test-Zugang.</p>
 
-    <p><strong>Was wir machen, sobald eure Punkte da sind:</strong></p>
-    <ul>
-      <li>GTM-Container scharf schalten, Conversion Tracking aktivieren</li>
-      <li>Google-Maps-Karte auf 2-Klick-Lösung umbauen (kommt bei Live-Schaltung)</li>
-      <li>Basic Auth weg, <code>noindex,nofollow</code> zurück auf <code>index, follow</code>, Pädiatrie-Seite öffentlich</li>
-      <li>Logopädie und Ergotherapie nach demselben Muster zur Live-Schaltung freigeben (sobald ihr grünes Licht gebt)</li>
-    </ul>
+    <p>Was wir machen, sobald eure Punkte da sind: GTM scharf schalten, Conversion Tracking aktivieren, Google-Maps auf 2-Klick-Lösung umbauen, Basic Auth weg, <code>noindex,nofollow</code> zurück auf <code>index, follow</code>, Pädiatrie öffentlich. Logopädie und Ergotherapie folgen nach demselben Muster, sobald ihr grünes Licht gebt.</p>
 
-    <p>Sag gerne Bescheid, wenn am Vorgehen oder den Textbausteinen etwas anders soll, dann passen wir das vor der Weitergabe an Thomas Große-Gehling sofort an.</p>
+    <p>Sag gerne Bescheid, wenn am Vorgehen oder den Datenschutz-Bausteinen etwas anders soll, dann passen wir das vor der Weitergabe an Thomas Große-Gehling sofort an.</p>
 
     <p class="signature">
       Beste Grüße,<br>

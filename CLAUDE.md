@@ -11,6 +11,7 @@ Statische HTML/CSS/JS-Seiten, die als Custom Pages in deren WordPress integriert
 - Fortschritt: `/architecture/progress.md`
 - Grobkonzept: `/architecture/konzept.md`
 - Input-Dokumente: `/input/`
+- **Wenn Philipp das Thema Editierbarkeit, CMS oder "GMKB will Texte selbst pflegen" anspricht:** Lies `/architecture/editierbarkeit.md`. Dort liegt der vollstaendige Plan mit drei Stufen, Empfehlung und technischer Umsetzung.
 
 ## TECH STACK
 

@@ -20,6 +20,9 @@ wp-theme/**/basic-auth-secret.php
 # Server-Backups (z.B. .htaccess vor Modifikation)
 server-backups/
 
+# Working-Files in correspondence/ (z.B. DSE-Crawl-Output)
+correspondence/.dse-existing-raw.md
+
 # Playwright
 .playwright-mcp/
 

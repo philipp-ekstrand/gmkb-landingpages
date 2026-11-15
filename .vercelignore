@@ -1,0 +1,8 @@
+# Vercel liefert nur die Landingpages und ihre Assets aus (16.11.2026).
+# Alles andere im Repo (Doku, Korrespondenz, Skripte, WordPress-Theme, PHP-Handler, Eingangsunterlagen)
+# bleibt draußen. Ohne diese Datei war jede verfolgte Datei unter gmkb-peadiatrie.greyt.de abrufbar.
+/*
+!/pages
+!/assets
+!/vercel.json
+pages/**/*.php
